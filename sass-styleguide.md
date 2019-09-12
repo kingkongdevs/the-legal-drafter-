@@ -4,23 +4,23 @@
 --assets  
 ----bootstrap  
 ----css  
-------main.css (compiled)
-----fonts
-------(all required fonts in here, separate into folders if multiple fonts)
-----images
-------(images in here)
-----js
-------main.js (global scripts)
-------home.js (specific scripts)
-------someOtherPage.js (specific scripts for another page, if needed)
-----scss 
-------main.scss (imports other files and compiles out to main.css)
-------typography.scss (fonts and text styles)
-------globals.scss (define global styles, colours etc)
-------header.scss
-------footer.scss
-------home.scss (page specific styles)
-------someOtherPage.scss (specific styles for another page, if needed)
+------main.css (compiled)  
+----fonts  
+------(all required fonts in here, separate into folders if multiple fonts)  
+----images  
+------(images in here)  
+----js  
+------main.js (global scripts)  
+------home.js (specific scripts)  
+------someOtherPage.js (specific scripts for another page, if needed)  
+----scss  
+------main.scss (imports other files and compiles out to main.css)  
+------typography.scss (fonts and text styles)  
+------globals.scss (define global styles, colours etc)  
+------header.scss  
+------footer.scss  
+------home.scss (page specific styles)  
+------someOtherPage.scss (specific styles for another page, if needed)  
 
 
 ## Generics
