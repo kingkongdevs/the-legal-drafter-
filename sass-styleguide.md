@@ -1,11 +1,11 @@
 # Basic Sass Setup
 
 ## Asset File Structure
---assets
-----bootstrap
-----css
-------main.css (compiled)
-----fonts
+--assets<br />
+----bootstrap<br />
+----css<br />
+------main.css (compiled)<br />
+----fonts<br />
 ------(all required fonts in here, separate into folders if multiple fonts)
 ----images
 ------(images in here)
