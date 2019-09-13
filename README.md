@@ -1,45 +1,171 @@
-**Edit a file, create a new file, and clone from Bitbucket in under 2 minutes**
+## Build Process Install
+If you already have NPM and Gulp set up you can skip this part. 
 
-When you're done, you can delete the content in this README and update the file with details for others getting started with your repository.
+For Wordpress projects we will be using gulp as a build tool. To get this to work you will first have to install both NPM and Gulp. There is extensive documentation for how to do this so we wont be covering it extensively here. If you are using MacOS I recommend installing npm with Brew and then installing Gulp with whatever Gulp recommends. At the time of writing that is:
 
-*We recommend that you open this README in another tab as you perform the tasks below. You can [watch our video](https://youtu.be/0ocf7u76WSo) for a full demo of all the steps in this tutorial. Open the video in a new tab to avoid leaving Bitbucket.*
+    npm install gulp-cli -g
+    npm install gulp -D
+    npx -p touch nodetouch gulpfile.js
+    
+That will install Gulp and NPM GLOBALLY on your machine. 
+
+## Build Process Setup and Run
+From the root of your project directory you want to run the following command to retrieve all dependencies
+
+    npm install --save-dev
+    
+From there you should be able to just dump into your `gulpfile.js` file, update, your username (the username you have on your computer) and your site name.
+ 
+Once thats all done, run a simple `gulp` to watch and compile files. All done! 
+
+
+# Basic Sass Style Guide
+
+## Asset File Structure
+--assets  
+----prod (compiled files from src end up in here)  
+----src  
+------bootstrap  
+------css  
+--------main.css (compiled)  
+------fonts  
+--------(all required fonts in here, separate into folders if multiple fonts)  
+------images  
+--------(images in here)  
+------js  
+--------main.js (global scripts)  
+--------home.js (specific scripts)  
+--------someOtherPage.js (specific scripts for another page, if needed)  
+------scss   
+--------main.scss (imports other files and compiles out to main.css)  
+--------typography.scss (fonts and text styles)  
+--------globals.scss (define global styles, colours etc)  
+--------header.scss  
+--------footer.scss  
+--------home.scss (page specific styles)  
+--------someOtherPage.scss (specific styles for another page, if needed)  
+
+
+## Generics
+Ideally we want to define a set of generic styles in the `globals.scss` file that we can reuse throughout the site. We dont want to be redifining the same heading style every time they appear in a section. Things that should most likely have generics are:
+- Text styles
+- Button styles
+- Section paddings/margins
+- Background image style and positioning
+- Anything else thats appearing in an identical or extremely similar manner multiple times throughout the site
+
+For fonts we want to be using rem units. So we should be defining the html/body font size in pixels (based on the generic paragraph font size in the design) and then basing our rems off of that. This also lets us easily scale fonts between devices. For example in `typography.scss` you could do something like:
+
+    html, body {
+        font-size: 18px;
+
+        @include media-breakpoint-up(md) {
+            font-size: 20px;
+        }
+
+        @include media-breakpoint-up(lg) {
+            font-size: 24px;
+        }
+
+        h1 {
+            font-size: 3rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+        }
+
+        p, span, li, a, {
+            font-size: 1rem;
+        }
+    }
+
+
+##Compiling Production Files
+At the end, we are going to be spitting out a single css file - `main.css`. This should be generated from `main.scss` which should only include `@import` statements that include your other sass files. 
+
+To compile you should only need to be running a simple sass watch such as: `sass --watch assets/scss/main.scss assets/css/main.css`
+
+The compiled `main.css` gets added to your `head` and we're all good :)
+
 
 ---
 
-## Edit a file
+# Basic Sass Style Guide
 
-You’ll start by editing this README file to learn how to edit a file in Bitbucket.
+## Generic Example For A Section
 
-1. Click **Source** on the left side.
-2. Click the README.md link from the list of files.
-3. Click the **Edit** button.
-4. Delete the following text: *Delete this line to make a change to the README from Bitbucket.*
-5. After making your change, click **Commit** and then **Commit** again in the dialog. The commit page will open and you’ll see the change you just made.
-6. Go back to the **Source** page.
+Generally we want to label our sections with IDs and then nest elements as appropriate. There is no need to give every single element a class as our nesting is going to give more than enough specificity to the resulting CSS.
 
----
 
-## Create a file
+    #some-section-name {
+        border: 1px solid black;
+        
+        .some-specific-element {
+            background: blue;
+            
+            span {
+                color: red;
+            }
+        }
+    }
+    
+## Media Queries
 
-Next, you’ll add a new file to this repository.
+Media queries should take place within the element in a mobile first manner and should ideally reference only bootstraps breakpoint mixins. For example:
 
-1. Click the **New file** button at the top of the **Source** page.
-2. Give the file a filename of **contributors.txt**.
-3. Enter your name in the empty file space.
-4. Click **Commit** and then **Commit** again in the dialog.
-5. Go back to the **Source** page.
+    .some-element {
+        // Mobile 
+        background: red;
 
-Before you move on, go ahead and explore the repository. You've already seen the **Source** page, but check out the **Commits**, **Branches**, and **Settings** pages.
+        // Tablet Portrait
+        @include media-breakpoint-up(md) {
+            background: green;
+        }
 
----
+        // Tablet Landscape
+        @include media-breakpoint-up(lg) {
+            background: blue;
+        }
 
-## Clone a repository
+        // Desktop
+        @include media-breakpoint-up(xl) {
+            background: pink;
+        }
+    }
 
-Use these steps to clone from SourceTree, our client for using the repository command-line free. Cloning allows you to work on your files locally. If you don't yet have SourceTree, [download and install first](https://www.sourcetreeapp.com/). If you prefer to clone from the command line, see [Clone a repository](https://confluence.atlassian.com/x/4whODQ).
+This both ties everything in to bootstrap which should account for the vast majority of situations and also keeps all the media queries with the element so at a glance we can see whats happening with this element across all devices without having to jump all around the file.
 
-1. You’ll see the clone button under the **Source** heading. Click that button.
-2. Now click **Check out in SourceTree**. You may need to create a SourceTree account or log in.
-3. When you see the **Clone New** dialog in SourceTree, update the destination path and name if you’d like to and then click **Clone**.
-4. Open the directory you just created to see your repository’s files.
 
-Now that you're more familiar with your Bitbucket repository, go ahead and add a new file locally. You can [push your change back to Bitbucket with SourceTree](https://confluence.atlassian.com/x/iqyBMg), or you can [add, commit,](https://confluence.atlassian.com/x/8QhODQ) and [push from the command line](https://confluence.atlassian.com/x/NQ0zDQ).
+## Subclasses And Extending Generics
+
+Extending generic classes can be made simple if there are multiple variations by using the `@extend` directive, essentially importing all the properties of the main class and then altering as needed without repeating styles.
+
+    .button {
+        color: #666;
+        
+        &:hover {
+            color: #111;
+        }
+    }
+    
+    .dropdown-button {
+        @extend .button;
+        &::after { content: " \25BE"; }
+    }
+    
+## Modifiers
+
+Modifiers provide a really simple way to alter the behaviour of an element based on various factors like hover state and additional classes.
+
+    .some-button {
+        background: blue;
+        
+        &:hover {
+            background: red;
+        }
+        
+        &.active {
+            backgroung: green;
+        }
+    }

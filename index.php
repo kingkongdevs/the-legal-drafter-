@@ -9,13 +9,15 @@
 
         <title></title>
 
-        <link href="assets/css/main.css" rel="stylesheet">
+        <link href="assets/prod/css/main.css" rel="stylesheet">
     </head>
     <body>
 
         <header></header>
 
-        <section id="hero"></section>
+        <section id="hero">
+            Helloooo
+        </section>
 
         <footer></footer>
 
