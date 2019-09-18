@@ -19,6 +19,7 @@ const
     autoprefixer = require('autoprefixer'),
     mqpacker = require('css-mqpacker'),
     cssnano = require('cssnano'),
+    uncss = require('postcss-uncss'),
     browserSync = require('browser-sync').create(),
 
     // Site Specifics
@@ -72,18 +73,30 @@ function css() {
         .pipe(
         	postcss(
         		[
-					assets({loadPaths: ['images/']}),
+                    assets({loadPaths: ['images/']}),
+                    uncss({ html: ['index.html', '**/*.html', '**/*.php'] }),
 					autoprefixer(),//{ browsers: ['last 2 versions', '> 2%'] }
 					mqpacker,
 					cssnano
         		]
 			))
-        .pipe(sourcemaps ? sourcemaps.write() : noop())
+        // .pipe(sourcemaps ? sourcemaps.write() : noop())
         .pipe(gulp.dest(build + 'css/'))
         .pipe(browserSync.stream());
 
 }
 exports.css = gulp.series(images, css);
+
+// html processing
+function html() {
+    gulp.task('html', function() {
+        return gulp.src('**/*.html')
+            .pipe(gulp.dest(''))
+            .pipe(livereload(server))
+            .pipe(notify({ message: 'HTML task complete' }));
+    });
+}
+exports.html = gulp.series(html);
 
 // run all tasks
 exports.build = gulp.parallel(exports.css, exports.js);
@@ -92,26 +105,32 @@ exports.build = gulp.parallel(exports.css, exports.js);
 function watch(done) {
 
     browserSync.init({
-        proxy: 'https://' + siteName + '.test',
+        server: {
+            baseDir: "./"
+        },
         tunnel: true,
-        host: siteName + '.test',
-        open: 'external',
-        port: 8000,
-        https: {
-            key:
-                '/Users/' +
-                userName +
-                '/.config/valet/Certificates/' +
-                siteName +
-                '.test.key',
-            cert:
-                '/Users/' +
-                userName +
-                '/.config/valet/Certificates/' +
-                siteName +
-                '.test.crt'
-        }
+        // proxy: 'https://' + siteName + '.test',
+        // host: siteName + '.test',
+        // open: 'external',
+        // port: 8000,
+        // https: {
+        //     key:
+        //         '/Users/' +
+        //         userName +
+        //         '/.config/valet/Certificates/' +
+        //         siteName +
+        //         '.test.key',
+        //     cert:
+        //         '/Users/' +
+        //         userName +
+        //         '/.config/valet/Certificates/' +
+        //         siteName +
+        //         '.test.crt'
+        // }
     });
+    
+    // html changes
+    gulp.watch('*.html', html).on('change', browserSync.reload);
 
     // image changes
     gulp.watch(src + 'images/**/*', images).on('change', browserSync.reload);

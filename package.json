@@ -34,7 +34,8 @@
     "gulp-sourcemaps": "^2.6.5",
     "gulp-strip-debug": "^3.0.0",
     "gulp-terser": "^1.2.0",
-    "postcss-assets": "^5.0.0"
+    "postcss-assets": "^5.0.0",
+    "postcss-uncss": "^0.17.0"
   },
   "dependencies": {}
 }
