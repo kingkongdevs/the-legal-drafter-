@@ -18,12 +18,12 @@ const
     stripdebug = devBuild ? null : require('gulp-strip-debug'),
     sourcemaps = devBuild ? require('gulp-sourcemaps') : null,
     sass = require('gulp-sass'),
-    postcss = require('gulp-postcss'),
     assets = require('postcss-assets'),
     autoprefixer = require('autoprefixer'),
+    uncss = require('postcss-uncss'),
     mqpacker = require('css-mqpacker'),
     cssnano = require('cssnano'),
-    uncss = require('postcss-uncss'),
+    postcss = require('gulp-postcss'),
     browserSync = require('browser-sync').create(),
 
     // Environment
@@ -93,7 +93,7 @@ function css() {
         	postcss(
         		[
                     assets({loadPaths: ['images/']}),
-                    // uncss({ html: ['index.html', '**/*.html', '**/*.php'] }),
+                    uncss({ html: ['index.html', '**/*.html', '**/*.php'] }),
 					autoprefixer(),//{ browsers: ['last 2 versions', '> 2%'] }
 					mqpacker,
 					cssnano

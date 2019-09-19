@@ -34,13 +34,13 @@
     "gulp-sourcemaps": "^2.6.5",
     "gulp-strip-debug": "^3.0.0",
     "gulp-terser": "^1.2.0",
+    "gulp-uncss": "^1.0.6",
     "imagemin-gifsicle": "^6.0.1",
     "imagemin-mozjpeg": "^8.0.0",
     "imagemin-pngquant": "^8.0.0",
     "imagemin-svgo": "^7.0.0",
     "postcss-assets": "^5.0.0",
-    "postcss-uncss": "^0.17.0",
-    "uncss": "^0.17.2"
+    "postcss-uncss": "^0.17.0"
   },
   "dependencies": {}
 }
