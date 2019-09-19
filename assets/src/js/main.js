@@ -1,6 +1,5 @@
 (function($) {
 // Custom Scripts in here.
-    alert('hello');
 
     $(window).on('load', function () {
         // Components loading animations
@@ -79,7 +78,7 @@
         //             }
         //         });
         //     });
-    
+
         //     if ($(window).width() < 1000) {
         //         $('.phone').click(function () {
         //             dataLayer.push({ 'event': 'gtm.PhoneClick' });
@@ -88,7 +87,7 @@
         // }, 3000)
     })
 
-    // Sticky Header 
+    // Sticky Header
     $(window).on("scroll load", function () {
         if ($(window).scrollTop() >= 50) {
             $('header').addClass('scrolled');

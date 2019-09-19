@@ -8,6 +8,10 @@ const
     noop = require('gulp-noop'),
     newer = require('gulp-newer'),
     imagemin = require('gulp-imagemin'),
+    mozjpeg = require('imagemin-mozjpeg'),
+    pngquant = require('imagemin-pngquant'),
+    imageminSvgo = require('imagemin-svgo'),
+    imageminGifsicle = require('imagemin-gifsicle'),
     concat = require('gulp-concat'),
     deporder = require('gulp-deporder'),
     terser = require('gulp-terser'),
@@ -22,14 +26,19 @@ const
     uncss = require('postcss-uncss'),
     browserSync = require('browser-sync').create(),
 
-    // Site Specifics
-    siteName = 'sample-landing-page',
+    // Environment
+    localEnv = 'mamp',
     userName = 'lance',
+
+    // Site Specifics
+    siteName = 'html-boilerplate',
 
     // Folders
     src = 'assets/src/',
     build = 'assets/prod/'
 ;
+
+
 
 // Image processing
 function images() {
@@ -38,7 +47,17 @@ function images() {
 
     return gulp.src(src + 'images/**/*')
         .pipe(newer(out))
-        .pipe(imagemin({optimizationLevel: 5}))
+        .pipe(imagemin([
+            pngquant({quality: [0.5, 0.5]}),
+            mozjpeg({quality: 50}),
+            imageminSvgo({
+                plugins: [
+                    {removeViewBox: true},
+                    {cleanupIDs: false}
+                ]
+            }),
+            imageminGifsicle({interlaced: true})
+        ]))
         .pipe(gulp.dest(out));
 }
 exports.images = images;
@@ -74,7 +93,7 @@ function css() {
         	postcss(
         		[
                     assets({loadPaths: ['images/']}),
-                    uncss({ html: ['index.html', '**/*.html', '**/*.php'] }),
+                    // uncss({ html: ['index.html', '**/*.html', '**/*.php'] }),
 					autoprefixer(),//{ browsers: ['last 2 versions', '> 2%'] }
 					mqpacker,
 					cssnano
@@ -104,30 +123,36 @@ exports.build = gulp.parallel(exports.css, exports.js);
 // watch for file changes
 function watch(done) {
 
-    browserSync.init({
-        server: {
-            baseDir: "./"
-        },
-        tunnel: true,
-        // proxy: 'https://' + siteName + '.test',
-        // host: siteName + '.test',
-        // open: 'external',
-        // port: 8000,
-        // https: {
-        //     key:
-        //         '/Users/' +
-        //         userName +
-        //         '/.config/valet/Certificates/' +
-        //         siteName +
-        //         '.test.key',
-        //     cert:
-        //         '/Users/' +
-        //         userName +
-        //         '/.config/valet/Certificates/' +
-        //         siteName +
-        //         '.test.crt'
-        // }
-    });
+    // Cos Lance has to be a special little snowflake
+    if(localEnv === 'valet') {
+        browserSync.init({
+            tunnel: true,
+            proxy: 'https://' + siteName + '.test',
+            host: siteName + '.test',
+            open: 'external',
+            https: {
+                key:
+                    '/Users/' +
+                    userName +
+                    '/.config/valet/Certificates/' +
+                    siteName +
+                    '.test.key',
+                cert:
+                    '/Users/' +
+                    userName +
+                    '/.config/valet/Certificates/' +
+                    siteName +
+                    '.test.crt'
+            }
+        });
+    } else {
+        browserSync.init({
+            server: {
+                baseDir: "./"
+            },
+            tunnel: true
+        });
+    }
     
     // html changes
     gulp.watch('*.html', html).on('change', browserSync.reload);
