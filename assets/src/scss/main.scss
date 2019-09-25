@@ -1,5 +1,29 @@
+/*!
+ * Bootstrap v4.1.3 (https://getbootstrap.com/)
+ * Copyright 2011-2018 The Bootstrap Authors
+ * Copyright 2011-2018 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ */
 
-@import '../bootstrap/css/bootstrap.scss';
+/*
+ * Use this to change the max width of the containers
+ */
+// $container-max-widths: (
+//   sm: 540px,
+//   md: 720px,
+//   lg: 960px,
+//   xl: 1140px,
+//   ) !default;
+  
+// $grid-breakpoints: (
+// 	xs: 0,
+// 	sm: 576px,
+// 	md: 768px,
+// 	lg: 992px,
+// 	xl: 1140px,
+// ) !default;
+
+@import "../bootstrap/bootstrap";
 @import 'typography';
 @import 'global';
 @import "header";

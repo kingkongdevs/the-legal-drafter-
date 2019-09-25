@@ -65,7 +65,10 @@ exports.images = images;
 // JavaScript processing
 function js() {
 
-    return gulp.src(src + 'js/**/*')
+    return gulp.src([
+        src + 'js/jquery.viewportchecker.min.js',
+        src + 'js/custom.js'
+        ])
         .pipe(sourcemaps ? sourcemaps.init() : noop())
         .pipe(deporder())
         .pipe(concat('main.js'))
