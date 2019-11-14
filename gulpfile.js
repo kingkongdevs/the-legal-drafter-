@@ -28,7 +28,7 @@ const
 
     // Environment
     localEnv = 'mamp',
-    userName = 'lance',
+    userName = 'nikita',
 
     // Site Specifics
     siteName = 'html-boilerplate',
@@ -66,8 +66,12 @@ exports.images = images;
 function js() {
 
     return gulp.src([
+        src + 'js/jquery.min.js',
         src + 'js/jquery.viewportchecker.min.js',
-        src + 'js/custom.js'
+        src + 'js/bootstrap.min.js',
+        src + 'js/jquery.lazy.min.js',
+        src + 'js/jquery.validate.min.js',
+        src + 'js/main.js',
         ])
         .pipe(sourcemaps ? sourcemaps.init() : noop())
         .pipe(deporder())
