@@ -5,28 +5,22 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 
-/*
- * Use this to change the max width of the containers
- */
-// $container-max-widths: (
-//   sm: 540px,
-//   md: 720px,
-//   lg: 960px,
-//   xl: 1140px,
-//   ) !default;
-  
-// $grid-breakpoints: (
-// 	xs: 0,
-// 	sm: 576px,
-// 	md: 768px,
-// 	lg: 992px,
-// 	xl: 1140px,
-// ) !default;
+@import 'variables'; // Change these defaults to match your page style
+@import '../bootstrap/bootstrap';
 
-@import "../bootstrap/bootstrap";
+// Comment these out if you're not using the following elements. All are enabled by default...
+@import 'accordion'; // Styles for FAQ accordion
+@import 'slick'; // Default slick styles
+
+// Default Styles
 @import 'typography';
 @import 'global';
-@import "header";
-@import "footer";
-@import "home";
-@import "animation.scss";
+@import 'header';
+@import 'footer';
+@import 'home';
+@import 'animation.scss';
+@import 'button';
+@import 'form';
+@import 'ebook';
+
+

@@ -1,0 +1,10 @@
+form {
+    input[type=text],
+    input[type=email],
+    input[type=tel] {
+        padding: 15px;
+        box-shadow: 1px 1px 10px rgba(0,0,0,0.1);
+        border: none;
+        margin-bottom: 10px;
+    }
+}

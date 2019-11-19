@@ -1,12 +1,119 @@
 (function($) {
-// Custom Scripts in here.
+    /**
+     * -------------------
+     * DEFAULT SCRIPTS
+     * -------------------
+     * Comment out the scripts you are not using. The compiler will get rid of the comments and minify for you.
+     */
 
+
+    // Accordion for FAQs (jQuery)
+    $('.accordion').on('click', 'dt', function() {
+        $(this).toggleClass('active').next().slideToggle();
+    });
+
+    // Slick Slider (jQuery) - Remove these if not in use
+    $('.testimonials .slider').slick({
+        infinite: true,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        speed: 600,
+        dots: true,
+        autoplay: true,
+        autoplaySpeed: 5000,
+        prevArrow: $('.prev'),
+        nextArrow: $('.next')
+    });
+
+    // Responsive slider for blocks section
+    $('.blocks .slider').slick({
+        infinite: true,
+        mobileFirst: true,
+        speed: 600,
+        autoplay: true,
+        autoplaySpeed: 3000,
+        dots: false,
+        arrows: false,
+        responsive: [
+            {
+                breakpoint: 992,
+                settings: 'unslick'
+            },
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2
+                }
+            },
+            {
+                breakpoint: 576,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
+        ]
+    });
+
+    // Gallery Slider
+    $('.gallery .slider').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        speed: 600,
+        prevArrow: $('.prev'),
+        nextArrow: $('.next'),
+        fade: true,
+        asNavFor: '.gallery .slider-controls'
+    });
+    $('.gallery .slider-controls').slick({
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        asNavFor: '.gallery .slider',
+        dots: false,
+        arrows: false,
+        centerMode: true,
+        focusOnSelect: true,
+        infinit: true
+    });
+              
+
+
+
+    // Sticky Header
+    $(window).on("scroll load", function () {
+        if ($(window).scrollTop() >= 50) {
+            $('header').addClass('scrolled');
+        } else {
+            $('header').removeClass('scrolled');
+        }
+    });
+
+    // Smooth Scroll To Anchor
+    $(document).on('click', '.js-cta', function () {
+        target = $(this).attr('data-target')
+
+        if (target.length) {
+            $('html, body').animate({
+                scrollTop: $(target).find('form').offset().top
+            }, 1500)
+        }
+    });
+
+
+
+
+
+
+    
     $(window).on('load', function () {
+
         // Components loading animations
         $('.view-animation').viewportChecker({
             classToAdd: 'animated',
             offset: 20
         });
+
 
         // Lazyload
         $('.lazyload').Lazy({
@@ -16,6 +123,32 @@
                 console.log('error loading ' + element.data('src'));
             }
         });
+
+
+        // Phone Concatenation Script For Tracking
+        setTimeout( function() {
+            $('.phone-text em').each(function () {
+                var unsliced = $(this).text();
+                var sliced = unsliced.slice(0, -2) + "...";
+                $(this).text(sliced);
+                var linked = "tel:" + unsliced.replace(/\s/g, '');
+                $(this).click(function () {
+                    if ($(window).width() < 1000) {
+                        window.location.href = linked;
+                        dataLayer.push({ 'event': 'gtm.PhoneClick' });
+                    } else {
+                        $(this).text(unsliced);
+                        dataLayer.push({ 'event': 'gtm.PhoneClick' });
+                    }
+                });
+            });
+
+            if ($(window).width() < 1000) {
+                $('.phone').click(function () {
+                    dataLayer.push({ 'event': 'gtm.PhoneClick' });
+                });
+            }
+        }, 3000)
 
         // Form Validations
         // $('#_form_1_, #_form_3_').each(function () {
@@ -62,48 +195,7 @@
         //     });
         // });
 
-        // setTimeout( function() {
-        //     $('.phonenumber .js-phone').each(function () {
-        //         var unsliced = $(this).text();
-        //         var sliced = unsliced.slice(0, -2) + "...";
-        //         $(this).text(sliced);
-        //         var linked = "tel:" + unsliced.replace(/\s/g, '');
-        //         $(this).click(function () {
-        //             if ($(window).width() < 1000) {
-        //                 window.location.href = linked;
-        //                 dataLayer.push({ 'event': 'gtm.PhoneClick' });
-        //             } else {
-        //                 $(this).text(unsliced);
-        //                 dataLayer.push({ 'event': 'gtm.PhoneClick' });
-        //             }
-        //         });
-        //     });
-
-        //     if ($(window).width() < 1000) {
-        //         $('.phone').click(function () {
-        //             dataLayer.push({ 'event': 'gtm.PhoneClick' });
-        //         });
-        //     }
-        // }, 3000)
     })
 
-    // Sticky Header
-    $(window).on("scroll load", function () {
-        if ($(window).scrollTop() >= 50) {
-            $('header').addClass('scrolled');
-        } else {
-            $('header').removeClass('scrolled');
-        }
-    });
 
-    // CTA Button Click
-    $(document).on('click', '.js-cta', function () {
-        target = $(this).attr('data-target')
-
-        if (target.length) {
-            $('html, body').animate({
-                scrollTop: $(target).find('form').offset().top
-            }, 1500)
-        }
-    });
 })( jQuery );

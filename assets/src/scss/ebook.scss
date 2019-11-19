@@ -1,0 +1,9 @@
+.ebook {
+    img {
+        max-width: 400px;
+        
+        @include media-breakpoint-up(md) {
+            max-width: 100%;
+        }
+    }
+}

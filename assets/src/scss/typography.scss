@@ -1,28 +1,55 @@
-//Include Fonts Here
-//
-//
-//Include Basic Typography
-//
-//html, body {
-//    font-size: 18px;
-//
-//    @include media-breakpoint-up(md) {
-//        font-size: 20px;
-//    }
-//
-//    @include media-breakpoint-up(lg) {
-//        font-size: 24px;
-//    }
-//
-//    h1 {
-//        font-size: 3rem;
-//    }
-//
-//    h2 {
-//        font-size: 2rem;
-//    }
-//
-//    p, span, li, a, {
-//        font-size: 1rem;
-//    }
-//}
+// --------------------
+// Include Fonts Here
+// --------------------
+
+
+// --------------------
+//  Include Basic Typography
+// --------------------
+
+:root {
+    font-size: 18px;
+    line-height: 1.4;
+}
+html, body {
+    @include media-breakpoint-up(md) {
+        font-size: 20px;
+    }
+
+    @include media-breakpoint-up(lg) {
+        font-size: 24px;
+    }
+
+    h1 {
+        font-size: 1.7rem;
+        line-height: 1.2;
+        @include media-breakpoint-up(md) {
+            font-size: 2.2rem;
+        }
+        @include media-breakpoint-up(lg) {
+            font-size: 2.6rem;
+        }
+        @include media-breakpoint-up(xl) {
+            font-size: 2.9rem;
+        }
+    }
+
+    h2 {
+        font-size: 2rem;
+        line-height: 1.1;
+    }
+}
+
+// Headline padding
+h1,h2,h3,h4,h5,h6 {
+    margin-bottom: 20px;
+}
+
+
+// Hero Specific Font Sizes
+.eyebrow {
+    text-transform: uppercase;
+}
+.subheadline {
+    
+}
