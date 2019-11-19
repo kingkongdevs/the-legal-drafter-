@@ -71,6 +71,7 @@ function js() {
         src + 'js/bootstrap.min.js',
         src + 'js/jquery.lazy.min.js',
         src + 'js/jquery.validate.min.js',
+        src + 'js/slick.min.js',
         src + 'js/main.js',
         ])
         .pipe(sourcemaps ? sourcemaps.init() : noop())
@@ -100,7 +101,7 @@ function css() {
         	postcss(
         		[
                     assets({loadPaths: ['images/']}),
-                    uncss({ html: ['index.html', '**/*.html', '**/*.php'] }),
+                    // uncss({ html: ['index.html', '**/*.html', '**/*.php'] }),
 					autoprefixer(),//{ browsers: ['last 2 versions', '> 2%'] }
 					mqpacker,
 					cssnano
