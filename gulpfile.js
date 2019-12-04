@@ -20,15 +20,15 @@ const
     sass = require('gulp-sass'),
     assets = require('postcss-assets'),
     autoprefixer = require('autoprefixer'),
-    uncss = require('postcss-uncss'),
     mqpacker = require('css-mqpacker'),
     cssnano = require('cssnano'),
     postcss = require('gulp-postcss'),
+    purgecss = require('@fullhuman/postcss-purgecss')
     browserSync = require('browser-sync').create(),
 
     // Environment
-    localEnv = 'mamp',
-    userName = 'nikita',
+    localEnv = 'valet',
+    userName = 'lance',
 
     // Site Specifics
     siteName = 'html-boilerplate',
@@ -48,8 +48,8 @@ function images() {
     return gulp.src(src + 'images/**/*')
         .pipe(newer(out))
         .pipe(imagemin([
-            pngquant({quality: [0.5, 0.5]}),
-            mozjpeg({quality: 50}),
+            pngquant({quality: [06, 06]}),
+            mozjpeg({quality: 60}),
             imageminSvgo({
                 plugins: [
                     {removeViewBox: true},
@@ -101,8 +101,8 @@ function css() {
         	postcss(
         		[
                     assets({loadPaths: ['images/']}),
-                    // uncss({ html: ['index.html', '**/*.html', '**/*.php'] }),
-					autoprefixer(),//{ browsers: ['last 2 versions', '> 2%'] }
+                    purgecss({content: ['*.html', '*.php']}),
+					autoprefixer(),
 					mqpacker,
 					cssnano
         		]
@@ -117,10 +117,8 @@ exports.css = gulp.series(images, css);
 // html processing
 function html() {
     gulp.task('html', function() {
-        return gulp.src('**/*.html')
-            .pipe(gulp.dest(''))
-            .pipe(livereload(server))
-            .pipe(notify({ message: 'HTML task complete' }));
+        return gulp.src(['**/*.html', '**/*.php'])
+            .pipe(notify({ message: 'Template task complete' }));
     });
 }
 exports.html = gulp.series(html);
@@ -163,7 +161,7 @@ function watch(done) {
     }
     
     // html changes
-    gulp.watch('*.html', html).on('change', browserSync.reload);
+    gulp.watch(['*.html', '*.php'], html).on('change', browserSync.reload);
 
     // image changes
     gulp.watch(src + 'images/**/*', images).on('change', browserSync.reload);
