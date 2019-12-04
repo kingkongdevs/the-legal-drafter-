@@ -15,22 +15,27 @@ const
     concat = require('gulp-concat'),
     deporder = require('gulp-deporder'),
     terser = require('gulp-terser'),
-    stripdebug = devBuild ? null : require('gulp-strip-debug'),
-    sourcemaps = devBuild ? require('gulp-sourcemaps') : null,
+    stripdebug = require('gulp-strip-debug'),
+    sourcemaps = require('gulp-sourcemaps'),
     sass = require('gulp-sass'),
     assets = require('postcss-assets'),
     autoprefixer = require('autoprefixer'),
     mqpacker = require('css-mqpacker'),
     cssnano = require('cssnano'),
     postcss = require('gulp-postcss'),
-    purgecss = require('@fullhuman/postcss-purgecss')
+    purgecss = require('@fullhuman/postcss-purgecss'),
+    rollup = require('gulp-better-rollup'),
+    uglify = require('gulp-uglify'),
+    cache = require('gulp-cache'),
     browserSync = require('browser-sync').create(),
 
     // Environment
     localEnv = 'valet',
+
+    // If valet, username:
     userName = 'lance',
 
-    // Site Specifics
+    // If valet, site name:
     siteName = 'html-boilerplate',
 
     // Folders
@@ -65,23 +70,16 @@ exports.images = images;
 // JavaScript processing
 function js() {
 
-    return gulp.src([
-        src + 'js/jquery.min.js',
-        src + 'js/jquery.viewportchecker.min.js',
-        src + 'js/bootstrap.min.js',
-        src + 'js/jquery.lazy.min.js',
-        src + 'js/jquery.validate.min.js',
-        src + 'js/slick.min.js',
-        src + 'js/main.js',
-        ])
-        .pipe(sourcemaps ? sourcemaps.init() : noop())
-        .pipe(deporder())
-        .pipe(concat('main.js'))
-        .pipe(stripdebug ? stripdebug() : noop())
-        .pipe(terser())
-        .pipe(sourcemaps ? sourcemaps.write() : noop())
+    return gulp.src([src + 'js/main.js'])
+        .pipe(sourcemaps.init())
+        .pipe(rollup({
+            onwarn: function ( message ) {
+                if ( /external dependency/.test( message ) ) return;
+            }
+        }, 'es'))
+        .pipe(uglify())
+        .pipe(sourcemaps.write('./'))
         .pipe(gulp.dest(build + 'js/'));
-
 }
 exports.js = js;
 
@@ -89,7 +87,7 @@ exports.js = js;
 function css() {
 
     return gulp.src(src + 'scss/main.scss', {allowEmpty: true})
-        .pipe(sourcemaps ? sourcemaps.init() : noop())
+        .pipe(sourcemaps.init())
         .pipe(
         	sass({
 				outputStyle: 'nested',
@@ -107,9 +105,9 @@ function css() {
 					cssnano
         		]
 			))
-        // .pipe(sourcemaps ? sourcemaps.write() : noop())
+        .pipe(sourcemaps.write('./'))
         .pipe(gulp.dest(build + 'css/'))
-        .pipe(browserSync.stream());
+        .pipe(browserSync.reload({stream: true}));
 
 }
 exports.css = gulp.series(images, css);
@@ -118,7 +116,7 @@ exports.css = gulp.series(images, css);
 function html() {
     gulp.task('html', function() {
         return gulp.src(['**/*.html', '**/*.php'])
-            .pipe(notify({ message: 'Template task complete' }));
+            .pipe(browserSync.reload({stream: true}));
     });
 }
 exports.html = gulp.series(html);
@@ -129,10 +127,9 @@ exports.build = gulp.parallel(exports.css, exports.js);
 // watch for file changes
 function watch(done) {
 
-    // Cos Lance has to be a special little snowflake
     if(localEnv === 'valet') {
         browserSync.init({
-            tunnel: true,
+            tunnel: false,
             proxy: 'https://' + siteName + '.test',
             host: siteName + '.test',
             open: 'external',
@@ -156,18 +153,18 @@ function watch(done) {
             server: {
                 baseDir: "./"
             },
-            tunnel: true
+            tunnel: false
         });
     }
     
     // html changes
-    gulp.watch(['*.html', '*.php'], html).on('change', browserSync.reload);
+    gulp.watch(['*.html', '*.php'], html)
 
     // image changes
     gulp.watch(src + 'images/**/*', images).on('change', browserSync.reload);
 
     // css changes
-    gulp.watch(src + 'scss/**/*', css).on('change', browserSync.reload);
+    gulp.watch(src + 'scss/**/*', css);
 
     // js changes
     gulp.watch(src + 'js/**/*', js).on('change', browserSync.reload);

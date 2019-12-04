@@ -6,19 +6,20 @@
  */
 
 @import 'variables'; // Change these defaults to match your page style
-@import '../bootstrap/bootstrap';
+@import './vendor/bootstrap/bootstrap';
 
 // Comment these out if you're not using the following elements. All are enabled by default...
 @import 'accordion'; // Styles for FAQ accordion
-@import 'slick'; // Default slick styles
+@import './vendor/slick'; // Default slick styles 
+@import './vendor/slick-theme'; // Default slick styles 
 
 // Default Styles
-@import 'typography';
+@import 'typography'; 
 @import 'global';
 @import 'header';
 @import 'footer';
 @import 'home';
-@import 'animation.scss';
+@import 'animation';
 @import 'button';
 @import 'form';
 @import 'ebook';
