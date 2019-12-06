@@ -5,17 +5,12 @@ const
     gulp = require('gulp'),
     // development mode?
     devBuild = (process.env.NODE_ENV !== 'production'),
-    noop = require('gulp-noop'),
     newer = require('gulp-newer'),
     imagemin = require('gulp-imagemin'),
     mozjpeg = require('imagemin-mozjpeg'),
     pngquant = require('imagemin-pngquant'),
     imageminSvgo = require('imagemin-svgo'),
     imageminGifsicle = require('imagemin-gifsicle'),
-    concat = require('gulp-concat'),
-    deporder = require('gulp-deporder'),
-    terser = require('gulp-terser'),
-    stripdebug = require('gulp-strip-debug'),
     sourcemaps = require('gulp-sourcemaps'),
     sass = require('gulp-sass'),
     assets = require('postcss-assets'),
@@ -26,7 +21,6 @@ const
     purgecss = require('@fullhuman/postcss-purgecss'),
     rollup = require('gulp-better-rollup'),
     uglify = require('gulp-uglify'),
-    cache = require('gulp-cache'),
     browserSync = require('browser-sync').create(),
 
     // Environment
