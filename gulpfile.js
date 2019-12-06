@@ -47,7 +47,7 @@ function images() {
     return gulp.src(src + 'images/**/*')
         .pipe(newer(out))
         .pipe(imagemin([
-            pngquant({quality: [06, 06]}),
+            pngquant({quality: [0.6, 0.6]}),
             mozjpeg({quality: 60}),
             imageminSvgo({
                 plugins: [
@@ -110,7 +110,6 @@ exports.css = gulp.series(images, css);
 function html() {
     gulp.task('html', function() {
         return gulp.src(['**/*.html', '**/*.php'])
-            .pipe(browserSync.reload({stream: true}));
     });
 }
 exports.html = gulp.series(html);
@@ -152,7 +151,7 @@ function watch(done) {
     }
     
     // html changes
-    gulp.watch(['*.html', '*.php'], html)
+    gulp.watch(['*.html', '*.php'], html).on('change', browserSync.reload);
 
     // image changes
     gulp.watch(src + 'images/**/*', images).on('change', browserSync.reload);
