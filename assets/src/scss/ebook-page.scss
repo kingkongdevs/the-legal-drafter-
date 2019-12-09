@@ -1,0 +1,416 @@
+body.ebook-page {
+
+    #hero {
+        position: relative;
+        padding: 130px 0 0 0;
+        z-index: 1;
+
+        @include media-breakpoint-up(lg) {
+            padding: 200px 0 80px 0;
+        }
+
+        .container {
+            position: relative;
+            z-index: 3;
+        }
+
+        .background-image {
+            height: calc(100% - 375px);
+
+            @include media-breakpoint-up(lg) {
+                height: 100%;
+            }
+        }
+
+        .mobile-heading {
+            display: block;
+            font-size: 2.3rem;
+            text-align: center;
+            color: white;
+
+            @include media-breakpoint-up(lg) {
+                display: none;
+            }
+        }
+
+        .text {
+            padding-top: 80px;
+            display: none;
+
+            @include media-breakpoint-up(lg) {
+                display: block;
+            }
+
+            .eyebrow {
+                color: white;
+                text-transform: uppercase;
+                font-size: 0.75rem;
+                display: none;
+
+                @include media-breakpoint-up(lg) {
+                    display: block;
+                }
+            }
+
+            .heading {
+                color: white;
+                font-size: 2.25rem;
+                line-height: 2.75rem;
+                margin: 10px 0 20px 0;
+
+                &.desktop-heading {
+                    display: none;
+
+                    @include media-breakpoint-up(lg) {
+                        display: block;
+                    }
+                }
+            }
+
+            .blurb {
+                color: white;
+                margin: 0;
+                display: none;
+
+                @include media-breakpoint-up(lg) {
+                    display: block;
+                }
+            }
+        }
+
+        .form-container {
+            width: 100%; 
+
+            @include media-breakpoint-up(lg) {
+                max-width: 500px;
+            }
+
+            form {
+                margin-top: 30px;
+
+                .error {
+                    font-size: 0.75rem;
+                }
+
+                ._form_element {
+                    display: flex;
+                    flex-direction: row;
+                    background: #ebebeb;
+                    border: none;
+                    padding: 15px 20px;
+                    margin-bottom: 15px;
+
+                    .input-icon {
+                        width: 0.75rem;
+                        margin: auto 15px auto 0;
+                    }
+
+                    ._field-wrapper {
+                        width: 100%;
+                    }
+
+                    input, textarea {
+                        width: 100%;
+                        background: none;
+                        border: none;
+                        font-size: 0.8rem;
+                        font-weight: 300;
+                    }
+                }
+
+                .btn-primary {
+                    width: 100%;
+                    padding-top: 17px;
+                    padding-bottom: 17px;
+                }
+            }
+
+            .security {
+                width: 100%;
+                margin-top: 20px;
+
+                .padlock {
+                    width: 0.7rem;
+                    margin-top: auto;
+                    margin-bottom: auto;
+                    margin-left: auto;
+                    padding-top: 4px;
+                }
+
+                span {
+                    font-size: 0.5rem;
+                    color: #e0e0e0;
+                    text-transform: uppercase;
+                    margin: auto auto auto 10px;
+                    padding-top: 6px;
+                }
+            }
+        }
+
+        .book-cover {
+            width: 60%;
+            margin-left: 20%;
+            margin-top: 30px;
+
+            @include media-breakpoint-up(lg) {
+                width: 100%;
+                margin-left: unset;
+                margin-top: unset;
+            }
+        }
+    }
+
+    #feature-band {
+        background: #c5c5c6;
+        padding: 20px 0;
+        display: none;
+
+        @include media-breakpoint-up(lg) {
+            display: block;
+        }
+
+        span {
+            text-align: center;
+            width: 100%;
+            display: block;
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .logo {
+            max-width: 100%;
+            max-height: 30px;
+            margin: auto;
+        }
+    }
+
+    #features {
+
+        h2 {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .intro {
+            margin-bottom: 40px;
+        }
+
+        .value-point {
+            position: relative;
+            margin-bottom: 40px;
+            display: flex;
+            flex-direction: row;
+
+            .tick {
+                margin-top: 7px;
+                margin-bottom: auto;
+                height: 40px;
+            }
+
+            .blurb {
+                margin: 0;
+                padding-left: 20px;
+            }
+        }
+
+        .btn-primary {
+            margin-top: 20px;
+            width: 100%;
+        }
+    }
+
+    #testimonial-slider {
+        position: relative;
+
+        .filter {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+            background: black;
+            opacity: 0.6;
+            z-index: 1;
+        }
+
+        .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        h2 {
+            color: white;
+            text-align: center;
+        }
+
+        .slider {
+            margin-top: 40px;
+            position: relative;
+
+            @include media-breakpoint-up(lg) {
+                margin-top: 60px;
+            }
+
+            .slick-track {
+                display: flex;
+            }
+
+            .slick-dots {
+                display: flex;
+                justify-content: center;
+                padding: 0;
+                margin: 30px 0 0 0;
+
+                li {
+                    display: inline-block;
+                    margin: 0 3px;
+
+                    &.slick-active {
+                        button {
+                            opacity: 1;
+                        }
+                    }
+
+                    button {
+                        background: white;
+                        font-size: 0;
+                        border: 0;
+                        height: 5px;
+                        width: 35px;
+                        opacity: 0.4;
+                    }
+                }
+            }
+
+            .slider-button {
+                position: absolute;
+                top: 30%;
+                width: 52px;
+                height: 52px;
+                border: none;
+                cursor: pointer;
+                z-index: 2;
+                display: none;
+                background: none;
+
+                @include media-breakpoint-up(lg) {
+                    display: block;
+                }
+
+                &:hover {
+                    cursor: pointer;
+                }
+
+                img {
+                    transition: all 0.3s ease;
+                    position: absolute;
+                    width: 100%;
+                    top: calc(50% - 12px);
+                }
+
+                &.slider-prev {
+                    left: 0;
+
+                    img {
+                        left: 30px;
+                    }
+
+                    &:hover {
+                        img {
+                            left: 20px;
+                        }
+                    }
+                }
+
+                &.slider-next {
+                    right: 0;
+
+                    img {
+                        right: 30px;
+                    }
+
+                    &:hover {
+                        img {
+                            right: 20px;
+                        }
+                    }
+                }
+            }
+
+            .slide {
+                margin: auto 0;
+
+                .inner {
+                    .quote {
+                        font-weight: 300;
+                        color: white;
+                        font-size: 1.3rem;
+                        line-height: 1.5em;
+                        max-width: 34.65rem;
+                        margin: 0 auto;
+                        text-align: center;
+
+                        @include media-breakpoint-up(lg) {
+                            max-width: 28rem;
+                        }
+
+                        @include media-breakpoint-up(xl) {
+                            max-width: 34.65rem;
+                        }
+                    }
+
+                    .credit {
+                        max-width: 34.65rem;
+                        margin: 30px auto 0 auto;
+                        color: white;
+                        text-align: center;
+
+                        .name {
+                            font-size: 1.06rem;
+                            font-weight: 500;
+                        }
+
+                        .job-title {
+                            font-size: 0.82rem;
+                            font-weight: 300;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    #final {
+        h2 {
+            text-align: center;
+            margin-bottom: 40px;
+
+            span {
+                text-decoration: underline;
+            }
+        }
+
+        .btn-primary {
+            margin-top: 20px;
+        }
+
+        .privacy {
+            width: 100%;
+            margin-top: 20px;
+
+            .padlock {
+                height: 30px;
+                margin-left: auto;
+                margin-top: 10px;
+            }
+
+            span {
+                font-size: 0.5rem;
+                color: #a6a6a6;
+                margin: auto auto auto 10px;
+                padding-top: 6px;
+            }
+        }
+    }
+}

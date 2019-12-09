@@ -14,7 +14,7 @@
 @import './vendor/slick-theme'; // Default slick styles 
 
 // Default Styles
-@import 'typography'; 
+@import 'typography';
 @import 'global';
 @import 'header';
 @import 'footer';
@@ -24,4 +24,5 @@
 @import 'form';
 @import 'ebook';
 
-
+// Additional Pages
+@import 'ebook-page.scss';  

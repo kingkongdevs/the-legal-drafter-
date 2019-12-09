@@ -6,3 +6,5 @@ import './vendor/jquery.min.js';
 import './vendor/slick.min.js';
 
 import './home.js';
+
+import './ebook.js';

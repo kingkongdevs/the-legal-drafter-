@@ -93,7 +93,7 @@ function css() {
         	postcss(
         		[
                     assets({loadPaths: ['images/']}),
-                    purgecss({content: ['*.html', '*.php']}),
+                    purgecss({content: ['**/*.html', '**/*.php']}),
 					autoprefixer(),
 					mqpacker,
 					cssnano
@@ -151,7 +151,7 @@ function watch(done) {
     }
     
     // html changes
-    gulp.watch(['*.html', '*.php'], html).on('change', browserSync.reload);
+    gulp.watch(['**/*.html', '**/*.php'], html).on('change', browserSync.reload);
 
     // image changes
     gulp.watch(src + 'images/**/*', images).on('change', browserSync.reload);
