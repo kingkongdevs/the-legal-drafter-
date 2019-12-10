@@ -24,7 +24,7 @@ const
     browserSync = require('browser-sync').create(),
 
     // Environment
-    localEnv = 'valet',
+    localEnv = 'mamp',
 
     // If valet, username:
     userName = 'lance',
