@@ -14,6 +14,7 @@ This will create a `node_modules` folder, the contents of which will be referenc
 
 ##Build Tasks
 We are using Gulp as our task runner. This takes care of image processing, CSS processing including autoprefixing, minification and sourcemaps, JS processing including minification ES6 Transpiling and sourcemaps and also automatic browser reloading for everything via Browsersync. You should not need to alter the contents of these tasks (located in `gulpfile.js`) at all. The only exception is if you are running Valet as a local development environment in which case you will need to edit the following settings right up the top of the file after the requirements
+
   * `localEnv`
   * `userName`
   * `siteName`
@@ -37,6 +38,8 @@ The first is `index.html`. This will obviously act as the root page of your site
 The idea here is that there are some common section layouts and elements in these types of static sites and we have created simple, stripped-back templates for you to copy, paste and adapt into your main `index.html` file.
 
 I have found the best process for this has been to go through the design section by section, find the closest section from the `template-sections.html` file, paste that into the `index.html` file and give it a unique ID. For sections that will need to be built from scratch I will just put in a placeholder section tag with a unique ID referencing the design. From there I just go through and do what I need to do to get the html in the `index.html` to match the design.
+
+Also included out of the box is a pre-made ebook page located in the `ebook` directory and also a pre-made thank you page located in `thank-you`. If the project you are working on doesnt require these the directories can simple be deleted.
 
 ####Scripts &amp; Styles
 As mentioned earlier. The `index.html` file only references 1 script and 1 style. This is because we include and compile everything into those two files. For the purposed of this type of build, the `main.css` and `main.js` files - located in `assets/src/scss/main.scss` and `assets/src/js/main.js` respectively, will act as the endpoint for all of the various inclusions. You can see that both of those files act simply as importers of other files. You will also see that in both the `assets/src/scss` and `assets/src/js` directories, there is a `vendor` directory. This is where any external scripts/styles are to be placed.
