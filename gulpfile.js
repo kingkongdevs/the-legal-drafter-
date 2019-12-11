@@ -20,17 +20,16 @@ const // modules
     rollup = require("gulp-better-rollup"),
     uglify = require("gulp-uglify"),
     browserSync = require("browser-sync").create(),
-    // Environment
-<<<<<<< HEAD
-    localEnv = "valet",
-=======
-    localEnv = 'mamp',
 
->>>>>>> master
+
+    // Environment
+    localEnv = "mamp",
     // If valet, username:
-    userName = "lance",
+    userName = "your-name",
     // If valet, site name:
-    siteName = "your-future-strategy",
+    siteName = "your-site-name",
+
+    
     // Folders
     src = "assets/src/",
     build = "assets/prod/";

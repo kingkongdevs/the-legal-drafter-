@@ -10,10 +10,14 @@
 
 // Comment these out if you're not using the following elements. All are enabled by default...
 @import 'accordion'; // Styles for FAQ accordion
+
+/* purgecss start ignore */
 @import './vendor/slick'; // Default slick styles 
 @import './vendor/slick-theme'; // Default slick styles 
+/* purgecss end ignore */
 
 // Default Styles
+/* purgecss start ignore */
 @import 'typography';
 @import 'global';
 @import 'header';
@@ -27,3 +31,4 @@
 // Additional Pages
 @import 'ebook-page';
 @import 'thank-you-page';
+/* purgecss end ignore */
