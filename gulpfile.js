@@ -22,8 +22,8 @@ const // modules
     browserSync = require("browser-sync").create(),
 
 
-    // Environment
-    localEnv = "mamp",
+    // Environment (mamp, valet or static)
+    localEnv = "static",
     // If valet, username:
     userName = "your-name",
     // If valet, site name:
@@ -108,7 +108,7 @@ function html() {
         return gulp.src(["**/*.html", "**/*.php"]);
     });
 }
-exports.html = gulp.series(html);
+exports.html = gulp.series(html, css);
 
 // run all tasks
 exports.build = gulp.parallel(exports.css, exports.js);
@@ -187,10 +187,7 @@ function watch(done) {
     }
 
     // html changes
-    gulp.watch(["**/*.html", "**/*.php"], html).on(
-        "change",
-        browserSync.reload
-    );
+    gulp.watch(["**/*.html", "**/*.php"], html).on("change",browserSync.reload);
 
     // image changes
     gulp.watch(src + "images/**/*", images).on("change", browserSync.reload);
