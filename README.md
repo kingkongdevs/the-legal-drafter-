@@ -25,7 +25,7 @@ To use all the functionality the gulp process provides, simple run the `gulp` co
 
 Also of note is the `gulp prod` task. This will do a final packaging up of assets for you, removing sourcemaps and anything else extra that is helpful while developing. This task only needs to be run right before making a site live.
 
-## Workflow &amp; Structure
+## Workflow & Structure
 In this section we will cover the various parts of the development workflow of a static site, Including the optional Ebook and Thank You pages, the template system and the inheritance structure of our CSS an JS.
 
 Before you do anything, be sure you have the `gulp` task running, which will watch all your files for changes.
@@ -33,7 +33,7 @@ Before you do anything, be sure you have the `gulp` task running, which will wat
 #### Templates
 In the root directory, you will see there are 3 html files (this may change in the future but the idea will remain the same).
 
-The first is `index.html`. This will obviously act as the root page of your site and in many cases may be the only page of the build. The file included in this repo comes pre-packaged with meta information ready to be filled out, a basic header in the most common style of our static sites, a simple footer and references to the compiled CSS and JS files. Please note that there are no other styles or scripts such as jQuery referenced in this file. This is a deliberate choice and will be explained in the **Scripts &amp; Styles** Section. You will also notice that other than the header and footer, the body of the page is left empty. This is because we have the `template-sections.html` and `template-sections.html` files.
+The first is `index.html`. This will obviously act as the root page of your site and in many cases may be the only page of the build. The file included in this repo comes pre-packaged with meta information ready to be filled out, a basic header in the most common style of our static sites, a simple footer and references to the compiled CSS and JS files. Please note that there are no other styles or scripts such as jQuery referenced in this file. This is a deliberate choice and will be explained in the **Scripts & Styles** Section. You will also notice that other than the header and footer, the body of the page is left empty. This is because we have the `template-sections.html` and `template-sections.html` files.
 
 The idea here is that there are some common section layouts and elements in these types of static sites and we have created simple, stripped-back templates for you to copy, paste and adapt into your main `index.html` file.
 
@@ -41,7 +41,7 @@ I have found the best process for this has been to go through the design section
 
 Also included out of the box is a pre-made ebook page located in the `ebook` directory and also a pre-made thank you page located in `thank-you`. If the project you are working on doesnt require these the directories can simple be deleted.
 
-#### Scripts &amp; Styles
+#### Scripts & Styles
 As mentioned earlier. The `index.html` file only references 1 script and 1 style. This is because we include and compile everything into those two files. For the purposed of this type of build, the `main.css` and `main.js` files - located in `assets/src/scss/main.scss` and `assets/src/js/main.js` respectively, will act as the endpoint for all of the various inclusions. You can see that both of those files act simply as importers of other files. You will also see that in both the `assets/src/scss` and `assets/src/js` directories, there is a `vendor` directory. This is where any external scripts/styles are to be placed.
 
 As you can see the files I mentioned both live in the `assets/src` directory. **This is the only directory you should be making any changes in**. You will see, if you have run your `gulp` task already, that there is also an `assets/prod` directory. This is where the final files for the site that are referenced in `index.html` are generated, as well as where all the optimised images are generated out to after being placed in `assets/src/images`.
