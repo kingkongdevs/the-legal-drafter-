@@ -21,7 +21,12 @@ const // modules
     uglify = require("gulp-uglify"),
     browserSync = require("browser-sync").create(),
     // Environment
+<<<<<<< HEAD
     localEnv = "valet",
+=======
+    localEnv = 'mamp',
+
+>>>>>>> master
     // If valet, username:
     userName = "lance",
     // If valet, site name:
