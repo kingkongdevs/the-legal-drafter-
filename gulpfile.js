@@ -13,7 +13,6 @@ const // modules
     sourcemaps = require("gulp-sourcemaps"),
     sass = require("gulp-sass"),
     autoprefixer = require("autoprefixer"),
-    mqpacker = require("css-mqpacker"),
     cssnano = require("cssnano"),
     postcss = require("gulp-postcss"),
     purgecss = require("@fullhuman/postcss-purgecss"),
@@ -92,7 +91,6 @@ function css() {
             postcss([
                 purgecss({ content: ["**/*.html", "**/*.php"] }),
                 autoprefixer(),
-                mqpacker,
                 cssnano
             ])
         )
@@ -129,7 +127,6 @@ function prodCSS() {
             postcss([
                 purgecss({ content: ["**/*.html", "**/*.php"] }),
                 autoprefixer(),
-                mqpacker,
                 cssnano
             ])
         )
