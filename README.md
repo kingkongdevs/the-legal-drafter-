@@ -39,10 +39,10 @@ The idea here is that there are some common section layouts and elements in thes
 
 I have found the best process for this has been to go through the design section by section, find the closest section from the `template-sections.html` file, paste that into the `index.html` file and give it a unique ID. For sections that will need to be built from scratch I will just put in a placeholder section tag with a unique ID referencing the design. From there I just go through and do what I need to do to get the html in the `index.html` to match the design.
 
-Also included out of the box is a pre-made ebook page located in the `ebook` directory and also a pre-made thank you page located in `thank-you`. If the project you are working on doesnt require these the directories can simple be deleted.
+Also included out of the box is a pre-made ebook page located in the `ebook` directory and also a pre-made thank you page located in `thank-you`. If the project you are working on doesnt require these the directories can simply be deleted.
 
 #### Scripts & Styles
-As mentioned earlier. The `index.html` file only references 1 script and 1 style. This is because we include and compile everything into those two files. For the purposed of this type of build, the `main.css` and `main.js` files - located in `assets/src/scss/main.scss` and `assets/src/js/main.js` respectively, will act as the endpoint for all of the various inclusions. You can see that both of those files act simply as importers of other files. You will also see that in both the `assets/src/scss` and `assets/src/js` directories, there is a `vendor` directory. This is where any external scripts/styles are to be placed.
+As mentioned earlier. The `index.html` file only references 1 script and 1 style. This is because we include and compile everything into those two files. For the purposed of this type of build, the `main.scss` and `main.js` files - located at `assets/src/scss/main.scss` and `assets/src/js/main.js` respectively, will act as the endpoint for all of the various inclusions. You can see that both of those files act simply as importers of other files. You will also see that in both the `assets/src/scss` and `assets/src/js` directories, there is a `vendor` directory. This is where any external scripts/styles are to be placed.
 
 As you can see the files I mentioned both live in the `assets/src` directory. **This is the only directory you should be making any changes in**. You will see, if you have run your `gulp` task already, that there is also an `assets/prod` directory. This is where the final files for the site that are referenced in `index.html` are generated, as well as where all the optimised images are generated out to after being placed in `assets/src/images`.
 
@@ -50,7 +50,7 @@ Now that the structure is explained, the rest is fairly self explanatory. For st
 
 For scripts, `home.js` contains all the scripts needed for the home page, `ebook.js` contains anything needed specifically for the ebook page and `main.js` joins everything, including vendor scripts together.
 
-## Common Issues
+## Known Common Issues
   * We are using [PurgeCSS](https://www.purgecss.com/) as part of our build process. What this does is it scrapes through all the template files and only includes CSS in the compiled CSS file that is actually used in the templates. This can have issues in cases where you or a plugin is adding classes into the templates at run-time via scripts. A good example of this is Slick Slider which adds many classes. In order to get around this you will see in `main.scss` I have wrapped a few of the imports (including Slick) with some special tags which instruct PurgeCSS to include everything within these files.
   * Autoreloading, while helpful can run into some confusing cache issues where even though the page is refreshing, your JS changes are not being reflected. We are working on fixing up our gulpfile to do this automatically, but for now sometimes you may just need to do a manual hard-refresh to see script changes.
 
