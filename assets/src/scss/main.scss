@@ -1,12 +1,12 @@
 @import 'variables'; // Change these defaults to match your page style
-@import './vendor/bootstrap/bootstrap';
+@import 'vendor/bootstrap/bootstrap';
 
 // Comment these out if you're not using the following elements. All are enabled by default...
 @import 'accordion'; // Styles for FAQ accordion
 
 /* purgecss start ignore */
-@import './vendor/slick'; // Default slick styles 
-@import './vendor/slick-theme'; // Default slick styles 
+@import 'vendor/slick'; // Default slick styles 
+@import 'vendor/slick-theme'; // Default slick styles 
 /* purgecss end ignore */
 
 // Default Styles

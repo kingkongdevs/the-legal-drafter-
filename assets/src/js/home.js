@@ -1,8 +1,11 @@
 (function($) {
 
     // Accordion for FAQs (jQuery)
+    $('.accordion dt.active').next().slideDown()
+    
     $('.accordion').on('click', 'dt', function() {
-        $(this).toggleClass('active').next().slideToggle();  
+        $('.accordion dd').slideUp();  
+        $(this).toggleClass('active').next().slideDown();
     });  
 
     // Slick Slider (jQuery) - Remove these if not in use 
@@ -16,37 +19,6 @@
         autoplaySpeed: 5000,
         prevArrow: $('.prev'),
         nextArrow: $('.next')
-    });
-
-    // Responsive slider for blocks section
-    $('.blocks .slider').slick({
-        infinite: true,
-        mobileFirst: true,
-        speed: 600,
-        autoplay: true,
-        autoplaySpeed: 3000, 
-        dots: false,
-        arrows: false,
-        responsive: [ 
-            {
-                breakpoint: 992, 
-                settings: 'unslick'
-            },
-            {
-                breakpoint: 768,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 2
-                }
-            },
-            {
-                breakpoint: 576,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1
-                }
-            }
-        ]
     });
 
     // Gallery Slider
@@ -69,7 +41,43 @@
         focusOnSelect: true,
         infinit: true
     });
-              
+
+    var resizeTimer;
+    $(window).bind('resize load', function () {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(function () {
+            // Responsive slider for blocks section
+            $('.blocks .slider').not('.slick-initialized').slick({
+                infinite: true,
+                mobileFirst: true,
+                speed: 600,
+                autoplay: true,
+                autoplaySpeed: 3000, 
+                dots: false,
+                arrows: false,
+                responsive: [ 
+                    {
+                        breakpoint: 992, 
+                        settings: 'unslick'
+                    },
+                    {
+                        breakpoint: 768,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 2
+                        }
+                    },
+                    {
+                        breakpoint: 576,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1
+                        }
+                    }
+                ]
+            });
+        }, 500)
+    })
 
     // Sticky Header
     $(window).on("scroll load", function () {
@@ -81,12 +89,13 @@
     });
 
     // Smooth Scroll To Anchor
-    $(document).on('click', '.js-cta', function () {
-        target = $(this).attr('data-target')
+    $(document).on('click', '.js-cta', function (event) {
+        event.preventDefault()
+        var target = $(this).attr('href')
 
-        if (target.length) {
+        if ($(target).length) {
             $('html, body').animate({
-                scrollTop: $(target).find('form').offset().top
+                scrollTop: $(target).offset().top
             }, 1500)
         }
     });
@@ -94,21 +103,21 @@
     
     $(window).on('load', function () {
 
-        // // Components loading animations
-        // $('.view-animation').viewportChecker({
-        //     classToAdd: 'animated',
-        //     offset: 20
-        // });
+        // Components loading animations
+        $('.view-animation').viewportChecker({
+            classToAdd: 'animated',
+            offset: 20
+        });
 
 
-        // // Lazyload
-        // $('.lazyload').Lazy({
-        //     effect: 'fadeIn',
-        //     visibleOnly: true,
-        //     onError: function (element) {
-        //         console.log('error loading ' + element.data('src'));
-        //     }
-        // });
+        // Lazyload
+        $('.lazyload').Lazy({
+            effect: 'fadeIn',
+            visibleOnly: true,
+            onError: function (element) {
+                console.log('error loading ' + element.data('src'));
+            }
+        });
 
 
         // Phone Concatenation Script For Tracking
@@ -121,19 +130,12 @@
                 $(this).click(function () {
                     if ($(window).width() < 1000) {
                         window.location.href = linked;
-                        dataLayer.push({ 'event': 'gtm.PhoneClick' });
                     } else {
                         $(this).text(unsliced);
-                        dataLayer.push({ 'event': 'gtm.PhoneClick' });
                     }
                 });
             });
 
-            if ($(window).width() < 1000) {
-                $('.phone').click(function () {
-                    dataLayer.push({ 'event': 'gtm.PhoneClick' });
-                });
-            }
         }, 3000)
 
         // Form Validations
