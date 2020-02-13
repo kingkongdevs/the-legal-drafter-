@@ -4,6 +4,12 @@
 //---------------------
 
 // Generic Section Padding - adds padding to each section - most of your sections should use this - override for special cases
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
 section {
     padding: 60px 0px;
     position: relative;

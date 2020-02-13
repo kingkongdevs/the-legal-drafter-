@@ -48,7 +48,7 @@
     </div>
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-9">
+            <div class="col-md-10 col-lg-9">
                 <p class="eyebrow d-none d-md-inline-block">Attention Everyone Who Is Looking At This Page</p>
                 <h1>This Is The Massive Headline That CRO Has Probably Given You For The Hero Section Of This Site</h1>
                 <p class="subheadline col-lg-9 mx-auto d-none d-md-inline-block">This is the subheadline item. We've
@@ -67,10 +67,10 @@
     </div>
     <div class="container">
         <div class="row justify-content-start">
-            <div class="col-md-9">
+            <div class="col-md-10 col-lg-7">
                 <p class="eyebrow d-none d-md-inline-block">Attention Everyone Who Is Looking At This Page</p>
                 <h1>This Is The Massive Headline That CRO Has Probably Given You For The Hero Section Of This Site</h1>
-                <p class="subheadline col-md-9 px-0 d-none d-md-inline-block">This is the subheadline item. We've made
+                <p class="subheadline d-none d-md-inline-block">This is the subheadline item. We've made
                     this one so it doesnt stretch as wide as the headline. Use the column widths to make the text fit
                     nice visually in the hero.</p>
                 <a class="btn btn-primary">Get Your Free Consultation</a>
@@ -86,7 +86,7 @@
     </div>
     <div class="container">
         <div class="row justify-content-end">
-            <div class="col-md-7">
+            <div class="col-md-10 col-lg-7">
                 <p class="eyebrow d-none d-md-inline-block">Attention Everyone Who Is Looking At This Page</p>
                 <h1>This Is The Massive Headline That CRO Has Probably Given You For The Hero Section Of This Site</h1>
                 <p class="subheadline col-md-9 px-0 d-none d-md-inline-block">This is the subheadline item. We've made
@@ -102,11 +102,11 @@
 <section class="two-column bg-light">
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-8">
+            <div class="col-md-10 col-lg-8">
                 <h2 class="text-center">This Is The Secondary Headline Size, It Will Probably Be The Same Size Across
                     Most Of The Page </h2>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-8 col-lg-6">
                 <p>This is the paragraph text of the section. It will usually be one big paragraph, or two separate
                     paragraphs. Make sure you separate the different blocks of text with separate paragraph tags and not
                     just line breaks.</p>
@@ -156,7 +156,7 @@
 <section class="faq">
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-9">
+            <div class="col-md-10 col-lg-8">
                 <h2 class="text-center">This Is The Secondary Headline Size, It Will Probably Be The Same Size Across
                     Most Of The Page</h2>
                 <p>This is the paragraph text of the section. It will usually be one big paragraph, or two separate
@@ -189,10 +189,10 @@
 <section class="testimonials bg-light text-center">
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-9">
+            <div class="col-md-10 col-lg-8">
                 <h2>This Is What Our Customers Are Saying About Us...</h2>
             </div>
-            <div class="col-md-9">
+            <div class="col-md-10 col-lg-8">
                 <!-- Slider and slides within -->
                 <div class="slider">
                     <div class="slide">
@@ -235,7 +235,7 @@
 <section class="gallery text-center">
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-8">
+            <div class="col-md-10 col-lg-8">
                 <h2>This Is A Gallery Section With A Slider Plus Control Slider</h2>
             </div>
             <div class="col-md-9">
@@ -299,7 +299,7 @@
 <section class="blocks bg-light">
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-12">
+            <div class="col-12">
                 <h3 class="text-center">Blocks That Turn To A Slider On Mobile</h3>
                 <div class="slider d-flex align-items-center">
                     <div class="col"><img class="img-fluid"
@@ -381,6 +381,105 @@
         </div>
     </div>
 </section>
+
+<!-- QUESTIONNAIRE SECTION -->
+<section class="questionnaire" id="questionnaire">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-10 col-lg-10">
+                <div class="questionnaire_form-wrapper text-center justify-content-center">
+                    <form method="POST" action="" id="questionnaire-form">
+                        <ul id="progressbar">
+                            <li class="active"></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                        </ul>
+
+                        <div class="form-group">
+                            <h3>Question Container 1</h3>
+                            <label for="select-option">Select any option from below</label>
+                            <div class="_field-wrapper">
+                                <select name="select-option" required>
+                                    <option value="option 1" disabled selected> Option 1 </option>
+                                    <option value="option 2"> Option 2 </option>
+                                    <option value="option 3"> Option 3</option>
+                                    <option value="option 4"> Option 4 </option>
+                                    <option value="option 5"> Option 5 </option>
+                                    <option value="option 6"> Option 6 </option>
+                                </select>
+                            </div>
+                            
+                            <input class="next" type="button" value="Next">
+                            
+                        </div>
+                        
+                        <div class="form-group">
+                            <h3>Question Container 2</h3>
+                            <label for="select-option">Select any option from below</label>
+                            <div class="_field-wrapper">
+                                <select name="select-option" required>
+                                    <option value="option 1"> Option 1 </option>
+                                    <option value="option 2"> Option 2 </option>
+                                    <option value="option 3"> Option 3</option>
+                                    <option value="option 4"> Option 4 </option>
+                                    <option value="option 5"> Option 5 </option>
+                                    <option value="option 6"> Option 6 </option>
+                                </select>
+                            </div>
+                            
+                            <input class="next" type="button" value="Next">
+                            
+                        </div>
+                        
+                        <div class="form-group">
+                            <h3>Question Container 3</h3>
+                            <label for="select-option">Select any option from below</label>
+                            <div class="_field-wrapper">
+                                <select name="select-option" required>
+                                    <option value="option 1"> Option 1 </option>
+                                    <option value="option 2"> Option 2 </option>
+                                    <option value="option 3"> Option 3</option>
+                                    <option value="option 4"> Option 4 </option>
+                                    <option value="option 5"> Option 5 </option>
+                                    <option value="option 6"> Option 6 </option>
+                                </select>
+                            </div>
+                            
+                            <input class="next" type="button" value="Next">
+                            
+                        </div>
+                        
+                        <div class="form-group final-step">
+                            <h3>Question Container 4</h3>
+                            <label class="_form-label"> Full Name* </label>
+                            <div class="_field-wrapper">
+                                <span class='icon icon-name'></span><input type="text" name="fullname" placeholder="Type your name" required />
+                            </div>
+                        
+                            <label class="_form-label"> Email* </label>
+                            <div class="_field-wrapper">
+                                <span class='icon icon-email'></span><input type="text" name="email" placeholder="Type your email" required />
+                            </div>
+                        
+                            <label class="_form-label"> Phone* </label>
+                            <div class="_field-wrapper">
+                                <span class='icon icon-phone'></span><input type="text" name="phone" placeholder="Type your phone number" required />
+                            </div>
+
+                            <label class="_form-label"> Questions? </label>
+                            <div class="_field-wrapper">
+                                <span class='icon icon-message'></span><textarea name="questions" placeholder="Do you have any other questions?" ></textarea>
+                            </div>
+                            <button id="_form_1_submit" class="_submit" type="submit">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 
 <!-- Custom Scripts -->
 <script type="module" src="assets/prod/js/main.js"></script>
