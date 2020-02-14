@@ -2,12 +2,29 @@
 // BUTTON STYLE
 //---------------------
 
-.btn {
-    font-size: 1.2rem;
+.btn,
+button,
+input[type=submit],
+input[type=button] {
+    display: block;
+    margin: 0 auto  12px;
+    border: 0;
+    border-radius: 5px;
+    font-size: 1rem;
+    line-height: 1;
     text-transform: uppercase;
     letter-spacing: 2px;
     padding: 15px 30px;
     white-space: normal;
+    background: $primary;
+    color: #fff;
+    transition: background-color .4s ease-in-out;
+    &:hover,
+    &:focus,
+    &:active {
+        color: #fff;
+        background: rgba($primary, .8);
+    }
 }
 .btn {
     

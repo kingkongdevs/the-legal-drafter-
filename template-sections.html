@@ -397,9 +397,86 @@
                         </ul>
 
                         <div class="form-group">
+                            <!-- Example Checkbox Input -->
                             <h3>Question Container 1</h3>
                             <label for="select-option">Select any option from below</label>
-                            <div class="_field-wrapper">
+                            
+                            <span class="infusion-option">
+                                <input id="option1" name="option" type="checkbox" value="Option 1">
+                                <label for="option1">Option 1</label>
+                            </span>
+                            <span class="infusion-option">
+                                <input id="option2" name="option" type="checkbox" value="Option 2">
+                                <label for="option2">Option 2</label>
+                            </span>
+                    
+                            <span class="infusion-option">
+                                <input id="option3" name="option" type="checkbox" value="Option 3">
+                                <label for="option3">Option 3</label>
+                            </span>
+                    
+                            <span class="infusion-option">
+                                <input id="option4" name="option" type="checkbox" value="Option 4">
+                                <label for="option4">Option 4</label>
+                            </span>
+                    
+                            <span class="infusion-option">
+                                <input id="option5" name="option" type="checkbox" value="Option 5">
+                                <label for="option5">Option 5</label>
+                            </span>
+                    
+                            <span class="infusion-option">
+                                <input id="option6" name="option" type="checkbox" value="Option 6">
+                                <label for="option6">Option 6</label>
+                            </span>
+                    
+                            <input class="next" type="button" value="Next">
+
+                        </div>
+
+                        <div class="form-group">
+                            <!-- Example Radio Button -->
+                            <h3>Question Container 2</h3>
+                            <label for="select-option">Select any option from below</label>
+                            
+                            <span class="infusion-option">
+                                <input id="option1" name="option" type="radio" value="Option 1">
+                                <label for="option1">Option 1</label>
+                            </span>
+                            <span class="infusion-option">
+                                <input id="option2" name="option" type="radio" value="Option 2">
+                                <label for="option2">Option 2</label>
+                            </span>
+                            
+                            <span class="infusion-option">
+                                <input id="option3" name="option" type="radio" value="Option 3">
+                                <label for="option3">Option 3</label>
+                            </span>
+                            
+                            <span class="infusion-option">
+                                <input id="option4" name="option" type="radio" value="Option 4">
+                                <label for="option4">Option 4</label>
+                            </span>
+                            
+                            <span class="infusion-option">
+                                <input id="option5" name="option" type="radio" value="Option 5">
+                                <label for="option5">Option 5</label>
+                            </span>
+                            
+                            <span class="infusion-option">
+                                <input id="option6" name="option" type="radio" value="Option 6">
+                                <label for="option6">Option 6</label>
+                            </span>
+                            
+                            <input class="next" type="button" value="Next">
+                            
+                        </div>
+                        
+                        <div class="form-group">
+                            <!-- Example Dropdown -->
+                            <h3>Question Container 3</h3>
+                            <label for="select-option">Select any option from below</label>
+                            <div class="field-wrapper">
                                 <select name="select-option" required>
                                     <option value="option 1" disabled selected> Option 1 </option>
                                     <option value="option 2"> Option 2 </option>
@@ -415,69 +492,37 @@
                         </div>
                         
                         <div class="form-group">
-                            <h3>Question Container 2</h3>
-                            <label for="select-option">Select any option from below</label>
-                            <div class="_field-wrapper">
-                                <select name="select-option" required>
-                                    <option value="option 1"> Option 1 </option>
-                                    <option value="option 2"> Option 2 </option>
-                                    <option value="option 3"> Option 3</option>
-                                    <option value="option 4"> Option 4 </option>
-                                    <option value="option 5"> Option 5 </option>
-                                    <option value="option 6"> Option 6 </option>
-                                </select>
-                            </div>
-                            
-                            <input class="next" type="button" value="Next">
-                            
-                        </div>
-                        
-                        <div class="form-group">
-                            <h3>Question Container 3</h3>
-                            <label for="select-option">Select any option from below</label>
-                            <div class="_field-wrapper">
-                                <select name="select-option" required>
-                                    <option value="option 1"> Option 1 </option>
-                                    <option value="option 2"> Option 2 </option>
-                                    <option value="option 3"> Option 3</option>
-                                    <option value="option 4"> Option 4 </option>
-                                    <option value="option 5"> Option 5 </option>
-                                    <option value="option 6"> Option 6 </option>
-                                </select>
-                            </div>
-                            
-                            <input class="next" type="button" value="Next">
-                            
-                        </div>
-                        
-                        <div class="form-group final-step">
                             <h3>Question Container 4</h3>
-                            <label class="_form-label"> Full Name* </label>
-                            <div class="_field-wrapper">
+                            <label for="fullname"> Full Name* </label>
+                            <div class="field-wrapper">
                                 <span class='icon icon-name'></span><input type="text" name="fullname" placeholder="Type your name" required />
                             </div>
                         
-                            <label class="_form-label"> Email* </label>
-                            <div class="_field-wrapper">
+                            <label for="email"> Email* </label>
+                            <div class="field-wrapper">
                                 <span class='icon icon-email'></span><input type="text" name="email" placeholder="Type your email" required />
                             </div>
                         
-                            <label class="_form-label"> Phone* </label>
-                            <div class="_field-wrapper">
+                            <label for="phone"> Phone* </label>
+                            <div class="field-wrapper">
                                 <span class='icon icon-phone'></span><input type="text" name="phone" placeholder="Type your phone number" required />
                             </div>
 
-                            <label class="_form-label"> Questions? </label>
+                            <label for="questions"> Questions? </label>
                             <div class="_field-wrapper">
                                 <span class='icon icon-message'></span><textarea name="questions" placeholder="Do you have any other questions?" ></textarea>
                             </div>
                             <button id="_form_1_submit" class="_submit" type="submit">Submit</button>
+                            
                         </div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
+
+    <!-- Sweetalert Sript -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 </section>
 
 

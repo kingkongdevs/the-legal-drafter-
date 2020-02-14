@@ -61,8 +61,8 @@
 
 		/*marking active/completed steps red*/
 		&.active:before,  #progressbar li.active:after {
-			background: #e43f4b;
-			color: #ffffff;
+			background: $primary;
+			color: #fff;
 		}
 
 	}
@@ -98,96 +98,82 @@ form,
 }
 
 /* next buttons */
+input.previous,
+button.previous,
 input.next,
 button.next {
-	display: block;
-	min-width: 170px;
-	margin: 16px auto;
-	padding: 18px;
-	background: #e43f4b;
-	border-radius: 40px;
-	border-bottom-right-radius: 6px;
-	font-family: Poppins;
-	color: #ffffff;
-	white-space: normal;
 }
 
-.ascend .container-wrap button[type="submit"],
-.final-step button {
-	margin: 16px auto;
-	background: #a3dc18;
-	border-radius: 4px !important;
-	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
-	color: #fff;
-	font-family: Poppins;
-	font-size: 32px;
-	letter-spacing: -2px;
-	padding: 10px 0;
-	text-shadow: 0 1px #7eab13;
-	text-transform: uppercase;
-	width: 92%;
-	-webkit-appearance: none;
-	border-radius: 5px !important;
+
+// Infusion Form Specific Radio Button & Checkbox Styles
+.infusion-form,
+form {
+	fieldset,
+	._form_element,
+	.form-group,
+	.infusion-field {
+		
+		.infusion-option,
+		.checkbox-option,
+		.radio-option {
+
+			input[type=radio],
+			input[type=checkbox]  {
+				display: none;
+				visibility: hidden;
+				width: 0;
+				margin: 0;
+				padding: 0;
+			
+				&:checked + label {
+					background: rgba($primary, .5)
+				  }
+			}
+		
+			label {
+				position: relative;
+				display: inline-block;
+				width: 100%;
+				max-width: 200px;
+				margin: 16px;
+				padding: 20px 10px;
+				border-radius: 6px;
+				color: #fff;
+				background: $primary;
+				font-family: "Poppins";
+				font-size: 1rem;
+				line-height: 1;
+				cursor: pointer;
+				transition: background 0.2s ease;
+				-webkit-touch-callout: none; /* iOS Safari */
+				-webkit-user-select: none; /* Safari */
+				-khtml-user-select: none; /* Konqueror HTML */
+				-moz-user-select: none; /* Firefox */
+					-ms-user-select: none; /* Internet Explorer/Edge */
+						user-select: none; /* Non-prefixed version, currently
+											supported by Chrome and Opera */
+	
+				&:hover,
+				&:active,
+				&.active {
+					background: rgba($primary, .8);
+					color: #fff;
+				}
+			}
+	
+			/* buttons with icons */
+			// i.fa {
+			// 	display: block; 
+			// 	margin-bottom: 16px;
+			// 	margin-left: auto;
+			// 	margin-right: auto;
+			// 	width: auto;
+			// }
+		}
+	}
 }
 
-// // Infusion Form Specific Radio Button & Checkbox Styles
-// .infusion-form {
-// 	.infusion-field {
-// 		input[type=radio],
-// 		input[type=checkbox]  {
-// 		  display: none;
-// 		}
-// 	}
-// 	.infusion-option {
-// 		label {
-// 			position: relative;
-// 			display: inline-block;
-// 			width: 100%;
-// 			margin: 0 8px 16px;
-// 			padding: 20px 10px;
-// 			border-radius: 6px;
-// 			color: #444444;
-// 			background: #e6e6e6;
-// 			font-family: "Poppins";
-// 			font-size: 1rem;
-// 			font-weight: normal;
-// 			line-height: 1;
-// 			cursor: pointer;
-// 			transition: background 0.2s ease;
-// 			-webkit-touch-callout: none; /* iOS Safari */
-// 			-webkit-user-select: none; /* Safari */
-// 			-khtml-user-select: none; /* Konqueror HTML */
-// 			-moz-user-select: none; /* Firefox */
-// 				-ms-user-select: none; /* Internet Explorer/Edge */
-// 					user-select: none; /* Non-prefixed version, currently
-// 										supported by Chrome and Opera */
 
-// 			&:hover,
-// 			&:active,
-// 			&.active {
-// 				background: #e53f4a;
-// 				color: #ffffff;
-// 			}
-// 		}
-
-// 		/* buttons with icons */
-// 		i.fa {
-// 			display: block; 
-// 			margin-bottom: 16px;
-// 			margin-left: auto;
-// 			margin-right: auto;
-// 			width: auto;
-// 		}
-// 	}
-// }
-
-
-// /* radio button styles */
-// input[type="radio"]:checked + label,
-// input[type="checkbox"]:checked + label {
-//   background: #e53f4a !important;
-//   color: #ffffff;
-// }
 // .options-container {
 //   display: flex;
 //   flex-wrap: wrap;
@@ -210,13 +196,6 @@ button.next {
 
 
 // /* checkbox styles */
-// input[type="checkbox"] {
-//   visibility: hidden;
-//   width: 0;
-//   margin: 0;
-//   padding: 0;
-//   display: none;
-// }
 // input[type="checkbox"]:checked + label [class^="fa"] {
 //   opacity: 1;
 // }
@@ -252,167 +231,51 @@ button.next {
 // }
 // .checklist input[type="checkbox"]:hover + label:before,
 // .checklist input[type="radio"]:hover + label:before {
-//   color: #ffffff;
-// }
-
-// /* textarea */
-// .infusion-form .infusion-field textarea {
-//   font-size: 20px !important;
-//   font-weight: 100 !important;
-//   padding: 14px !important;
-//   margin-bottom: 10px !important;
-//   border-radius: 4px;
-//   border: 1px solid #ccc!important;
-//   width: 100%;
+//   color: #fff;
 // }
 
 
-// /* last step input fields */
-// .infusion-field.final-step .input-holder {
-//   max-width: 460px;
-//   margin-left: auto;
-//   margin-right: auto;
+// /* spinner overlay */
+// .infusion-submit,
+// input[type=submit],
+// button[type=submit] {
+// 	position: relative;
+// 	margin-top: 20px;
+// } 
+// .infusion-submit button[type=submit] { margin-top: 0px !important;}
+
+// .spinner-none { display: none; }
+// .spinner-overlay {
+// 	display: block;
+// 	background: $primary;
+// 	position: absolute;
+// 	top: 0px;
+// 	content: " ";
+// 	height: 100%;
+// 	width: 100%;
+// 	border-top-left-radius: 40px;
+// 	border-bottom-left-radius: 40px;
+// 	border-top-right-radius: 40px;
+// 	border-bottom-right-radius: 6px;
 // }
-
-// .container-wrap .final-step input {
-//   display: block;
-//   margin-left: auto;
-//   margin-right: auto;
-//   font-size: 20px !important;
-//   font-weight: 100 !important;
-//   padding: 4% !important;
-//   margin-top: 10px !important;
-//   border-radius: 4px;
-//   border: 1px solid #d6d6d6;
-//   width: 92%;
-//   padding-left: 50px !important;
+// .spinner {
+// 	-webkit-animation: rotator 1.4s linear infinite;
+// 	animation: rotator 1.4s linear infinite;
+// 	width: 25px;
+// 	height: 25px;
+// 	left: 50%;
+// 	margin-left: -12px;
+// 	display: block;
+// 	position: absolute;
+// 	top: 19px;
 // }
-
-// /* error message */
-// .infusion-form label.error {
-//   color: #d40;
-//   font-size: 14px;
-//   line-height: 12px;
-//   text-transform: uppercase;
-//   font-weight: bold;
-//   top: -20px !important;
-// }
-// /* last step input fields icons */
-// .inputTextWrap {
-//   position: relative;
-// }
-// .final-step i.fa {
-//   position: absolute;
-//   margin-top: 21px;
-//   left: 29px;
-//   color: #B3B3B3;
-// }
-
-// .final-step-inputs {
-//   max-width: 550px;
-//   margin-left:auto;
-//   margin-right:auto;
-// }
-
-
-
-/* sweet alert popup */
-.swal-icon {
-/*  width: 50px;
-  height: 50px;*/
-/*  margin: 5px auto;
-*/
-
-	&--warning {
-		&__body {
-			/*  height: 20px; */			
-		}
-	}
-}
-.swal-title {
-	font-family: ProximaNova-Light;
-	font-size: 24px;
-	padding: 13px 5%;
-	margin-bottom: 30px;
-	line-height: 30px;
-}
-.swal-footer {
-	display: flex;
-}
-.swal-button-container {
-	flex: 1 50%;
-}
-.swal-button {
-	background-color: #e43f4b;
-	width: 100%;
-	font-size: 24px;
-	font-family: proxima_nova_rgbold;
-	padding: 17px 10px;
-	height: 100%;
-}
-.swal-button:focus {
-	box-shadow: none;
-}
-.swal-button:active {
-	background-color: #e43f4b;
-}
-.swal-button--cancel {
-	background-color: #e5e5e5;
-}
-
-
-
-/* sorry message */
-.sorry-message {
-	max-width: 540px;
-	margin-top: 50px;
-	margin-left: auto;
-	margin-right: auto;
-	font-size: 1.2em;
-}
-
-
-/* spinner overlay */
-.infusion-submit,
-input[type=submit],
-button[type=submit] {
-	position: relative;
-	margin-top: 20px;
-} 
-.infusion-submit button[type=submit] { margin-top: 0px !important;}
-
-.spinner-none { display: none; }
-.spinner-overlay {
-	display: block;
-	background: #e43f4b;
-	position: absolute;
-	top: 0px;
-	content: " ";
-	height: 100%;
-	width: 100%;
-	border-top-left-radius: 40px;
-	border-bottom-left-radius: 40px;
-	border-top-right-radius: 40px;
-	border-bottom-right-radius: 6px;
-}
-.spinner {
-	-webkit-animation: rotator 1.4s linear infinite;
-	animation: rotator 1.4s linear infinite;
-	width: 25px;
-	height: 25px;
-	left: 50%;
-	margin-left: -12px;
-	display: block;
-	position: absolute;
-	top: 19px;
-}
-@-webkit-keyframes
-rotator{0%{-webkit-transform:rotate(0deg);transform:rotate(0deg)}100%{-webkit-transform:rotate(270deg);transform:rotate(270deg)}}@keyframes
-rotator{0%{-webkit-transform:rotate(0deg);transform:rotate(0deg)}100%{-webkit-transform:rotate(270deg);transform:rotate(270deg)}}.path{stroke-dasharray:187;stroke-dashoffset:0;-webkit-transform-origin:center;transform-origin:center;-webkit-animation:dash 1.4s ease-in-out infinite, colors 5.6s ease-in-out infinite;animation:dash 1.4s ease-in-out infinite, colors 5.6s ease-in-out infinite}@-webkit-keyframes
-colors{0%{stroke:#fff}25%{stroke:#fff}50%{stroke:#fff}75%{stroke:#fff}100%{stroke:#fff}}@keyframes
-colors{0%{stroke:#fff}25%{stroke:#fff}50%{stroke:#fff}75%{stroke:#fff}100%{stroke:#fff}}@-webkit-keyframes
-dash{0%{stroke-dashoffset:187}50%{stroke-dashoffset:46.75;-webkit-transform:rotate(135deg);transform:rotate(135deg)}100%{stroke-dashoffset:187;-webkit-transform:rotate(450deg);transform:rotate(450deg)}}@keyframes
-dash{0%{stroke-dashoffset:187}50%{stroke-dashoffset:46.75;-webkit-transform:rotate(135deg);transform:rotate(135deg)}100%{stroke-dashoffset:187;-webkit-transform:rotate(450deg);transform:rotate(450deg)}}
+// @-webkit-keyframes
+// rotator{0%{-webkit-transform:rotate(0deg);transform:rotate(0deg)}100%{-webkit-transform:rotate(270deg);transform:rotate(270deg)}}@keyframes
+// rotator{0%{-webkit-transform:rotate(0deg);transform:rotate(0deg)}100%{-webkit-transform:rotate(270deg);transform:rotate(270deg)}}.path{stroke-dasharray:187;stroke-dashoffset:0;-webkit-transform-origin:center;transform-origin:center;-webkit-animation:dash 1.4s ease-in-out infinite, colors 5.6s ease-in-out infinite;animation:dash 1.4s ease-in-out infinite, colors 5.6s ease-in-out infinite}@-webkit-keyframes
+// colors{0%{stroke:#fff}25%{stroke:#fff}50%{stroke:#fff}75%{stroke:#fff}100%{stroke:#fff}}@keyframes
+// colors{0%{stroke:#fff}25%{stroke:#fff}50%{stroke:#fff}75%{stroke:#fff}100%{stroke:#fff}}@-webkit-keyframes
+// dash{0%{stroke-dashoffset:187}50%{stroke-dashoffset:46.75;-webkit-transform:rotate(135deg);transform:rotate(135deg)}100%{stroke-dashoffset:187;-webkit-transform:rotate(450deg);transform:rotate(450deg)}}@keyframes
+// dash{0%{stroke-dashoffset:187}50%{stroke-dashoffset:46.75;-webkit-transform:rotate(135deg);transform:rotate(135deg)}100%{stroke-dashoffset:187;-webkit-transform:rotate(450deg);transform:rotate(450deg)}}
 
 
 // @media screen and (max-width: 689px) {
@@ -459,16 +322,6 @@ dash{0%{stroke-dashoffset:187}50%{stroke-dashoffset:46.75;-webkit-transform:rota
 	// .options-container.one-tenth .infusion-option label { 
 	// 	padding: 8px 1px;
 	// 	font-size: 13px;
-	// }
-	
-	// /* last step input fields */
-	// .final-step input {
-	// 	padding: 5%;
-	// 	width: 90%;
-	// }
-	// .final-step i.fa {
-	// 	margin-top: 5%;
-	// 	left: 18px;
 	// }
 
 // }
