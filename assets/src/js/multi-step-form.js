@@ -29,7 +29,7 @@ $(window).on('load', function () {
 		form = $('form ._form_element')
 	}
 	var elementHeights = form.map(function() {
-		return $(this).height();
+		return $(this).innerHeight();
 	}).get();
 	// Math.max takes a variable number of arguments
 	// `apply` is equivalent to passing each height as an argument
