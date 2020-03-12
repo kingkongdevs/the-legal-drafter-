@@ -17,8 +17,8 @@
         dots: true,
         autoplay: true,
         autoplaySpeed: 5000,
-        prevArrow: $('.prev'),
-        nextArrow: $('.next')
+        prevArrow: $('.testimonial-prev'),
+        nextArrow: $('.testimonial-next')
     });
 
     // Gallery Slider
@@ -26,20 +26,42 @@
         slidesToShow: 1,
         slidesToScroll: 1,
         speed: 600,
-        prevArrow: $('.prev'),
-        nextArrow: $('.next'),
         fade: true,
+        prevArrow: $('.gallery-prev'),
+        nextArrow: $('.gallery-next'),
         asNavFor: '.gallery .slider-controls'
     });
     $('.gallery .slider-controls').slick({
         slidesToShow: 3,
         slidesToScroll: 1,
         asNavFor: '.gallery .slider',
-        dots: false,
         arrows: false,
+        dots: false,
         centerMode: true,
         focusOnSelect: true,
         infinit: true
+    });
+
+    // Gallery Slider
+    $('.video-gallery .slider').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        lazyLoad: 'progressive',
+        speed: 600,
+        prevArrow: $('.video-prev'),
+        nextArrow: $('.video-next'),
+        fade: true,
+        asNavFor: '.video-gallery .slider-controls'
+    });
+    $('.video-gallery .slider-controls').slick({
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        asNavFor: '.video-gallery .slider',
+        lazyLoad: 'progressive',
+        dots: false,
+        arrows: false,
+        focusOnSelect: true,
+        infinit: true,
     });
 
     var resizeTimer;
@@ -116,6 +138,19 @@
             visibleOnly: true,
             onError: function (element) {
                 console.log('error loading ' + element.data('src'));
+            }
+        });
+
+        $(document).on('click', '.inline-video-trigger', function () {
+            if ($(this).data('video-id')) {
+                var iframeHTML = '<iframe src="https://www.youtube.com/embed/' + $(this).attr('data-video-id') + '?title=0&byline=0&portrait=0?&autoplay=1" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>';
+
+
+                $(this).parent('.video-preview-container').find('.inline-video-trigger').hide();
+                $(this).parent('.video-preview-container').find('iframe').remove();
+                $(this).parent('.video-preview-container').append(iframeHTML);
+            } else {
+                console.error('no video ID provided.');
             }
         });
 

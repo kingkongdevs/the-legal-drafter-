@@ -109,7 +109,7 @@ function html() {
 exports.html = gulp.series(html, css);
 
 // run all tasks
-exports.build = gulp.parallel(exports.css, exports.js);
+exports.build = gulp.parallel(exports.css, exports.js, exports.images);
 
 // production build for CSS
 function prodCSS() {
