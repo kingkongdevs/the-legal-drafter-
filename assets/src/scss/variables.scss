@@ -3,13 +3,28 @@
 //---------------------
 $root-font-size: 18px;
 
+// $h1-font-size:         		 2.5rem;
+// $h2-font-size:                2rem;
+// $h3-font-size:                1.75rem;
+// $h4-font-size:                1.5rem;
+// $h5-font-size:                1.25rem;
+// $h6-font-size:                1rem;
+
 $headerheight   : 150px;  // Change to approximate header height - adds padding to first section
 $header-starting-width: 280px;
 $header-scrolled-width: 200px;
 
 // Colors
+$body-color		: #000000;
 $primary        : #42c7b3;
 $secondary      : #333;
+// $success:       $green;
+// $info:          $cyan;
+// $warning:       $yellow;
+// $danger:        $red;
+// $light:         $gray-100;
+// $dark:          $gray-800;
+
 $headerbg       : #fff; // Header scrolled background color.
 
 $bg-table-active-color : #a2e4b9;
@@ -25,7 +40,7 @@ $slick-active-dot-color : #a2e4b9;
 //   md: 720px,
 //   lg: 960px,
 //   xl: 1140px,
-//   ) !default;
+//   );
   
 // $grid-breakpoints: (
 // 	xs: 0,
@@ -33,4 +48,4 @@ $slick-active-dot-color : #a2e4b9;
 // 	md: 768px,
 // 	lg: 992px,
 // 	xl: 1140px,
-// ) !default;
+// );
