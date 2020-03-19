@@ -35,7 +35,7 @@ $(window).on('load', function () {
 	// `apply` is equivalent to passing each height as an argument
 	var maxHeight = Math.max.apply(null, elementHeights);
 	// Set each height to the max height
-	$('.infusion-form, form').height(maxHeight);
+	$('.questionnaire-form').height(maxHeight);
 
 
 
