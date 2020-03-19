@@ -144,7 +144,7 @@
         padding-left: 4px;
     }
     
-    @include media-breakpoint-up(xl) {
+    @media screen and (min-width: 1300px) {
         &.prev,
         &.prev-arrow {
             left: -60px;
