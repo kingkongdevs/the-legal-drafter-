@@ -10,12 +10,18 @@ body {
     flex-direction: column;
     justify-content: space-between;
 }
+
 section {
     padding: 60px 0px;
     position: relative;
     @include media-breakpoint-up(md) {
         padding: 120px 0px;
     }
+}
+
+img,
+iframe{
+    max-width: 100%;
 }
 
 // Background Images - positions the background image behind the content in the section
