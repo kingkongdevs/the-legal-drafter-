@@ -14,34 +14,38 @@
 // --------------------
 
 :root {
-    font-size: 18px;
+    font-size: $root-font-size; // $root-font-size in variables file
     line-height: 1.4;
 }
+
 html, body {
+    @include font-smoothing('on');
+
     @include media-breakpoint-up(md) {
-        font-size: 20px;
+        font-size: rem(20);
     }
 
     @include media-breakpoint-up(lg) {
-        font-size: 24px;
+        font-size: rem(24);
     }
 
     h1 {
-        font-size: 1.7rem;
+        font-size: rem(30);
         line-height: 1.2;
+
         @include media-breakpoint-up(md) {
-            font-size: 2.2rem;
+            font-size: rem(40);
         }
         @include media-breakpoint-up(lg) {
-            font-size: 2.6rem;
+            font-size: rem(47);
         }
         @include media-breakpoint-up(xl) {
-            font-size: 2.9rem;
+            font-size: rem(52);
         }
     }
 
     h2 {
-        font-size: 2rem;
+        font-size: rem(36);
         line-height: 1.1;
     }
 }
