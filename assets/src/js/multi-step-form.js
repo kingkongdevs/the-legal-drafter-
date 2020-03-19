@@ -10,7 +10,6 @@ $(window).on('load', function () {
 	var checkboxChecked, radioChecked, textareaInput;
 
 
-
 	$(".infusion-form input[type=radio]").click(function() { //Option was clicked.
 		$('input.next', $(this).closest('.form-group')).click(); //Find nearest "next" button and activate it
 	});
@@ -19,24 +18,38 @@ $(window).on('load', function () {
 	 ** Make the outer wrapper the same height as the tallest field.
 	**/
 	// Get an array of all element heights
-	if ($('.infusion-form .infusion-field').length) {
-		form = $('.infusion-form .infusion-field')
-	} else if ($('form fieldset').length) {
-		form = $('form fieldset')
-	} else if ($('form .form-group')) {
-		form = $('form .form-group')
-	} else if ($('form ._form_element').lemgth) {
-		form = $('form ._form_element')
-	}
-	var elementHeights = form.map(function() {
-		return $(this).innerHeight();
-	}).get();
-	// Math.max takes a variable number of arguments
-	// `apply` is equivalent to passing each height as an argument
-	var maxHeight = Math.max.apply(null, elementHeights);
-	// Set each height to the max height
-	$('.questionnaire-form').height(maxHeight);
+	function setFormHeight(){
+		if ($('.infusion-form .infusion-field').length) {
+			form = $('.infusion-form .infusion-field')
+		} else if ($('form fieldset').length) {
+			form = $('form fieldset')
+		} else if ($('form .form-group')) {
+			form = $('form .form-group')
+		} else if ($('form ._form_element').lemgth) {
+			form = $('form ._form_element')
+		}
 
+		$('#questionnaire-form').css('height', ''); // reset
+
+		var elementHeights = form.map(function() {
+			return $(this).innerHeight();
+		}).get();
+		// Math.max takes a variable number of arguments
+		// `apply` is equivalent to passing each height as an argument
+		var maxHeight = Math.max.apply(null, elementHeights);
+		// Set each height to the max height
+		$('#questionnaire-form').height(maxHeight);
+	}
+
+	setFormHeight();
+
+	var resizeTimerForms;
+    $(window).on('resize', function () {
+        clearTimeout(resizeTimerForms);
+    	resizeTimerForms = setTimeout(function () {
+    		setFormHeight();
+        });
+    });
 
 
 	$(".next").click(function(){
@@ -45,7 +58,7 @@ $(window).on('load', function () {
 		
 		current_fs = $(this).parent();
 		next_fs = $(this).parent().next();
-		
+
 		/**
 		 ** validation. if there is no input for the field, do not move on to the next option and display an error message.
 		**/
