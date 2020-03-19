@@ -12,7 +12,7 @@ $(window).on('load', function () {
 
 
 	$(".infusion-form input[type=radio]").click(function() { //Option was clicked.
-		$(this).parent().parent().parent().parent().find("input.next").click(); //Find nearest "next" button and activate it
+		$('input.next', $(this).closest('.form-group')).click(); //Find nearest "next" button and activate it
 	});
 
 	/**
