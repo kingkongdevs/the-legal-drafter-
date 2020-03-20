@@ -179,6 +179,9 @@ function watch(done) {
             server: {
                 baseDir: "./"
             },
+            // proxy: {
+            //     target: 'http://website.local'
+            // },
             tunnel: false
         });
     }
