@@ -1,19 +1,11 @@
 .single-column__checks{
-	max-width: 925px;
 	width: 100%;
-	margin: 0px auto 10px;
-
-	@include media-breakpoint-up(md){
-		margin: 25px auto 10px;
-	}
+	margin: 30px auto;
 
 	&__item{
 		margin: 0 0 15px;
-		padding: 20px;
-		box-shadow: 0px 10px 20px rgba($dark, .15);
 		background: #FFF;
 		border-radius: 5px;
-
 		display: flex;
 		flex-direction: row;
 		flex-wrap: wrap;
@@ -21,8 +13,7 @@
 		align-items: flex-start;
 
 		@include media-breakpoint-up(md){
-			margin: 0 0 25px;
-			padding: 40px 60px 30px;
+			margin: 0 0 30px;
 		}
 
 		&__icon{
