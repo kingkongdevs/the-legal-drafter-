@@ -9,57 +9,84 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'Averta-Bold';
+    src: url('../fonts/Averta-Bold.woff2') format('woff2'),
+    url('../fonts/Averta-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+$headings-font: 'Averta-Bold', sans-serif;
+$body-font: 'Averta-regular', sans-serif;
+
 // --------------------
 //  Include Basic Typography
 // --------------------
 
-:root {
-    font-size: $root-font-size; // $root-font-size in variables file
+:root,
+html,
+body {
+    font-size: px(.8);
     line-height: 1.4;
+    
+    @include media-breakpoint-up(md) {
+        font-size: px(.9);
+    }
+    
+    @include media-breakpoint-up(lg) {
+        font-size: $root-font-size; // $root-font-size in variables file
+    }
 }
 
 html, body {
+    font-family: $body-font;
     @include font-smoothing('on');
-
-    @include media-breakpoint-up(md) {
-        font-size: rem(20);
-    }
-
-    @include media-breakpoint-up(lg) {
-        font-size: rem(24);
-    }
-
-    h1 {
-        font-size: rem(30);
-        line-height: 1.2;
-
-        @include media-breakpoint-up(md) {
-            font-size: rem(40);
-        }
-        @include media-breakpoint-up(lg) {
-            font-size: rem(47);
-        }
-        @include media-breakpoint-up(xl) {
-            font-size: rem(52);
-        }
-    }
-
-    h2 {
-        font-size: rem(36);
-        line-height: 1.1;
-    }
 }
 
 // Headline padding
-h1,h2,h3,h4,h5,h6 {
+h1, .h1, 
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+    line-height: 1.3;
     margin-bottom: 20px;
+    font-family: $headings-font;
+    font-weight: bold;
+    text-transform: capitalize;
 }
 
+h1, .h1 {
+    font-size: 3rem;
+}
+
+h2, .h2 {
+    font-size: 2.5rem;
+}
+
+h3, .h3 {
+    font-size: 1.5rem;
+}
+
+h4, .h4 {
+    font-size: 1.2rem;
+}
+
+h5, .h5 {
+    font-size: 1rem;
+}
+
+h6, .h6 {
+    font-size: .9rem;
+}
 
 // Hero Specific Font Sizes
 .eyebrow {
     text-transform: uppercase;
 }
+
 .subheadline {
-    
+    font-size: 1.1rem;
 }

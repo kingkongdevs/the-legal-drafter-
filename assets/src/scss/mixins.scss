@@ -9,8 +9,8 @@
     }
 }
 
-@function rem($size){
-	@return #{strip-unit($size) / strip-unit($root-font-size)}rem;
+@function px($size){
+	@return #{ $size * strip-unit($root-font-size)}px;
 }
 
 @function strip-unit($num) {
