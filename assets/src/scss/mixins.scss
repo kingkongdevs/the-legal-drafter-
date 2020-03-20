@@ -10,5 +10,9 @@
 }
 
 @function rem($size){
-	@return #{$size } / #{$root-font-size}rem;
+	@return #{strip-unit($size) / strip-unit($root-font-size)}rem;
+}
+
+@function strip-unit($num) {
+  @return $num / ($num * 0 + 1);
 }
