@@ -189,6 +189,7 @@
                     }
 
                     $(this).parent('.video-preview-container').find('.inline-video-trigger').hide();
+                    $(this).parent('.video-preview-container').find('.overlay').hide();
                     $(this).parent('.video-preview-container').find('iframe').remove();
                     $(this).parent('.video-preview-container').append(iframeHTML);
                 } else {

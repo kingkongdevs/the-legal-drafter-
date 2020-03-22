@@ -80,6 +80,10 @@ iframe{
 		width: 100%;
 	}
 
+    .overlay{
+        z-index: 4;
+    }
+
 	.play-button {
 		transition: all 0.3s ease;
 		width: 100px;
@@ -91,7 +95,7 @@ iframe{
 		border: none;
 		appearance: none;
 		background: none;
-		z-index: 4;
+		z-index: 5;
 
 		&:hover {
 			transform: scale(1.1);
