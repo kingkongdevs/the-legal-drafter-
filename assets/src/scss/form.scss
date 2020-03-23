@@ -39,36 +39,39 @@ form {
             color: red;
             font-size: .9rem;
         }
-        // .icon {
-        //     position: absolute;
-        //     top: 20px;
-        //     left: 15px;
-        //     background-size: 80%;
-        //     width: 25px;
-        //     height: 25px;
-        //     z-index: 999;
-        //     margin: auto;
-        //     background-repeat: no-repeat;
-        //     background-position: center center;
-        //     @include media-breakpoint-up(sm) {
-        //         left: 25px;
-        //     }
-        //     &.icon-name {
-        //         background-image: url('../../../assets/prod/images/icon-username.png');
-        //     }
-        //     &.icon-email {
-        //         background-image: url('../../../assets/prod/images/icon-email.png');
-        //     }
-        //     &.icon-phone {
-        //         background-image: url('../../../assets/prod/images/icon-phone.png');
-        //     }
-        //     &.icon-pain {
-        //         background-image: url('../../../assets/prod/images/icon-postcode.png');
-        //     }
-        //     &.icon-message {
-        //         background-image: url('../../../assets/prod/images/icon-message.png');
-        //     }
-            
-        // }
+        .icon {
+            position: absolute;
+            top: 20px;
+            left: 15px;
+            background-size: 80%;
+            width: 25px;
+            height: 25px;
+            z-index: 999;
+            margin: auto;
+            background-repeat: no-repeat;
+            background-position: center center;
+            @include media-breakpoint-up(sm) {
+                left: 25px;
+            }
+            // &.icon-name {
+            //     background-image: url('../../../assets/prod/images/icon-username.png');
+            // }
+            // &.icon-email {
+            //     background-image: url('../../../assets/prod/images/icon-email.png');
+            // }
+            // &.icon-phone {
+            //     background-image: url('../../../assets/prod/images/icon-phone.png');
+            // }
+            // &.icon-pain {
+            //     background-image: url('../../../assets/prod/images/icon-postcode.png');
+            // }
+            // &.icon-message {
+            //     background-image: url('../../../assets/prod/images/icon-message.png');
+            // }
+        }
     }
+}
+
+.form-group {
+    width: 100%;
 }

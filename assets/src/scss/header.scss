@@ -42,16 +42,10 @@ header {
     line-height: 1.2; 
 
     .phone-icon {
-        background: $primary;
-        height: 50px;
-        width: 50px;
-        border-radius: 50%;
-        display: flex;
-        justify-content: center;
-    }
-    svg {
-        width: 25px;
-        color: $light;
+        img {
+            max-width: 25px;
+            width: 100%;
+        }
     }
 
     // Got questions (if it exists)

@@ -101,31 +101,54 @@
         clearTimeout(resizeTimer);
         resizeTimer = setTimeout(function () {
             // Responsive slider for blocks section
-            $('.blocks .slider').not('.slick-initialized').slick({
+            $('.logos .slider').not('.slick-initialized').slick({
                 infinite: true,
                 mobileFirst: true,
                 speed: 600,
-                autoplay: true,
-                autoplaySpeed: 3000, 
-                dots: false,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                // autoplay: true,
+                // autoplaySpeed: 5000, 
                 arrows: false,
+                dots: true,
                 responsive: [ 
                     {
                         breakpoint: 992, 
                         settings: 'unslick'
                     },
                     {
-                        breakpoint: 768,
+                        breakpoint: 576,
                         settings: {
                             slidesToShow: 2,
-                            slidesToScroll: 2
                         }
+                    },
+                    // {
+                    //     breakpoint: 200,
+                    //     settings: {
+                    //         slidesToShow: 1,
+                    //     }
+                    // }
+                ]
+            });
+
+            $('.blocks .slider').not('.slick-initialized').slick({
+                infinite: true,
+                slidesToScroll: 1,
+                mobileFirst: true,
+                speed: 600,
+                autoplay: true,
+                autoplaySpeed: 3000,
+                dots: true,
+                arrows: false,
+                responsive: [
+                    {
+                        breakpoint: 768,
+                        settings: 'unslick'
                     },
                     {
                         breakpoint: 576,
                         settings: {
                             slidesToShow: 1,
-                            slidesToScroll: 1
                         }
                     }
                 ]

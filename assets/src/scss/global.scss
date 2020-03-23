@@ -19,11 +19,6 @@ section {
     }
 }
 
-img,
-iframe{
-    max-width: 100%;
-}
-
 // Background Images - positions the background image behind the content in the section
 .background-image-container {
     overflow: hidden;
@@ -118,4 +113,12 @@ iframe{
 		height: 100%;
 		z-index: 3;
 	}
+}
+
+.max-width-image {
+    width: 100%;
+    max-width: 400px;
+    @include media-breakpoint-up(lg) {
+        max-width: 100%;
+    }
 }
