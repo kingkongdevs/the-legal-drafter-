@@ -1,21 +1,22 @@
-ul {
-    &.styled-list {
+
+ul, ol {
+	&.styled-list {
 		margin: 0;
-        padding: 0;
+		padding: 0;
 		list-style: none;
-        p {
-            strong {
-                text-transform: capitalize;
-                display: block;
-            }
-        }
-        li {
+		p {
+			strong {
+				text-transform: capitalize;
+				display: block;
+			}
+		}
+
+		li {
 			position: relative;
             margin-bottom: 1rem;
 			padding-left: 50px;
 			display: block;
 			&::before {
-				content:'\f00c';
 				position: absolute;
 				top: 0;
 				left: 0;
@@ -24,13 +25,14 @@ ul {
 				align-items: center;
 				width: 30px;
 				height: 30px;
-				font-family: 'FontAwesome';
 				font-size: 1rem;
 				line-height: 1;
 				text-align: center;
+				font-weight: bold;
 				border-radius: 50%;
 				color: white;
 				background: $primary;
+				box-shadow: -0.872px 9.962px 19px 0px rgba(56, 78, 86, 0.25);
 			}
 			@include media-breakpoint-up(md) {
 				padding-left: 60px;
@@ -41,5 +43,29 @@ ul {
 			
 			}
         }
+	}
+}
+
+ul {
+    &.styled-list {
+        li {
+			&::before {
+				content:'\f00c';
+				font-family: 'FontAwesome';
+			}
+        }
+	}
+
+}
+
+ol {
+	&.styled-list {
+		counter-reset: ol-counter;
+		li {
+			counter-increment: ol-counter;
+			&::before {
+				content: counter(ol-counter);
+			}
+		}
 	}
 }
