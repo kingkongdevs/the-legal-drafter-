@@ -1,71 +1,45 @@
-.single-column__checks{
-	width: 100%;
-	margin: 30px auto;
-
-	&__item{
-		margin: 0 0 15px;
-		background: #FFF;
-		border-radius: 5px;
-		display: flex;
-		flex-direction: row;
-		flex-wrap: wrap;
-		justify-content: flex-start;
-		align-items: flex-start;
-
-		@include media-breakpoint-up(md){
-			margin: 0 0 30px;
-		}
-
-		&__icon{
-			width: 53px;
-
-			&:before{
+ul {
+    &.styled-list {
+		margin: 0;
+        padding: 0;
+		list-style: none;
+        p {
+            strong {
+                text-transform: capitalize;
+                display: block;
+            }
+        }
+        li {
+			position: relative;
+            margin-bottom: 1rem;
+			padding-left: 50px;
+			display: block;
+			&::before {
 				content:'\f00c';
-				width: 53px;
-				height: 53px;
-				text-align: center;
-				line-height: 53px;
-				font-size: rem(27);
+				position: absolute;
+				top: 0;
+				left: 0;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				width: 30px;
+				height: 30px;
 				font-family: 'FontAwesome';
-				border-radius: 3px;
-				display: block;
-				background:#ededed;
+				font-size: 1rem;
+				line-height: 1;
+				text-align: center;
+				border-radius: 50%;
+				color: white;
+				background: $primary;
 			}
-		}
-
-		&__text{
-			width: calc(100% - 53px);
-			padding-left: 20px;
-
-			@include media-breakpoint-up(md){
-				padding-left: 30px;
-			}
-
-			p, h5{
-				margin:0;
-				max-width: 100%;
-
-				strong{
-					color:$primary;
-					font-weight: 700;
-					text-transform: uppercase;
+			@include media-breakpoint-up(md) {
+				padding-left: 60px;
+				&::before {
+					width: 40px;
+					height: 40px;
 				}
+			
 			}
-
-			h5{
-				color:$primary;
-				font-weight: 700;
-				text-transform: uppercase;
-				margin: 0 0 3px;
-			}
-		}
-	}
-
-	&__before{
-			margin: 20px auto;
-
-		img{
-			max-width: 100%;
-		}
+        }
 	}
 }
