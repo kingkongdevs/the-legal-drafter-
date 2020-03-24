@@ -27,16 +27,17 @@ $body-font: 'Averta-regular', sans-serif;
 :root,
 html,
 body {
-    font-size: px(.8);
+    font-size: px(.8); //16px
     line-height: 1.4;
     
     @include media-breakpoint-up(md) {
-        font-size: px(.9);
+        font-size: px(.9); //18px
     }
     
     @include media-breakpoint-up(lg) {
-        font-size: $root-font-size; // $root-font-size in variables file
+        font-size: $root-font-size; // $root-font-size in variables file - 20px
     }
+    
 }
 
 html, body {
@@ -46,6 +47,7 @@ html, body {
 
 p {
     margin-bottom: 0.5rem;
+    font-style: 1rem;
 }
 
 // Headline padding
