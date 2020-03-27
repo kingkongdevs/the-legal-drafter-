@@ -56,7 +56,7 @@
         asNavFor: '.gallery .slider-controls'
     });
     $('.gallery .slider-controls').slick({
-        slidesToShow: 3,
+        slidesToShow: 4,
         slidesToScroll: 1,
         asNavFor: '.gallery .slider',
         arrows: false,
@@ -86,7 +86,7 @@
     });
 
     $('.video-gallery .slider-controls').slick({
-        slidesToShow: 3,
+        slidesToShow: 4,
         slidesToScroll: 1,
         asNavFor: '.video-gallery .slider',
         lazyLoad: 'progressive',
@@ -101,14 +101,14 @@
         clearTimeout(resizeTimer);
         resizeTimer = setTimeout(function () {
             // Responsive slider for blocks section
-            $('.logos .slider').not('.slick-initialized').slick({
+            $('.featured-in .slider').not('.slick-initialized').slick({
                 infinite: true,
                 mobileFirst: true,
                 speed: 600,
                 slidesToShow: 1,
                 slidesToScroll: 1,
-                // autoplay: true,
-                // autoplaySpeed: 5000, 
+                autoplay: true,
+                autoplaySpeed: 5000, 
                 arrows: false,
                 dots: true,
                 responsive: [ 

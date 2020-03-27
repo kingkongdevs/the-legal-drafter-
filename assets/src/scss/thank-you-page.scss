@@ -2,7 +2,8 @@ body.thank-you {
     #hero {
         min-height: 100vh;
         display: flex;
-
+        flex-direction: column;
+        justify-content: space-between;
         .container {
             margin: auto;
         }
