@@ -117,17 +117,17 @@
                         settings: 'unslick'
                     },
                     {
-                        breakpoint: 576,
+                        breakpoint: 768,
+                        settings: {
+                            slidesToShow: 4,
+                        }
+                    },
+                    {
+                        breakpoint: 400,
                         settings: {
                             slidesToShow: 2,
                         }
                     },
-                    // {
-                    //     breakpoint: 200,
-                    //     settings: {
-                    //         slidesToShow: 1,
-                    //     }
-                    // }
                 ]
             });
 
@@ -208,7 +208,7 @@
                     if ($(this).hasClass('vimeo')) {
                         var iframeHTML = '<iframe src="https://www.vimeo.com/embed/' + $(this).attr('data-video-id') + '?title=0&byline=0&portrait=0?&autoplay=1" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>';
                     } else {
-                        var iframeHTML = '<iframe src="https://player.vimeo.com/video/' + $(this).attr('data-video-id') + '?autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+                        var iframeHTML = '<iframe src="https://www.youtube.com/embed/' + $(this).attr('data-video-id') + '?autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
                     }
 
                     $(this).parent('.video-preview-container').find('.inline-video-trigger').hide();

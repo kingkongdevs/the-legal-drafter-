@@ -1,11 +1,12 @@
 header {
 
     padding: 15px;
+    background-color: transparent;
     
     &.scrolled {
-        box-shadow: 0px 10px 20px rgba(0,0,0,0.03);
-        transition: background 0.2s ease-in-out;
-        background: $headerbg;
+        box-shadow: -3px -3px 6px 8px rgba(0,0,0,.05);
+        background-color: $headerbg;
+        transition: background-color 0.5s ease-in-out;
     }
 
     // First section extra padding to accommodate header
@@ -19,7 +20,7 @@ header {
     transition: filter 0.2s ease-in-out, width 0.2s ease-in-out;
 
     // Inverts the logo colour. You could use the filter options to modify a transparent png logo for the different colour header bg.
-    filter: invert(1);
+    // filter: invert(1);
 
     // Default to small scrolled size on mobile 
     width: $header-scrolled-width;
@@ -42,8 +43,9 @@ header {
     line-height: 1.2; 
 
     .phone-icon {
-        img {
-            max-width: 25px;
+        img,
+        svg {
+            max-width: 35px;
             width: 100%;
         }
     }

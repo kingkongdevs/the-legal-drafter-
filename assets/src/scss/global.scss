@@ -14,6 +14,9 @@ section {
     @include media-breakpoint-up(lg) {
         padding: 120px 0px;
     }
+    &.less-pad {
+        padding: 60px 0
+    }
 }
 
 // Background Images - positions the background image behind the content in the section
@@ -118,4 +121,8 @@ section {
     @include media-breakpoint-up(lg) {
         max-width: 100%;
     }
+}
+
+.container-fluid {
+    max-width: 1750px;
 }
