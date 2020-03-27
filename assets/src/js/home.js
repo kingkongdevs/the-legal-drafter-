@@ -41,8 +41,8 @@
         dots: true,
         autoplay: true,
         autoplaySpeed: 5000,
-        prevArrow: $('.testimonial-prev'),
-        nextArrow: $('.testimonial-next')
+        prevArrow: $('.testimonials .prev-arrow'),
+        nextArrow: $('.testimonials .next-arrow')
     });
 
     // Gallery Slider
@@ -51,8 +51,8 @@
         slidesToScroll: 1,
         speed: 600,
         fade: true,
-        prevArrow: $('.gallery-prev'),
-        nextArrow: $('.gallery-next'),
+        prevArrow: $('.gallery .prev-arrow'),
+        nextArrow: $('.gallery .next-arrow'),
         asNavFor: '.gallery .slider-controls'
     });
     $('.gallery .slider-controls').slick({
@@ -72,8 +72,8 @@
         slidesToScroll: 1,
         lazyLoad: 'progressive',
         speed: 600,
-        prevArrow: $('.video-prev'),
-        nextArrow: $('.video-next'),
+        prevArrow: $('.video-gallery .prev-arrow'),
+        nextArrow: $('.video-gallery .next-arrow'),
         fade: true,
         asNavFor: '.video-gallery .slider-controls'
     }).on('beforeChange', function(event, slick, currentSlide, nextSlide){

@@ -50,6 +50,13 @@ form {
             margin: auto;
             background-repeat: no-repeat;
             background-position: center center;
+            i {
+                font-family: 'Font Awesome 5 Free';
+                font-size: 25px;
+                line-height: 1;
+                font-style: normal;
+                color: $primary;
+            }
             @include media-breakpoint-up(sm) {
                 left: 25px;
             }
