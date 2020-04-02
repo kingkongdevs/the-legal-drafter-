@@ -8,8 +8,6 @@ form {
         padding: 20px 15px 20px 50px;
         box-shadow: 1px 1px 10px rgba(0,0,0,0.1);
         border: none;
-        margin-bottom: 10px;
-        border: none;
         margin-bottom: 15px;
         border-radius: 5px;
         font-size: 1rem;
@@ -28,10 +26,15 @@ form {
         height: 210px !important;
     }
 
+    select {
+        appearance: none;
+    }
+
     label {
         position: relative;
         width: 100%;
         margin-bottom: 0;
+        line-height: 1;
         &.error {
             display: block;
             margin-bottom: 20px;

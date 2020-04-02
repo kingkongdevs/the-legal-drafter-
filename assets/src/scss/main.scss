@@ -3,7 +3,6 @@
 @import 'mixins';
 
 // Comment these out if you're not using the following elements. All are enabled by default...
-@import 'accordion'; // Styles for FAQ accordion
 
 /* purgecss start ignore */
 @import 'vendor/slick.scss'; // Default slick styles
@@ -16,18 +15,20 @@
 @import 'header';
 @import 'footer';
 @import 'home';
-@import 'animation';
 @import 'button';
 @import 'form';
-@import 'ebook';
+@import 'animation';
+@import 'accordion';
 @import 'table';
 @import 'checklist';
 @import 'steps';
 
+// Additional Pages
+// @import 'ebook-page';
+
+// @import 'thank-you-page';
+
 // @import 'multi-step-form';
 // @import 'questionnaire-page';
 
-// Additional Pages
-@import 'ebook-page';
-@import 'thank-you-page';
 /* purgecss end ignore */
