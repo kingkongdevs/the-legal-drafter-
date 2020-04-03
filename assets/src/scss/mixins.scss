@@ -8,11 +8,3 @@
         -moz-osx-font-smoothing: auto;
     }
 }
-
-@function px($size){
-	@return #{ $size * strip-unit($root-font-size)}px;
-}
-
-@function strip-unit($num) {
-  @return $num / ($num * 0 + 1);
-}
