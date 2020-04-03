@@ -153,7 +153,7 @@
     display: flex;
     justify-content: center;
     margin: 0;
-    padding: 1rem 0;
+    padding: 2rem 0;
     list-style-type: none;
 
     li {
@@ -162,10 +162,10 @@
 
     button {
         display: block;
-        width: 1rem;
-        height: 1rem;
+        width: 2rem;
+        height: 2rem;
         padding: 0;
-        border: 1px solid $slick-active-dot-color;
+        border: 2px solid $slick-active-dot-color;
         border-radius: 50%;
         background-color: $slick-dot-color !important;
         text-indent: -9999px;
@@ -174,5 +174,4 @@
     li.slick-active button {
         background-color: $slick-active-dot-color !important;
     }
-
 }

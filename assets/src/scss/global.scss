@@ -126,3 +126,12 @@ section {
 .container-fluid {
     max-width: 1750px;
 }
+
+.color {
+    &-primary {
+        color: $primary;
+    }
+    &-secondary {
+        color: $secondary;
+    }
+}
