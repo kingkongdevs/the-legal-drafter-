@@ -4,12 +4,6 @@ const // modules
     gulp = require("gulp"),
     // development mode?
     devBuild = process.env.NODE_ENV !== "production",
-    newer = require("gulp-newer"),
-    imagemin = require("gulp-imagemin"),
-    mozjpeg = require("imagemin-mozjpeg"),
-    pngquant = require("imagemin-pngquant"),
-    imageminSvgo = require("imagemin-svgo"),
-    imageminGifsicle = require("imagemin-gifsicle"),
     sourcemaps = require("gulp-sourcemaps"),
     sass = require("gulp-sass"),
     autoprefixer = require("autoprefixer"),
@@ -19,39 +13,58 @@ const // modules
     rollup = require("gulp-better-rollup"),
     uglify = require("gulp-uglify"),
     browserSync = require("browser-sync").create(),
-
+    imagemin = require('gulp-imagemin'),
+    imageminMozjpeg = require('imagemin-mozjpeg'),
+    imageResize = require('gulp-image-resize'),
+    rename = require('gulp-rename'),
 
     // Environment (mamp, valet or static)
-    localEnv = "static",
+    localEnv = "valet",
     // If valet, username:
-    userName = "your-name",
+    userName = "Lance",
     // If valet, site name:
-    siteName = "your-site-name",
+    siteName = "html-boilerplate",
 
-    
     // Folders
     src = "assets/src/",
     build = "assets/prod/";
-// Image processing
-function images() {
-    const out = build + "images/";
 
-    return gulp
-        .src(src + "images/**/*")
-        .pipe(newer(out))
-        .pipe(
-            imagemin([
-                pngquant({ quality: [0.6, 0.6] }),
-                mozjpeg({ quality: 60 }),
-                imageminSvgo({
-                    plugins: [{ removeViewBox: true }, { cleanupIDs: false }]
+
+function imagesResponsive() {
+    const sizes = [
+        { width: 320, quality: 40, suffix: 'small' },
+        { width: 480, quality: 60, suffix: 'medium' },
+        { width: 800, quality: 80, suffix: 'large' },
+        { width: 1200, quality: 80, suffix: 'extra-large' },
+        { width: 2000, quality: 80, suffix: 'cover' }
+    ];
+    let stream;
+    sizes.forEach((size) => {
+        stream = gulp
+            .src(src + "images/**/*")
+            .pipe(imageResize({ width: size.width }))
+            .pipe(
+                rename((path) => {
+                    path.basename += `-${size.suffix}`;
                 }),
-                imageminGifsicle({ interlaced: true })
-            ])
-        )
-        .pipe(gulp.dest(out));
+            )
+            .pipe(
+                imagemin(
+                    [
+                        imageminMozjpeg({
+                            quality: size.quality,
+                        }),
+                    ],
+                    {
+                        verbose: true,
+                    },
+                ),
+            )
+            .pipe(gulp.dest(build + "images/"));
+    });
+    return stream;
 }
-exports.images = images;
+exports.imagesResponsive = imagesResponsive;
 
 // JavaScript processing
 function js() {
@@ -70,7 +83,8 @@ function js() {
         )
         .pipe(uglify())
         .pipe(sourcemaps.write("./"))
-        .pipe(gulp.dest(build + "js/"));
+        .pipe(gulp.dest(build + "js/"))
+        .pipe(browserSync.reload({ stream: true }));
 }
 exports.js = js;
 
@@ -102,14 +116,11 @@ exports.css = css;
 
 // html processing
 function html() {
-    gulp.task("html", function() {
-        return gulp.src(["**/*.html", "**/*.php"]);
-    });
+    return gulp
+        .src(["**/*.html", "**/*.php", "!**/node_modules/**"])
+        .pipe(browserSync.reload({ stream: true }));
 }
-exports.html = gulp.series(html, css);
-
-// run all tasks
-exports.build = gulp.parallel(exports.css, exports.js, exports.images);
+exports.html = html;
 
 // production build for CSS
 function prodCSS() {
@@ -126,8 +137,7 @@ function prodCSS() {
         .pipe(
             postcss([
                 purgecss({ content: ["**/*.html", "**/*.php"] }),
-                autoprefixer(),
-                cssnano
+                autoprefixer()
             ])
         )
         .pipe(gulp.dest(build + "css/"));
@@ -149,10 +159,11 @@ function prodJS() {
         .pipe(uglify())
         .pipe(gulp.dest(build + "js/"));
 }
-exports.prod = gulp.series(prodCSS, prodJS, images);
+exports.prod = gulp.series(prodCSS, prodJS, imagesResponsive);
 
 // watch for file changes
 function watch(done) {
+
     if (localEnv === "valet") {
         browserSync.init({
             tunnel: false,
@@ -187,21 +198,23 @@ function watch(done) {
     }
 
     // html changes
-    gulp.watch(["**/*.html", "**/*.php"], html).on("change",browserSync.reload);
+    gulp.watch(["**/*.html", "**/*.php"], gulp.series(exports.html, exports.css));
 
     // image changes
-    gulp.watch(src + "images/**/*", images).on("change", browserSync.reload);
+    gulp.watch(src + "images/**/*", imagesResponsive);
 
     // css changes
     gulp.watch(src + "scss/**/*", css);
 
     // js changes
-    gulp.watch(src + "js/**/*", js).on("change", browserSync.reload);
+    gulp.watch(src + "js/**/*", js);
 
     done();
 }
-
 exports.watch = watch;
+
+// run all tasks
+exports.build = gulp.parallel(exports.css, exports.js, exports.imagesResponsive);
 
 // default task
 exports.default = gulp.series(exports.build, exports.watch);

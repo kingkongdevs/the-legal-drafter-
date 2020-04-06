@@ -4,6 +4,7 @@ This repository contains all you will need to get started with a static site (La
 ## Requirements
   * NPM ([Installing NPM](https://www.npmjs.com/get-npm))
   * Gulp ([Installing Gulp](https://gulpjs.com/docs/en/getting-started/quick-start))
+  * GraphicsMagick or ImageMagick ([Installing GraphicsMagick](http://www.graphicsmagick.org/)) ([Installing ImageMagick](https://imagemagick.org/index.php))
 
 ## Installation
 Once downloaded, you will want to place all files in an empty working directory of your choice. Then you will need to navigate to that location in Terminal and install the dependancies with the following command.
