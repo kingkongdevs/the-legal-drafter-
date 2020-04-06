@@ -51,9 +51,28 @@ Now that the structure is explained, the rest is fairly self explanatory. For st
 
 For scripts, `home.js` contains all the scripts needed for the home page, `ebook.js` contains anything needed specifically for the ebook page and `main.js` joins everything, including vendor scripts together.
 
-## Known Common Issues
-  * We are using [PurgeCSS](https://www.purgecss.com/) as part of our build process. What this does is it scrapes through all the template files and only includes CSS in the compiled CSS file that is actually used in the templates. This can have issues in cases where you or a plugin is adding classes into the templates at run-time via scripts. A good example of this is Slick Slider which adds many classes. In order to get around this you will see in `main.scss` I have wrapped a few of the imports (including Slick) with some special tags which instruct PurgeCSS to include everything within these files.
-  * Autoreloading, while helpful can run into some confusing cache issues where even though the page is refreshing, your JS changes are not being reflected. We are working on fixing up our gulpfile to do this automatically, but for now sometimes you may just need to do a manual hard-refresh to see script changes.
+### Images
+First things first, if you haven't already, be sure to have installed ImageMagick or GraphicsMagick (installation instruction URLs are in the Requirements section) and have available in your PATH.
+
+We use a series of tools in order to generate responsive and optimised images. The workflow for the developer should simply be to move an image into the `assets/src/images` directory. From there our gulp script will generate a series of images with identifying suffixes. 
+
+For example, if you drop `hero.jpg` into the `assets/src/images` folder you will see that the following gets generated out in the `assets/prod/images` folder:
+
+`hero-small.jpg`,
+`hero-medium.jpg`,
+`hero-large.jpg`,
+`hero-extra-large.jpg`,
+`hero-cover.jpg`
+
+As the developer, you shouldn't have to worry about these. All you need to do is make sure your image markup looks like the following:
+
+`<img class="lazyload" data-sizes="auto" data-original-src="./assets/prod/images/hero.jpg">`
+
+Now, there are a couple of things to note about this. Firstly, the class of `lazyload` is crucial, as this is the trigger for us to retreive the generated images, and also the trigger for us to workout the most appropriate size.
+
+The `data-sizes="auto"` attribute tells our script to generate `sizes`. This is important and also something you should never have to alter. Just make sure it is included.
+
+The `data-attribute-src` attribute is to be used in place of the traditional `src` attrubute. You will also notice that in the example I have written above, there is no suffix on the image name even though the path is to the `prod` folder. This is because we use a script in the background that takes that path and retreives all the possible options, in order to write out a full `srcset`.
 
 ## Feedback
 While stable, this framework is being actively worked on and I'm sure there will be some issues that occur on different setups and machines, as well as in situations that haven't been tested. If there are problems you are having with anything explained in this doc. Please report them to us. The goal here is to make the most efficient and effective process possible for everyone so your feedback is really valuable in getting to that point.
