@@ -19,9 +19,9 @@ const // modules
     rename = require('gulp-rename'),
 
     // Environment (mamp, valet or static)
-    localEnv = "mamp",
+    localEnv = "static",
     // If valet, username:
-    userName = "Lance",
+    userName = "Nikita",
     // If valet, site name:
     siteName = "html-boilerplate",
 

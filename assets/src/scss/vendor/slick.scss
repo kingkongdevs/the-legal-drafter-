@@ -126,24 +126,13 @@
     }
     &.prev,
     &.prev-arrow {
-        left: 10px;
+        left: -10px;
         padding-right: 4px;
     }
     &.next,
     &.next-arrow {
-        right: 10px;
+        right: -10px;
         padding-left: 4px;
-    }
-    
-    @media screen and (min-width: 1300px) {
-        &.prev,
-        &.prev-arrow {
-            left: -60px;
-        }
-        &.next,
-        &.next-arrow {
-            right: -60px;
-        }
     }
 }
 

@@ -8,15 +8,6 @@
             offset: 20
         });
 
-        // Lazyload
-        $('.lazyload').Lazy({
-            effect: 'fadeIn',
-            visibleOnly: true,
-            onError: function (element) {
-                console.log('error loading ' + element.data('src'));
-            }
-        });
-
         // Accordion for FAQs (jQuery)
         $('.accordion dt.active').next().slideDown()
 
@@ -132,8 +123,8 @@
             dots: true,
             autoplay: true,
             autoplaySpeed: 5000,
-            prevArrow: $('.testimonials .prev-arrow'),
-            nextArrow: $('.testimonials .next-arrow')
+            prevArrow: $('.testimonials .prev'),
+            nextArrow: $('.testimonials .next')
         });
 
         // Gallery Slider
@@ -142,8 +133,8 @@
             slidesToScroll: 1,
             speed: 600,
             fade: true,
-            prevArrow: $('.gallery .prev-arrow'),
-            nextArrow: $('.gallery .next-arrow'),
+            prevArrow: $('.gallery .prev'),
+            nextArrow: $('.gallery .next'),
             asNavFor: '.gallery .slider-controls'
         });
         $('.gallery .slider-controls').slick({
@@ -163,8 +154,8 @@
             slidesToScroll: 1,
             lazyLoad: 'progressive',
             speed: 600,
-            prevArrow: $('.video-gallery .prev-arrow'),
-            nextArrow: $('.video-gallery .next-arrow'),
+            prevArrow: $('.video-gallery .prev'),
+            nextArrow: $('.video-gallery .next'),
             fade: true,
             asNavFor: '.video-gallery .slider-controls'
         });
