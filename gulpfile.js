@@ -31,18 +31,20 @@ const // modules
 
 
 function imagesResponsive() {
+
     const sizes = [
         { width: 320, quality: 40, suffix: 'small' },
         { width: 480, quality: 60, suffix: 'medium' },
-        { width: 800, quality: 80, suffix: 'large' },
-        { width: 1200, quality: 80, suffix: 'extra-large' },
-        { width: 2000, quality: 80, suffix: 'cover' }
+        { width: 800, quality: 70, suffix: 'large' },
+        { width: 1200, quality: 70, suffix: 'extra-large' },
+        { width: 2000, quality: 70, suffix: 'cover' }
     ];
+
     let stream;
     sizes.forEach((size) => {
         stream = gulp
             .src(src + "images/**/*")
-            .pipe(imageResize({ width: size.width }))
+            .pipe(imageResize({ width: size.width, upscale: false }))
             .pipe(
                 rename((path) => {
                     path.basename += `-${size.suffix}`;
