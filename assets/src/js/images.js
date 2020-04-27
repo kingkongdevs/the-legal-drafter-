@@ -1,3 +1,25 @@
+// if ('NodeList' in window && !NodeList.prototype.forEach) {
+//     console.info('polyfill for IE11');
+//     NodeList.prototype.forEach = function (callback, thisArg) {
+//         thisArg = thisArg || window;
+//         for (var i = 0; i < this.length; i++) {
+//             callback.call(thisArg, this[i], i, this);
+//         }
+//     };
+// }
+
+// var srcsetSupported = "srcset" in document.createElement("img");
+// if(!srcsetSupported){
+//     // srcset not supported, just load the images
+//     $('[data-original-src]').each(function(){
+//         var thissrc = $(this).data('original-src');
+//         thissrc = thissrc.replace(/\.jpg/,'-cover.jpg');
+//         thissrc = thissrc.replace(/\.png/,'-cover.png');
+//         thissrc = thissrc.replace(/\.svg/,'-cover.svg');
+//         $(this).attr('src', thissrc);
+//     });
+// }
+
 document.addEventListener('lazybeforesizes', function(e){
     var sizes = [
         { width: 320, suffix: 'small' },
