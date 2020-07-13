@@ -1,8 +1,8 @@
 //jQuery time
 (function($) {
 
-if ($('body.questionnaire-page') || $('#questionaire-form')) {
-	
+if ($('body.questionnaire-page').length || $('#questionaire-form').length) {
+
 	// Check which CRM is used
 	var form = '';
 	if ($('form .infusion-field').length) {
