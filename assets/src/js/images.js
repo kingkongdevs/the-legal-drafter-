@@ -41,5 +41,7 @@ document.addEventListener('lazybeforesizes', function(e){
         srcsetAttr += imagePath + '-' + size.suffix + imageExtension + ' ' + size.width + 'w, ';
     });
 
+    var src = imagePath + '-cover' + imageExtension;
     $image.attr('data-srcset', srcsetAttr);
+    $image.attr('src', src);
 });
