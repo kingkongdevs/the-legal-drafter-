@@ -46,7 +46,7 @@ if ($('body.questionnaire-page').length || $('#questionaire-form').length) {
 		// multistep form code
 		var current_fs, next_fs, previous_fs; //fieldsets
 		var left, opacity, scale; //fieldset properties which we will animate
-		var checkboxChecked = false, radioChecked = false, textInput = false;
+		var checkboxChecked, radioChecked, textInput;
 	
 		// With radio buttons, no need of next button
 		$("form input[type=radio]").click(function() { 
@@ -55,7 +55,9 @@ if ($('body.questionnaire-page').length || $('#questionaire-form').length) {
 		});
 	
 		$(".next").click(function(){
-			
+			checkboxChecked = false;
+			radioChecked = false;
+			textInput = false;
 			current_fs = $(this).parent();
 			next_fs = $(this).parent().next();
 	
