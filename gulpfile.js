@@ -33,11 +33,11 @@ const // modules
 function imagesResponsive() {
 
     const sizes = [
-        { width: 320, quality: 40, suffix: 'small' },
-        { width: 480, quality: 60, suffix: 'medium' },
-        { width: 800, quality: 70, suffix: 'large' },
-        { width: 1200, quality: 70, suffix: 'extra-large' },
-        { width: 2000, quality: 70, suffix: 'cover' }
+        { width: 320, quality: 60, suffix: 'small' },
+        { width: 480, quality: 70, suffix: 'medium' },
+        { width: 800, quality: 80, suffix: 'large' },
+        { width: 1200, quality: 80, suffix: 'extra-large' },
+        { width: 2000, quality: 80, suffix: 'cover' }
     ];
 
     let stream;
