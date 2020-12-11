@@ -37,7 +37,7 @@ $body-font: 'Averta-regular', sans-serif;
 html, body {
     @include font-smoothing('on');
     font-size: 2rem; //Laptop: 20px, Ipads: 18px, Mobiles: 16px
-    line-height: 1.4;
+    line-height: 1.6;
     font-family: $body-font;
 }
 
@@ -81,6 +81,10 @@ h5, .h5 {
 
 h6, .h6 {
     font-size: 1.8rem;  //Laptop: 18px, Ipads: 16.2px, Mobiles: 14.4px
+}
+
+strong {
+	font-family: $headings-font;
 }
 
 // Hero Specific Font Sizes

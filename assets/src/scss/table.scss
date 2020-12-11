@@ -13,11 +13,12 @@
 			@include media-breakpoint-up(md) {
 				padding: 20px;
 			}
-			i {
-				font-family: 'Font Awesome 5 Free';
-				font-size: 4rem !important;
-				line-height: 1;
-				font-style: normal;
+			img.icon,
+			svg.icon {
+				max-width: 20px;
+				@include media-breakpoint-up(md) {
+					max-width: 30px;
+				}
 			}
 			&.first-column {
 				width: 40%;
@@ -53,26 +54,6 @@
 				&:before {
 					top:-30px;
 					border-radius: 10px 10px 0 0;
-				}
-			}
-		}
-
-		td {
-			img {
-				max-width: 40px;
-				@include media-breakpoint-up(sm) {
-					max-width: 54px;
-				}
-			}
-			&:last-child {
-				img {
-					max-width: 20px;
-					@include media-breakpoint-up(sm) {
-						max-width: 30px;
-					}
-					&.icon-x {
-						max-width: 18px;
-					}
 				}
 			}
 		}

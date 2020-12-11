@@ -7,9 +7,8 @@
     <meta name="description" content="#### DESCRIPTION HERE ####">
 
     <link rel="stylesheet" href="../assets/prod/css/main.css">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
 
+    <!-- Compiled Stylesheet -->
     <title>#### REPLACE ME ####</title>
 </head>
 
@@ -19,17 +18,11 @@
     <div class="container">
         <div class="row justify-content-between align-items-center">
             <div class="header-logo">
-                <img class="lazyload" data-sizes="auto" data-original-src="./assets/prod/images/placeholder.jpg" alt="NAME OF COMPANY">
+                <img class="lazyload view-animation img-fluid" data-sizes="auto" data-original-src="../assets/prod/images/logo.png" alt="NAME OF COMPANY">
             </div>
             <a href="tel:XXXXXXXXXX" class="header-phone d-flex align-items-center">
                 <div class="phone-icon mr-md-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 181.352 181.352" xml:space="preserve">
-                        <path fill="currentColor" d="M169.393,167.37l-14.919,9.848c-9.604,6.614-50.531,14.049-106.211-53.404
-                            C-5.415,58.873,9.934,22.86,17.134,14.555L29.523,1.678c2.921-2.491,7.328-2.198,9.839,0.811l32.583,38.543l0.02,0.02
-                            c2.384,2.824,2.306,7.22-0.83,9.868v0.029l-14.44,10.415c-5.716,5.667-0.733,14.587,5.11,23.204l27.786,32.808
-                            c12.926,12.477,20.009,18.241,26.194,14.118l12.008-13.395c2.941-2.472,7.328-2.169,9.839,0.821l32.603,38.543v0.02
-                            C172.607,160.316,172.519,164.703,169.393,167.37z"/>
-                    </svg>
+                    <img class="view-animation img-fluid" src="../assets/svgs/icon-phone.svg" alt="Icon Phone">
                 </div>
                 <div class="phone-text d-none d-md-flex flex-column">
                     <span>Got Questions?</span>
@@ -64,6 +57,7 @@
                         
                         <ul id="progressbar">
                             <li class="active"></li>
+                            <li></li>
                             <li></li>
                             <li></li>
                             <li></li>
@@ -154,9 +148,28 @@
                             <div class="field-wrapper mb-4">
                                 <!-- Example Dropdown -->
                                 <h3>Question Container 3 - Select</h3>
+                        
+                                <label for="question-4">
+                                    <label for="questions">
+                                    <span class="icon icon-message"><img class="img-fluid view-animation lazyload" data-sizes="auto" data-original-src="../assets/prod/images/icon-message.png" alt="Icon Message"></span>
+                                    <textarea name="question-4" placeholder="Do you have a 4th questions?" ></textarea>
+                                </label>
+                                    
+                                </label>
+                            </div>
+                        
+                            <input class="previous" type="button" value="Previous">
+                            <input class="next" type="button" value="Next">
+                        </fieldset>
+
+                        <!-- STEP 4 CONTAINER -->
+                        <fieldset class="form-group">
+                            <div class="field-wrapper mb-4">
+                                <!-- Example Dropdown -->
+                                <h3>Question Container 4 - Select</h3>
                                 
                                 <label for="select-option">
-                                    <span class='icon icon-message'><i class="far fa-comment-dots"></i></span>
+                                    <span class="icon icon-message"><img class="img-fluid view-animation lazyload" data-sizes="auto" data-original-src="../assets/prod/images/icon-message.png" alt="Icon Message"></span>
                                     <select name="select-option" required>
                                         <option disabled selected> Select the Option </option>
                                         <option value="Option 1"> Option 1 </option>
@@ -173,25 +186,28 @@
                             <input class="next" type="button" value="Next">
                         </fieldset>
                         
-                        <!-- STEP 4 CONTAINER -->
+                        <!-- STEP 5 CONTAINER -->
                         <fieldset class="form-group">
                             <div class="field-wrapper mb-4">
                                 <h3>Question Container 4</h3>
                                 <label for="fullname"> 
-                                    <span class='icon icon-name'><i class="far fa-user"></i></span><input type="text" name="fullname" placeholder="Type your name" required />
+                                    <span class='icon icon-name'><img class="img-fluid view-animation lazyload" data-sizes="auto" data-original-src="../assets/prod/images/icon-username.png" alt="Icon User"></span>
+                                    <input type="text" name="fullname" placeholder="Type your name" required />
                                 </label>
                             
                                 <label for="email">
-                                    <span class='icon icon-email'><i class="far fa-envelope"></i></span><input type="text" name="email" placeholder="Type your email" required />
+                                    <span class='icon icon-email'><img class="img-fluid view-animation lazyload" data-sizes="auto" data-original-src="../assets/prod/images/icon-email.png" alt="Icon Email"></span>
+                                    <input type="text" name="email" placeholder="Type your email" required />
                                 </label>
                             
                                 <label for="phone">
-                                
-                                    <span class='icon icon-phone'><i class="fas fa-mobile-alt"></i></span><input type="text" name="phone" placeholder="Type your phone number" required />
+                                    <span class="icon icon-phone"><img class="img-fluid view-animation lazyload" data-sizes="auto" data-original-src="../assets/prod/images/icon-phone.png" alt="Icon Phone"></span>
+                                    <input type="text" name="phone" placeholder="Type your phone number" required />
                                 </label>
     
                                 <label for="questions">
-                                    <span class='icon icon-message'><i class="far fa-comment-dots"></i></span><textarea name="questions" placeholder="Do you have any other questions?" ></textarea>
+                                    <span class="icon icon-message"><img class="img-fluid view-animation lazyload" data-sizes="auto" data-original-src="../assets/prod/images/icon-message.png" alt="Icon Message"></span>
+                                    <textarea name="questions" placeholder="Do you have any other questions?" ></textarea>
                                 </label>
 
                                 <div class="btn-contianer">
@@ -208,16 +224,18 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 </section>
 
-<footer>
+<!-- Footer - King Kong Tag -->
+<footer class="bg-dark text-white">
     <div class="container">
         <div class="row text-center">
-            <div class="col-12 text-white py-2">
-                <p class="mb-0">Landing Page & Digital Marketing by <a href="https://kingkong.com.au">King Kong</a></p>
+            <div class="col-12 py-4">
+                <p class="mb-0">Landing Page & Digital Marketing by King Kong</p>
             </div>
         </div>
     </div>
 </footer>
 
-    <script type="text/javascript" src="../assets/prod/js/main.js"></script>
+<!-- Custom Scripts -->
+<script type="text/javascript" src="../assets/prod/js/main.js"></script>
 </body>
 </html>

@@ -116,23 +116,30 @@
     height: 50px;
     border-radius: 50%;
     background: $slick-active-dot-color;
+    transition: .4s;
     cursor: pointer;
 
     // Positions the arrow center inside the cirlce:
-    svg {
+    svg,
+    img {
         width: 25px;
         height: 25px;
-        fill: white
     }
     &.prev,
     &.prev-arrow {
-        left: -10px;
+        left: 0;
         padding-right: 4px;
+        &:hover {
+            left: -10px;
+        }
     }
     &.next,
     &.next-arrow {
-        right: -10px;
+        right: 0;
         padding-left: 4px;
+        &:hover {
+            right: -10px;
+        }
     }
 }
 
