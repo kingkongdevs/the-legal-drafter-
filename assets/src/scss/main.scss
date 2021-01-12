@@ -1,11 +1,12 @@
 @import 'variables'; // Change these defaults to match your page style
 @import 'vendor/bootstrap/bootstrap';
+@import 'vendor/swiper-bundle.min.css.scss';
 @import 'mixins';
 
 // Comment these out if you're not using the following elements. All are enabled by default...
 
 /* purgecss start ignore */
-@import 'vendor/slick.scss'; // Default slick styles
+@import 'swiper-slider'; // Default swiper styles
 /* purgecss end ignore */
 
 // Default Styles
@@ -24,6 +25,7 @@
 @import 'table';
 @import 'countdown-timer';
 @import 'flipclock-timer';
+@import 'product';
 
 // Additional Pages
 // @import 'ebook-page';

@@ -45,7 +45,7 @@
                 deadline = new Date(Date.parse(new Date()) + (countHours * 60 * 60 * 1000) + (countMinuts * 60 * 1000) + (countSeconds * 1000));
 
             document.querySelectorAll('.flipclock-timer').forEach(function (selected, index) {
-                var clock = new Clock(deadline, function(){ alert('countdown complete') });
+                var clock = new Clock(deadline, function(){ console.log('countdown complete') });
                 selected.appendChild(clock.el);
             });
         }

@@ -41,115 +41,119 @@
 
         }, 2000)
 
-        // Slick Slider (jQuery) - Remove these if not in use 
-        $('.testimonials .slider').slick({
-            infinite: true,
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            speed: 600,
-            dots: false,
-            autoplay: true,
-            autoplaySpeed: 5000,
-            prevArrow: $('.testimonials .prev'),
-            nextArrow: $('.testimonials .next')
-        });
+       // get all sliders, we need to loop them due to different settings + nav
+        var swipers = document.querySelectorAll('.swiper-container:not(.control):not(.mobile)');
+        swipers.forEach(function(el,index){
+            var closestSection = el.closest('section');
+            var controls = closestSection.querySelector('.control');
 
-        // Gallery Slider
-        $('.gallery .slider').slick({
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            speed: 600,
-            fade: true,
-            prevArrow: $('.gallery .prev'),
-            nextArrow: $('.gallery .next'),
-            asNavFor: '.gallery .slider-controls'
-        });
-        $('.gallery .slider-controls').slick({
-            slidesToShow: 4,
-            slidesToScroll: 1,
-            asNavFor: '.gallery .slider',
-            arrows: false,
-            dots: false,
-            centerMode: true,
-            focusOnSelect: true,
-            infinit: true
-        });
+            // slider settings
+            var options = {
+                speed: 600,
+                loop: true,
+                autoplay: {
+                    delay: 5000,
+                    disableOnInteraction: true,
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                thumbs:{},
+            };
 
-        // Gallery Slider
-        $('.video-gallery .slider').slick({
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            speed: 600,
-            prevArrow: $('.video-gallery .prev'),
-            nextArrow: $('.video-gallery .next'),
-            fade: true,
-            asNavFor: '.video-gallery .slider-controls'
-        });
+            // For gallery sliders
+            if(controls){
+                options.thumbs.swiper = new Swiper(controls, {
+                    speed: 600,
+                    loop: true,
+                    slidesPerView: 4,
+                    spaceBetween: 10,
+                    freeMode: true,
+                    centeredSlides: true,
+                    watchSlidesVisibility: true,
+                    watchSlidesProgress: true,
+                    autoplay: {
+                        delay: 5000,
+                        disableOnInteraction: true,
+                    },
+                    breakpoints: {
+                        320: {
+                            slidesPerView: 2
+                        },
+                        480: {
+                            slidesPerView: 3
+                        },
+                        640: {
+                            slidesPerView: 4
+                        }
+                    }
+                });
+            }
 
-        $('.video-gallery .slider-controls').slick({
-            slidesToShow: 4,
-            slidesToScroll: 1,
-            asNavFor: '.video-gallery .slider',
-            arrows: false,
-            dots: false,
-            centerMode: true,
-            focusOnSelect: true,
-            infinit: true
+            // init slider
+            new Swiper(el, options);
         });
     })
 
-    var resizeTimer;
-    $(window).bind('resize load', function () {
+    // mobile sliders, like logo rows etc
+    // need to loop in order to get the slide count
+    var resizeTimer, mobileSwiperSlider = [], mobileSwiperCount;
+    $(window).on('resize load', function () {
         clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(function () {
-            // Responsive slider for blocks section
-            $('.featured-in .slider').not('.slick-initialized').slick({
-                infinite: true,
-                mobileFirst: true,
-                speed: 600,
-                slidesToShow: 1,
-                slidesToScroll: 1,
-                autoplay: true,
-                autoplaySpeed: 5000, 
-                arrows: false,
-                dots: true,
-                responsive: [ 
-                    {
-                        breakpoint: 992, 
-                        settings: 'unslick'
-                    },
-                    {
-                        breakpoint: 768,
-                        settings: {
-                            slidesToShow: 4,
-                        }
-                    },
-                    {
-                        breakpoint: 400,
-                        settings: {
-                            slidesToShow: 2,
-                        }
-                    },
-                ]
-            });
+        mobileSwiperSlider.forEach( function(slider, index) {
+            if (typeof(slider) !== "undefined" ) {
+                slider.destroy();
+            }
+        });
 
-            $('.blocks .slider').not('.slick-initialized').slick({
-                infinite: true,
-                slidesToScroll: 1,
-                mobileFirst: true,
-                speed: 600,
-                autoplay: true,
-                autoplaySpeed: 3000,
-                dots: true,
-                arrows: false,
-                responsive: [
-                    {
-                        breakpoint: 768,
-                        settings: 'unslick'
+        resizeTimer = setTimeout(function () {
+            
+            mobileSwiperCount = 0;
+            var mobileSwipers = document.querySelectorAll('.swiper-container.mobile');
+
+            mobileSwipers.forEach(function(el,index){
+                
+                var slideCount = el.querySelectorAll('.swiper-slide').length;
+    
+                var options = {
+                    speed:600,
+                    slidesPerView: 1,
+                    watchOverflow: true,
+                    loop: true,
+                    simulateTouch: false,
+                    autoplay: {
+                        delay: 5000,
+                        disableOnInteraction: true,
+                    },
+                    pagination:{
+                        el: '.swiper-pagination',
+                        type: 'bullets',
+                        clickable: true
+                    },
+                    breakpoints: {
+                        576 : {
+                            slidesPerView: 2
+                        },
+                        768 : {
+                            slidesPerView: 4
+                        },
+                        992: {
+                            slidesPerView: slideCount,
+                            loop: false,
+                        }
                     }
-                ]
+                };
+    
+                // init slider
+                mobileSwiperSlider[mobileSwiperCount] = new Swiper(el, options);
+                mobileSwiperCount++;
             });
-        }, 500)
+        }, 500);
     })
 
     // Sticky Header
