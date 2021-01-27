@@ -927,90 +927,161 @@
         </div>
 
         <div class="row justify-content-center">
-            <div class="col-12 tabs-container px-0">
-                <ul id="tabs" class="nav nav-tabs d-flex justify-content-between align-items-center text-center">
-                    <li class="nav-item">
-                        <a href="" data-target="#product-description" data-toggle="tab" class="nav-link text-uppercase p-3 active">Description</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="" data-target="#product-specs" data-toggle="tab" class="nav-link text-uppercase p-3">Specs</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="" data-target="#product-downloads" data-toggle="tab" class="nav-link text-uppercase p-3">Downloads</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="" data-target="#product-accessories" data-toggle="tab" class="nav-link text-uppercase p-3">Accessories</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="" data-target="#product-shipping" data-toggle="tab" class="nav-link text-uppercase p-3">Shipping</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="" data-target="#product-reviews" data-toggle="tab" class="nav-link text-uppercase p-3">Reviews</a>
-                    </li>
-                </ul>
-                <div id="tabsContent" class="tab-content">
-                    <div id="product-description" class="tab-pane active show p-4 p-md-5">
-                        <ul class="styled-list">
-                            <li class="d-flex align-items-center">
-                                <img class="view-animation img-fluid mr-4 mt-2" src="assets/svgs/icon-check.svg" alt="Icon check"> Combi machine equipped with a "Fresh Cut" and Cutter equipment with all the parts in contact with food removable and dishwasher safe.
-                            </li>
-                            <li class="d-flex align-items-center">
-                                <img class="view-animation img-fluid mr-4 mt-2" src="assets/svgs/icon-check.svg" alt="Icon check"> Delivered with: 2,5 liter cutter bowl in stainless steel with smooth edge “S” blade included;&nbsp;All plastic vegetable prep attachment with a half moon hopper and a cylindrical hopper;
-                            </li>
-                            <li class="d-flex align-items-center">
-                                <img class="view-animation img-fluid mr-4 mt-2" src="assets/svgs/icon-check.svg" alt="Icon check"> 4 discs included: TD2 2mm slicing disc, TD3 3mm slicing disc, RD2 2mm grating disc, ED2 2mm shredding disc
-                            </li>
-                        </ul>
-                    </div>
-                    <div id="product-specs" class="tab-pane fade p-5">
-                        <ul class="styled-list">
-                            <li class="d-flex align-items-center">
-                                <img class="view-animation img-fluid mr-4 mt-2" src="assets/svgs/icon-check.svg" alt="Icon check"> Electric - Supply voltage: 220-240 V/1N ph/50Hz
-                            </li>
-                            <li class="d-flex align-items-center">
-                                <img class="view-animation img-fluid mr-4 mt-2" src="assets/svgs/icon-check.svg" alt="Icon check"> Electrical Power max: 0.37 kW Total
-                            </li>
-                            <li class="d-flex align-items-center">
-                                <img class="view-animation img-fluid mr-4 mt-2" src="assets/svgs/icon-check.svg" alt="Icon check"> Watts: 0.37 kW
-                            </li>
-                            <li class="d-flex align-items-center">
-                                <img class="view-animation img-fluid mr-4 mt-2" src="assets/svgs/icon-check.svg" alt="Icon check"> Capacity:
-                            </li>
-                        </ul>
-                    </div>
-                    <div id="product-downloads" class="tab-pane fade p-5">
-                        <p><a href="" target="_blank"> Data sheet</a></p>
-                        <p><a href="" target="_blank">Range Catalogue</a></p>
-                    </div>
-                    <div id="product-accessories" class="tab-pane fade p-5">
-                        <a href="">See all compatible accessories here.</a>
-                    </div>
-                    <div id="product-shipping" class="tab-pane fade p-5">
-                        <p><span>You can find our&nbsp;</span><span>Shipping Policy&nbsp;</span><span></span><a href="" data-mce-href="">here</a></p>
-                    </div>
-                    <div id="product-reviews" class="tab-pane fade ">
-                        <div class="p-5">
-                            <div class="review-header">
-                                <h4 class="mb-4">Customer Reviews</h4>
-                            </div>
-                            <div class="review-content py-4">
-                                <h5 class="d-block spr-review-header-title mb-0">Looks Great!</h5>
-                                <span class="d-block spr-review-header-byline"><strong>Lance</strong> on <strong>Aug 24, 2020</strong></span>
-                                <div class="d-block">
-                                    <p class="mb-0">Would recommend, very good!</p>
+            <div class="col-12">
+                <div class="tabs-container">
+                    <ul id="tabs" class="nav nav-tabs d-flex justify-content-between align-items-center text-center">
+                        <li class="nav-item">
+                            <a href="" data-target="#product-description" data-toggle="tab" class="nav-link text-uppercase p-3 active">Description</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="" data-target="#product-specs" data-toggle="tab" class="nav-link text-uppercase p-3">Specs</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="" data-target="#product-downloads" data-toggle="tab" class="nav-link text-uppercase p-3">Downloads</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="" data-target="#product-accessories" data-toggle="tab" class="nav-link text-uppercase p-3">Accessories</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="" data-target="#product-shipping" data-toggle="tab" class="nav-link text-uppercase p-3">Shipping</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="" data-target="#product-reviews" data-toggle="tab" class="nav-link text-uppercase p-3">Reviews</a>
+                        </li>
+                    </ul>
+                    <div id="tabsContent" class="tab-content">
+                        <div id="product-description" class="tab-pane active show p-4 p-md-5">
+                            <ul class="styled-list">
+                                <li class="d-flex align-items-center">
+                                    <img class="view-animation img-fluid mr-4 mt-2" src="assets/svgs/icon-check.svg" alt="Icon check"> Combi machine equipped with a "Fresh Cut" and Cutter equipment with all the parts in contact with food removable and dishwasher safe.
+                                </li>
+                                <li class="d-flex align-items-center">
+                                    <img class="view-animation img-fluid mr-4 mt-2" src="assets/svgs/icon-check.svg" alt="Icon check"> Delivered with: 2,5 liter cutter bowl in stainless steel with smooth edge “S” blade included;&nbsp;All plastic vegetable prep attachment with a half moon hopper and a cylindrical hopper;
+                                </li>
+                                <li class="d-flex align-items-center">
+                                    <img class="view-animation img-fluid mr-4 mt-2" src="assets/svgs/icon-check.svg" alt="Icon check"> 4 discs included: TD2 2mm slicing disc, TD3 3mm slicing disc, RD2 2mm grating disc, ED2 2mm shredding disc
+                                </li>
+                            </ul>
+                        </div>
+                        <div id="product-specs" class="tab-pane fade p-5">
+                            <ul class="styled-list">
+                                <li class="d-flex align-items-center">
+                                    <img class="view-animation img-fluid mr-4 mt-2" src="assets/svgs/icon-check.svg" alt="Icon check"> Electric - Supply voltage: 220-240 V/1N ph/50Hz
+                                </li>
+                                <li class="d-flex align-items-center">
+                                    <img class="view-animation img-fluid mr-4 mt-2" src="assets/svgs/icon-check.svg" alt="Icon check"> Electrical Power max: 0.37 kW Total
+                                </li>
+                                <li class="d-flex align-items-center">
+                                    <img class="view-animation img-fluid mr-4 mt-2" src="assets/svgs/icon-check.svg" alt="Icon check"> Watts: 0.37 kW
+                                </li>
+                                <li class="d-flex align-items-center">
+                                    <img class="view-animation img-fluid mr-4 mt-2" src="assets/svgs/icon-check.svg" alt="Icon check"> Capacity:
+                                </li>
+                            </ul>
+                        </div>
+                        <div id="product-downloads" class="tab-pane fade p-5">
+                            <p><a href="" target="_blank"> Data sheet</a></p>
+                            <p><a href="" target="_blank">Range Catalogue</a></p>
+                        </div>
+                        <div id="product-accessories" class="tab-pane fade p-5">
+                            <a href="">See all compatible accessories here.</a>
+                        </div>
+                        <div id="product-shipping" class="tab-pane fade p-5">
+                            <p><span>You can find our&nbsp;</span><span>Shipping Policy&nbsp;</span><span></span><a href="" data-mce-href="">here</a></p>
+                        </div>
+                        <div id="product-reviews" class="tab-pane fade ">
+                            <div class="p-5">
+                                <div class="review-header">
+                                    <h4 class="mb-4">Customer Reviews</h4>
                                 </div>
-                            </div>
-                            <hr>
-                            <div class="review-content py-4">
-                                <h5 class="d-block spr-review-header-title mb-0">Great!</h5>
-                                <span class="d-block spr-review-header-byline"><strong>Lance</strong> on <strong>Aug 24, 2020</strong></span>
-                                <div class="d-block">
-                                    <p class="mb-0">Would recommend, very good!</p>
+                                <div class="review-content py-4">
+                                    <h5 class="d-block spr-review-header-title mb-0">Looks Great!</h5>
+                                    <span class="d-block spr-review-header-byline"><strong>Lance</strong> on <strong>Aug 24, 2020</strong></span>
+                                    <div class="d-block">
+                                        <p class="mb-0">Would recommend, very good!</p>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="review-content py-4">
+                                    <h5 class="d-block spr-review-header-title mb-0">Great!</h5>
+                                    <span class="d-block spr-review-header-byline"><strong>Lance</strong> on <strong>Aug 24, 2020</strong></span>
+                                    <div class="d-block">
+                                        <p class="mb-0">Would recommend, very good!</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Popup Section -->
+<section class="popup-section bg-light">
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <button type="button" class="close position-absolute" data-dismiss="modal" aria-label="Close">
+            <img class="view-animation img-fluid icon animated" src="assets/svgs/icon-cross.svg" alt="Icon cross">
+        </button>
+        <div class="modal-dialog modal-dialog-centered mx-auto" role="document">
+            <div class="modal-content">
+                <div class="modal-header p-5">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Get Free! Instant ACCESS To [HVCO Title]</h5>
+                </div>
+                <div class="modal-body p-5">
+
+                    <ol class="styled-list">
+                        <li class="mb-5">
+                            <p class="mb-0"> <strong>Free Consultation With A Certified Orangetheory Coach:</strong> Sit down with one of our experienced coaches where they’ll breakdown your goals and how to achieve them</p>
+                        </li>
+                        <li class="mb-5">
+                            <p class="mb-0"> <strong>Proven Fat Burning And Muscle Building Routines:</strong> Access to scientific-based training regimes</p>
+                        </li>
+                        <li class="mb-5">
+                            <p class="mb-0"> <strong>FREE BODY SCAN:</strong> A full-body composition scan so you know exactly how much lean muscle you have and how much fat you can lose</p>
+                        </li>
+                        <li class="mb-5">
+                            <p class="mb-0"> <strong>Access To The Studio:</strong> Access to any 3 Orangetheory classes when you try us free for 7-days</p>
+                        </li>
+                        <li class="mb-5">
+                            <p class="mb-0"> <strong>Otbeat Heart Rate Monitor To Use For Free:</strong> You’ll get your very own heart rate monitor to loan for your free week. When you decide to sign up for a membership, you'll get up to 50% off your device!* </p>
+                        </li>
+                    </ol>
+
+                    <div class="form-container">
+                        <form method="POST" action="">
+                            <div class="form-content">
+                                <label for="name-m">
+                                    <span class='icon icon-name'><img class="img-fluid view-animation lazyload" data-sizes="auto" data-original-src="assets/prod/images/icon-username.png" alt="Icon User"></span>
+                                    <input type="text" class="name" name="name" id="name-m" placeholder="Name" required>
+                                </label>
+                                <label for="email-m">
+                                    <span class='icon icon-email'><img class="img-fluid view-animation lazyload" data-sizes="auto" data-original-src="assets/prod/images/icon-email.png" alt="Icon Email"></span>
+                                    <input type="email" class="email" id="email-m" name="email" placeholder="Email" required>
+                                </label>
+                                <div class="btn-section">
+                                    <input type="submit" class="btn btn-primary" value="Submit">
+                                </div>
+                            </div>
+                            <div class="form-messages"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">Launch demo modal</button>
+            </div>
+            <div class="col-md-6">
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">Launch demo modal 2</button>
             </div>
         </div>
     </div>

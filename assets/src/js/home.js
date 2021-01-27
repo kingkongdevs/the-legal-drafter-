@@ -4,7 +4,7 @@
         // Components loading animations
         $('.view-animation').viewportChecker({
             classToAdd: 'animated',
-            offset: 20
+            offset: 80
         });
 
         // Accordion for FAQs (jQuery)
