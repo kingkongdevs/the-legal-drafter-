@@ -1,7 +1,7 @@
 # Force load securely
-RewriteEngine On 
-RewriteCond %{HTTPS} off 
-RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=30
+#RewriteEngine On 
+#RewriteCond %{HTTPS} off 
+#RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=30
 
 ## EXPIRES CACHING ##
 <IfModule mod_expires.c>
