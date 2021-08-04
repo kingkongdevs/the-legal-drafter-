@@ -5,7 +5,7 @@ const // modules
     // development mode?
     devBuild = process.env.NODE_ENV !== "production",
     sourcemaps = require("gulp-sourcemaps"),
-    sass = require("gulp-sass"),
+    sass = require("gulp-sass")(require("node-sass")),
     autoprefixer = require("autoprefixer"),
     cssnano = require("cssnano"),
     postcss = require("gulp-postcss"),
