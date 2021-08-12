@@ -31,7 +31,7 @@
                 options.thumbs.swiper = new Swiper(controls, {
                     speed: 600,
                     loop: true,
-                    slidesPerView: 4,
+                    slidesPerView: 2,
                     spaceBetween: 10,
                     freeMode: true,
                     centeredSlides: true,
@@ -42,13 +42,10 @@
                         disableOnInteraction: true,
                     },
                     breakpoints: {
-                        320: {
-                            slidesPerView: 2
-                        },
-                        480: {
+                        640: {
                             slidesPerView: 3
                         },
-                        640: {
+                        992: {
                             slidesPerView: 4
                         }
                     }
@@ -96,11 +93,8 @@
                         clickable: true
                     },
                     breakpoints: {
-                        576 : {
+                        640 : {
                             slidesPerView: 2
-                        },
-                        768 : {
-                            slidesPerView: 4
                         },
                         992: {
                             slidesPerView: slideCount,
@@ -114,6 +108,24 @@
                 mobileSwiperCount++;
             });
         }, 500);
+    })
+
+    // Load More Gallery eature
+    var hiddenSlides = $('.extended-gallery .swiper-slide.extra-slide');
+    if(!hiddenSlides.length) {
+        $('.load-more-gallery').hide();
+    }
+    $(document).on('click', '.extended-gallery .load-more-gallery', function (event) {
+        hiddenSlides = $('.extended-gallery .swiper-slide.extra-slide');
+        if(hiddenSlides.length <= 3) {
+            $(this).hide();
+        } else {
+            for(var i = 0 ; i < 3 ; i++) {
+                var slide = hiddenSlides[i];
+                $(slide).removeClass('extra-slide');
+                $(slide).fadeIn(500);
+            }
+        }
     })
 
 })( jQuery );

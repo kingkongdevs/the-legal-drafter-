@@ -26,6 +26,11 @@
 		.play-button p {
 			max-width: 100%;
 		}
+		&.extra-slide {
+			@include media-breakpoint-up(lg) {
+				display: none;
+			}
+		}
 	}
 
 	.swiper-pagination {
