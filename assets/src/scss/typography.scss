@@ -65,6 +65,24 @@ h1, .h1 {
 
 h2, .h2 {
     font-size: 4.6rem;  //Laptop: 46px, Ipads: 41.4px, Mobiles: 36.8px
+    padding-top: 3rem;
+    // &::before {
+    //     content: '';
+    //     position: absolute;
+    //     top: 0;
+    //     left: calc(50% - 40px);
+    //     width: 80px;
+    //     height: 1px;
+    //     background: $primary;
+    // }
+    // @include media-breakpoint-up(lg) {
+    //     &.text-lg-left:before {
+    //         left: 0;
+    //     }
+    // }
+    // &.text-white:before {
+    //     background: white;
+    // }
 }
 
 h3, .h3 {
