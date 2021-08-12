@@ -30,7 +30,7 @@ form {
         appearance: none;
     }
 
-    label {
+    .form-group {
         position: relative;
         width: 100%;
         margin-bottom: 0;
@@ -55,7 +55,7 @@ form {
         margin-bottom: 20px;
         margin-top: -10px;
         color: red;
-        font-size: 1.9rem;
+        font-size: 1.5rem;
     }
     .form-messages {
         text-align: center;

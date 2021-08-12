@@ -41,21 +41,23 @@
                 <h1 class="d-none d-lg-block"> Nice And Big Super Sexy And Compelling Headline </h1>
                 <p class="subheadline"> Super compelling and punchy sub headline that is generally slightly lighter in colorthan the headline but not so much. </p>
                 <div class="form-container">
-                    <form method="POST" action="" id="ebook-form">
+                    <form method="POST" action="" id="ebook-form" class="kk-validation">
                         <div class="form-content">
-                            <label for="name">
+                            <div class="form-group">
+                                <label class="sr-only d-none" for="name">Full Name:</label>
                                 <span class='icon icon-name'><img class="img-fluid view-animation lazyload" data-sizes="auto" data-original-src="../assets/prod/images/icon-username.png" alt="Icon User"></span>
                                 <input type="text" class="name" name="name" id="name" placeholder="Name" required />
-                            </label>
-                            <label for="email">
+                            </div>
+                            <div class="form-group">
+                                <label class="sr-only d-none" for="email">Email Address:</label>
                                 <span class='icon icon-email'><img class="img-fluid view-animation lazyload" data-sizes="auto" data-original-src="../assets/prod/images/icon-email.png" alt="Icon Email"></span>
                                 <input type="email" class="email" id="email" name="email" placeholder="Email" required />
-                            </label>
+                            </div>
                             <div class="btn-section">
-                                <input type="submit" class="btn btn-primary" value="Get My Free Ebook"></input>
+                                <input type="submit" class="btn btn-primary" value="Get My Free Ebook">
                             </div>
                         </div>
-                        <div class="form-messages"></div>
+                        <div class="form-messages text-center" data-success="Success! Your eBook is being sent to your inbox!"></div>
                     </form>
                 </div>
             </div>
