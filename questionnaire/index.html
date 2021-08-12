@@ -50,7 +50,7 @@
         </div>
 
         <div class="row justify-content-center">
-            <div class="col-md-10 col-lg-10">
+            <div class="col-md-10">
                 <div class="questionnaire_form-wrapper text-center justify-content-center">
                     
                     <form method="POST" action="" id="questionnaire-form">
@@ -225,7 +225,7 @@
 </section>
 
 <!-- Footer - King Kong Tag -->
-<footer class="bg-dark text-white">
+<footer>
     <div class="container">
         <div class="row text-center">
             <div class="col-12 py-4">
@@ -237,5 +237,28 @@
 
 <!-- Custom Scripts -->
 <script type="text/javascript" src="../assets/prod/js/main.js"></script>
+
+<!-- Lead Library Script -->
+<!-- <script type="text/javascript" src="https://scripts.kingkong.net.au/tracker.min.js"></script> -->
+
+<!-- Active Campaign reCAPTCHA -->
+<!-- <script type="text/javascript" src="https:////www.google.com/recaptcha/api.js?onload=recaptcha_callback&render=explicit"></script>
+<script>
+    window['recaptcha_callback'] = function () {
+        // Get all recaptchas in the DOM (there may be more than one form on the page).
+        var recaptchas = document.getElementsByClassName("g-recaptcha");
+        for (var i in recaptchas) {
+            // Set the recaptcha element ID, so the recaptcha can be applied to each element.
+            var recaptcha_id = "recaptcha_" + i;
+            recaptchas[i].id = recaptcha_id;
+            var el = document.getElementById(recaptcha_id);
+            if (el != null) {
+                var sitekey = el.getAttribute("data-sitekey");
+                var stoken = el.getAttribute("data-stoken");
+                grecaptcha.render(recaptcha_id, { "sitekey": sitekey, "stoken": stoken });
+            }
+        }
+    }
+</script> -->
 </body>
 </html>
