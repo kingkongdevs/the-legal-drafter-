@@ -17,6 +17,9 @@ const // modules
     imageminMozjpeg = require('imagemin-mozjpeg'),
     imageResize = require('gulp-image-resize'),
     rename = require('gulp-rename'),
+    ttf2woff = require('gulp-ttf2woff');
+    ttf2woff2 = require('gulp-ttf2woff2');
+    svgmin = require('gulp-svgmin');
 
     // Environment (mamp, valet or static)
     localEnv = "static",
@@ -29,6 +32,31 @@ const // modules
     src = "assets/src/",
     build = "assets/prod/";
 
+
+function font() {
+
+    let native = gulp
+        .src([src + 'fonts/**/*.{woff,woff2}'])
+    let woff = gulp
+        .src([src + 'fonts/**/*.ttf'])
+        .pipe(ttf2woff())
+        .pipe(gulp.dest(build + "fonts/"));
+    let woff2 = gulp
+        .src([src + 'fonts/**/*.ttf'])
+        .pipe(ttf2woff2())
+        .pipe(gulp.dest(build + "fonts/"));
+
+    return (native, woff, woff2);
+}
+exports.font = font;
+
+function svg() {
+    return gulp
+        .src([src + 'svgs/**/*.svg'])
+        .pipe(svgmin())
+        .pipe(gulp.dest(build + "svgs/"));
+}
+exports.svg = svg;
 
 function imagesResponsive() {
 
@@ -161,7 +189,7 @@ function prodJS() {
         .pipe(uglify())
         .pipe(gulp.dest(build + "js/"));
 }
-exports.prod = gulp.series(prodCSS, prodJS, imagesResponsive);
+exports.prod = gulp.series(prodCSS, prodJS, font, svg, imagesResponsive);
 
 // watch for file changes
 function watch(done) {
@@ -205,18 +233,24 @@ function watch(done) {
     // image changes
     gulp.watch(src + "images/**/*", imagesResponsive);
 
+    // svg changes
+    gulp.watch(src + "svgs/**/*", svg);
+
     // css changes
     gulp.watch(src + "scss/**/*", css);
 
     // js changes
     gulp.watch(src + "js/**/*", js);
 
+    // font changes
+    gulp.watch(src + "fonts/**/*", font);
+
     done();
 }
 exports.watch = watch;
 
 // run all tasks
-exports.build = gulp.parallel(exports.css, exports.js, exports.imagesResponsive);
+exports.build = gulp.parallel(exports.css, exports.js, exports.font, exports.svg, exports.imagesResponsive);
 
 // default task
 exports.default = gulp.series(exports.build, exports.watch);
