@@ -1,7 +1,7 @@
-(function($) {
+window.contentLoaded(window, function (e) {
     //Add your project specific scripts here
     
-})( jQuery );
+});
 
 // Get Current Month Name
 function getCurrentMonth() {
