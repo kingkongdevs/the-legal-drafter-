@@ -1,26 +1,4 @@
-// if ('NodeList' in window && !NodeList.prototype.forEach) {
-//     console.info('polyfill for IE11');
-//     NodeList.prototype.forEach = function (callback, thisArg) {
-//         thisArg = thisArg || window;
-//         for (var i = 0; i < this.length; i++) {
-//             callback.call(thisArg, this[i], i, this);
-//         }
-//     };
-// }
-
-// var srcsetSupported = "srcset" in document.createElement("img");
-// if(!srcsetSupported){
-//     // srcset not supported, just load the images
-//     $('[data-original-src]').each(function(){
-//         var thissrc = $(this).data('original-src');
-//         thissrc = thissrc.replace(/\.jpg/,'-cover.jpg');
-//         thissrc = thissrc.replace(/\.png/,'-cover.png');
-//         thissrc = thissrc.replace(/\.svg/,'-cover.svg');
-//         $(this).attr('src', thissrc);
-//     });
-// }
-
-document.addEventListener('lazybeforesizes', function(e){
+window.contentLoaded(window, function (e) {
     var sizes = [
         { width: 320, suffix: 'small' },
         { width: 480, suffix: 'medium' },
@@ -29,19 +7,48 @@ document.addEventListener('lazybeforesizes', function(e){
         { width: 2000, suffix: 'cover' }
     ];
 
-    var $image = $(e.target);
-    var originalSrc = $image.attr('data-original-src');
+    var webpImages = document.querySelectorAll('[data-original-src]');
 
-    var imagePath = originalSrc.slice(0, originalSrc.lastIndexOf('.'));
-    var imageExtension = originalSrc.slice(originalSrc.lastIndexOf('.'));
+    webpImages.forEach(function(el, index){
+        var $image = el;
+        var originalSrc = $image.getAttribute('data-original-src');
 
-    var srcsetAttr = '';
+        var imagePath = originalSrc.slice(0, originalSrc.lastIndexOf('.'));
+        var imageExtension = originalSrc.slice(originalSrc.lastIndexOf('.'));
+        var extWithoutDot = imageExtension.replace('.','');
 
-    sizes.forEach(function(size){
-        srcsetAttr += imagePath + '-' + size.suffix + imageExtension + ' ' + size.width + 'w, ';
+        var srcsetAttr = '';
+
+        sizes.forEach(function(size){
+            srcsetAttr += imagePath + '-' + size.suffix + '.webp' + ' ' + size.width + 'w, ';
+        });
+
+        var src = imagePath + '-cover.webp';
+
+        // create picture markup
+        var imContainer = document.createElement('picture');
+        var imOrig = document.createElement('source');
+        var imWebp = document.createElement('source');
+
+        // fallback image
+        imOrig.setAttribute('data-srcset', originalSrc);
+        imOrig.setAttribute('type', 'image/'+extWithoutDot);
+
+        // webp image
+        imWebp.setAttribute('data-srcset', srcsetAttr);
+        imWebp.setAttribute('type', 'image/webp');
+
+        $image.removeAttribute('data-original-src');
+        $image.setAttribute('data-src', src);
+        $image.classList.add('lazy');
+
+        imContainer.appendChild(imWebp);
+        imContainer.appendChild(imOrig);
+        imContainer.appendChild($image.cloneNode());
+
+        $image.insertAdjacentElement('afterend',imContainer);
+        $image.remove();
     });
 
-    var src = imagePath + '-cover' + imageExtension;
-    $image.attr('data-srcset', srcsetAttr);
-    $image.attr('src', src);
+    new LazyLoad();
 });

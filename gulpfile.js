@@ -18,6 +18,7 @@ const // modules
     ttf2woff = require('gulp-ttf2woff'),
     ttf2woff2 = require('gulp-ttf2woff2'),
     svgmin = require('gulp-svgmin'),
+    webp = require('gulp-webp'),
 
     // Folders
     src = "assets/src/",
@@ -52,14 +53,15 @@ exports.svg = svg;
 function imagesResponsive() {
 
     const sizes = [
-        { width: 320, quality: 60, suffix: 'small' },
-        { width: 480, quality: 70, suffix: 'medium' },
-        { width: 800, quality: 80, suffix: 'large' },
-        { width: 1200, quality: 80, suffix: 'extra-large' },
-        { width: 2000, quality: 80, suffix: 'cover' }
+        { width: 320, suffix: 'small' },
+        { width: 480, suffix: 'medium' },
+        { width: 800, suffix: 'large' },
+        { width: 1200, suffix: 'extra-large' },
+        { width: 2000, suffix: 'cover' }
     ];
 
     let stream;
+    // responsive sizes for webp
     sizes.forEach((size) => {
         stream = gulp
             .src(src + "images/**/*")
@@ -69,20 +71,27 @@ function imagesResponsive() {
                     path.basename += `-${size.suffix}`;
                 }),
             )
-            .pipe(
-                imagemin(
-                    [
-                        imageminMozjpeg({
-                            quality: size.quality,
-                        }),
-                    ],
-                    {
-                        verbose: true,
-                    },
-                ),
-            )
-            .pipe(gulp.dest(build + "images/"));
+            .pipe(webp())
+            .pipe(gulp.dest(build + "images/"))
     });
+
+    // generate single size for jpg/pngs
+    stream = gulp
+        .src(src + "images/**/*")
+        .pipe(
+            imagemin(
+                [
+                    imageminMozjpeg({
+                        quality: 90,
+                    }),
+                ],
+                {
+                    verbose: true,
+                },
+            ),
+        )
+        .pipe(gulp.dest(build + "images/"));
+
     return stream;
 }
 exports.imagesResponsive = imagesResponsive;
