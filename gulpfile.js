@@ -27,6 +27,7 @@ function font() {
 
     let native = gulp
         .src([src + 'fonts/**/*.{woff,woff2}'])
+        .pipe(gulp.dest(build + "fonts/"));
     let woff = gulp
         .src([src + 'fonts/**/*.ttf'])
         .pipe(ttf2woff())
