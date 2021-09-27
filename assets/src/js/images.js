@@ -32,6 +32,9 @@ window.contentLoaded(window, function (e) {
 
         // fallback image
         imOrig.setAttribute('data-srcset', originalSrc);
+        if(extWithoutDot == 'jpg'){
+            extWithoutDot = 'jpeg'; // safari fix
+        }
         imOrig.setAttribute('type', 'image/'+extWithoutDot);
 
         // webp image
