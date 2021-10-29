@@ -2,7 +2,7 @@
 // Include Fonts Here
 // --------------------
 @font-face {
-    font-family: 'Averta-Regular';
+    font-family: 'Averta';
     src: url('../fonts/Averta-Regular.woff2') format('woff2'),
     url('../fonts/Averta-Regular.woff') format('woff');
     font-weight: normal;
@@ -10,15 +10,15 @@
 }
 
 @font-face {
-    font-family: 'Averta-Bold';
-    src: url('../fonts/Averta-Regular.woff2') format('woff2'),
-    url('../fonts/Averta-Regular.woff') format('woff');
+    font-family: 'Averta';
+    src: url('../fonts/Averta-Bold.woff2') format('woff2'),
+    url('../fonts/Averta-Bold.woff') format('woff');
     font-weight: bold;
     font-style: normal;
 }
 
-$headings-font: 'Averta-Bold', sans-serif;
-$body-font: 'Averta-regular', sans-serif;
+$headings-font: 'Averta', sans-serif;
+$body-font: 'Averta', sans-serif;
 
 // --------------------
 //  Include Basic Typography
