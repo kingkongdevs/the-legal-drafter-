@@ -19,6 +19,7 @@ const // modules
     ttf2woff2 = require('gulp-ttf2woff2'),
     svgmin = require('gulp-svgmin'),
     webp = require('gulp-webp'),
+    zip = require('gulp-zip'),
 
     // Folders
     src = "assets/src/",
@@ -185,6 +186,17 @@ function watch(done) {
     done();
 }
 exports.watch = watch;
+
+// zips up all the files and folders ready for production
+function package() {
+    var date = Math.floor(new Date().getTime() / 1000);
+
+    return gulp
+        .src(["**/*", "!node_modules/**", "!vendor/**", "!package.json", "!gulpfile.js", "!README.md", "!.gitignore", "!assets/src/**", "!*.zip", "!package-lock.json", ".htaccess"])
+        .pipe(zip("offer-"+date+".zip"))
+        .pipe(gulp.dest('.'));
+}
+exports.package = package;
 
 // run all tasks
 exports.build = gulp.parallel(exports.css, exports.js, exports.font, exports.svg, exports.imagesResponsive);

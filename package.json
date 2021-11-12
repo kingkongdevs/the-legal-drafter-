@@ -41,10 +41,11 @@
         "gulp-ttf2woff": "^1.1.1",
         "gulp-ttf2woff2": "^4.0.1",
         "gulp-uglify": "^3.0.2",
+        "gulp-webp": "^4.0.1",
+        "gulp-zip": "^5.1.0",
         "imagemin-mozjpeg": "^9.0.0",
         "node-sass": "^6.0.1",
         "postcss-assets": "^6.0.0",
-        "rollup": "^2.55.1",
-        "gulp-webp": "^4.0.1"
+        "rollup": "^2.55.1"
     }
 }
