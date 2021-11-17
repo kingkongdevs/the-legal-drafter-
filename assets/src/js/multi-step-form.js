@@ -147,6 +147,13 @@ if ($('body.questionnaire-page').length || $('#questionaire-form').length) {
 				easing: 'easeInOutBack'
 			});
 		});
+
+		// stop enter key submitting form
+		document.addEventListener('keydown', function(e) {
+		    if (e.which == '13') {
+		      e.preventDefault();
+		    }
+		});
 	
 		$(".submit").click(function(){
 			return false;
