@@ -2,7 +2,7 @@
     $(window).on('load', function () {
 
        // get all sliders, we need to loop them due to different settings + nav
-        var swipers = document.querySelectorAll('.swiper-container:not(.control):not(.mobile)');
+        var swipers = document.querySelectorAll('.swiper:not(.control):not(.mobile)');
         swipers.forEach(function(el,index){
             var closestSection = el.closest('section');
             var controls = closestSection.querySelector('.control');
@@ -70,43 +70,49 @@
 
         resizeTimer = setTimeout(function () {
             
-            mobileSwiperCount = 0;
-            var mobileSwipers = document.querySelectorAll('.swiper-container.mobile');
+            // only initialise the slider if it is mobile size for mobile sliders
+            mobile = window.matchMedia('(min-width: 0px) and (max-width: 992px)');
 
-            mobileSwipers.forEach(function(el,index){
-                
-                var slideCount = el.querySelectorAll('.swiper-slide').length;
-    
-                var options = {
-                    speed:600,
-                    slidesPerView: 1,
-                    watchOverflow: true,
-                    loop: true,
-                    simulateTouch: false,
-                    autoplay: {
-                        delay: 5000,
-                        disableOnInteraction: true,
-                    },
-                    pagination:{
-                        el: '.swiper-pagination',
-                        type: 'bullets',
-                        clickable: true
-                    },
-                    breakpoints: {
-                        640 : {
-                            slidesPerView: 2
+            if(mobile.matches) {
+                mobileSwiperCount = 0;
+                var mobileSwipers = document.querySelectorAll('.swiper.mobile');
+
+                mobileSwipers.forEach(function(el,index){
+                    
+                    var slideCount = el.querySelectorAll('.swiper-slide').length;
+        
+                    var options = {
+                        speed:600,
+                        slidesPerView: 1,
+                        watchOverflow: true,
+                        loop: true,
+                        simulateTouch: false,
+                        autoplay: {
+                            delay: 5000,
+                            disableOnInteraction: true,
                         },
-                        992: {
-                            slidesPerView: slideCount,
-                            loop: false,
+                        pagination:{
+                            el: '.swiper-pagination',
+                            type: 'bullets',
+                            clickable: true
+                        },
+                        breakpoints: {
+                            640 : {
+                                slidesPerView: 2
+                            },
+                            992: {
+                                slidesPerView: slideCount,
+                                loop: false,
+                            }
                         }
-                    }
-                };
-    
-                // init slider
-                mobileSwiperSlider[mobileSwiperCount] = new Swiper(el, options);
-                mobileSwiperCount++;
-            });
+                    };
+        
+                    // init slider
+                    mobileSwiperSlider[mobileSwiperCount] = new Swiper(el, options);
+                    mobileSwiperCount++;
+                });
+            }
+            
         }, 500);
     })
 
