@@ -1,3 +1,50 @@
 .five_reasons{
-    
+    h2{
+        color:  #fff;
+    }
+    .styled-list{
+        li{
+            background: #FFFFFF;
+            padding: 20px;
+          
+
+            .row{
+                padding: 0px;
+            }
+            .icon{
+                padding: 0;
+                padding-left: 10px;
+                @include media-breakpoint-up(md) {
+                    padding-left: 0px;
+                }
+                svg{
+                    max-width: 40px;
+                    @include media-breakpoint-up(md) {
+                        max-width: 60px;
+                    }
+                }
+            }
+            .text{
+                padding: 0;
+                padding-right: 40px;
+                padding-left: 15px;
+                @include media-breakpoint-up(md) {
+                    padding-left: 0px;
+                }
+                .heading{
+                    font-family: 'Roboto';
+                    color: #95BE3F;
+                    font-size: 18px;
+                    line-height: 24px;
+                    font-weight: 700;
+                }
+                .copy{
+                    color: #192E50;
+                    font-size: 16px;
+                    line-height: 24px;
+                }
+            }
+
+        }
+    }
 }
