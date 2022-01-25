@@ -8,24 +8,27 @@ input[type=submit],
 input[type=button] {
     width: 100%;
     border: 0;
-    border-radius: 5px;
     margin-bottom: 12px;
-    font-size: 2rem;
-    line-height: 1;
+    font-size: 16px;
+    line-height: 18px;
     text-transform: uppercase;
-    letter-spacing: 2px;
-    padding: 20px 10px;
     white-space: normal;
     background: $primary;
     color: #fff;
     transition: background-color .4s ease-in-out;
-    max-width: 410px;
+    max-width: 412px;
+    font-family: 'Gilroy-Bold';
+    padding: 14px 0;
+    
     @include media-breakpoint-up(md) {
-        padding: 30px;
+        padding: 24px 0;
+        line-height: 25px;
     }
+
     &:hover,
     &:focus,
     &:active {
+        border: 0;
         color: #fff;
         background: rgba($primary, .8);
     }
