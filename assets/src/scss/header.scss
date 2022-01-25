@@ -5,6 +5,11 @@ header {
         box-shadow: -3px -3px 6px 8px rgba(0,0,0,.05);
         background-color: $headerbg;
         transition: 0.2s ease-in-out;
+        .header-phone{
+            em{
+                color: #95BE3F;
+            }
+        }
     }
 }
 
@@ -29,10 +34,27 @@ header {
     }
 }
 
-.header-phone {
-    line-height: 1.2; 
+.hero-centered {
+    .underline{
+        text-decoration: underline;
+        text-decoration-color:  #95BE3F;
+    }
+}
+.hero-reviews{
+    padding-top: 22px;
+    max-width: 410px;
+    img{
+        padding: 0 20px;
+        max-width: 200px;
+    }
+}
 
+.header-phone {
+    text-decoration: none !important;
+
+    line-height: 1.2; 
     .phone-icon {
+        padding-right: 10px;
         img,
         svg {
             max-width: 35px;
@@ -41,12 +63,22 @@ header {
     }
 
     // Got questions (if it exists)
-    // span {
-        
-    // }
+    span {
+        font-family: 'Gilroy-Bold';
+        font-size: 16px;
+        line-height: 19px;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: #95BE3F;
+    }
     // Phone number text
     em {
         font-style: normal;
         font-weight: bold;
+        font-size: 22px;
+        line-height: 26px;
+        letter-spacing: -0.02em;
+        color: #FFFFFF;
+        font-family: 'Gilroy-Bold';
     }
 } 

@@ -19,6 +19,7 @@ input[type=button] {
     background: $primary;
     color: #fff;
     transition: background-color .4s ease-in-out;
+    max-width: 410px;
     @include media-breakpoint-up(md) {
         padding: 30px;
     }

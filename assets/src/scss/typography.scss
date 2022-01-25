@@ -21,9 +21,9 @@
 
 @font-face {
     font-family: 'Roboto';
-    src: url('../fonts/Roboto-400.woff2') format('woff2'),
-    url('../fonts/Roboto-400.woff') format('woff');
-    font-weight: 400;
+    src: url('../fonts/Roboto-Medium.woff2') format('woff2'),
+    url('../fonts/Roboto-Medium.woff') format('woff');
+    font-weight: 500;
     font-style: normal;
 }
 
@@ -84,7 +84,15 @@ h6, .h6 {
 }
 
 h1, .h1 {
-    font-size: 5rem;  //Laptop: 50px, Ipads: 45px, Mobiles: 40px
+    // font-size: 5rem;  //Laptop: 50px, Ipads: 45px, Mobiles: 40px
+    color: #FFFFFF;
+    font-weight: 700;
+    font-size: 32px;
+    @include media-breakpoint-up(md) {
+        font-size: 45px;
+        line-height: 117.3%;
+        letter-spacing: -0.04em;
+    }
 }
 
 h2, .h2 {
@@ -159,13 +167,21 @@ strong {
 .eyebrow {
     font-family: 'Roboto';
     font-weight: 700;
-    font-size: 18px;
-    line-height: 21px;
+    font-size: 14px;
+    line-height: 16px;
     letter-spacing: 0.06em;
     text-transform: uppercase;
     color: #95BE3F;
+    margin-top: 25px;
+    @include media-breakpoint-up(md) {
+        font-size: 18px;
+    }
 }
 
 .subheadline {
     font-size: 2.2rem;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 176.5%;
+    color: #FFFFFF;
 }
