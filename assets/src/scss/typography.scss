@@ -182,6 +182,7 @@ strong {
     color: #95BE3F;
     margin-top: 35px;
     @include media-breakpoint-up(md) {
+        margin-top: 50px;
         font-size: 18px;
     }
 }
