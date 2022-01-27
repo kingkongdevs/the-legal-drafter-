@@ -3,6 +3,47 @@
     
     .styled-list{
         max-width: 700px;
+        .dot-wrapper{
+            display: none;
+            @include media-breakpoint-up(md) {
+                display: block;
+                position: absolute;
+                top: 45%;
+                z-index: 10;
+                left: -80px;
+            }
+           
+            .dotted-line-base{
+                position: relative;
+                z-index: 2;
+            }
+            .dotted-line-hoz::after{
+                display: none;
+                @include media-breakpoint-up(md) {
+                    border-top:  1.5px  dashed #C6C6C6;
+                    content: "";
+                    display: block;
+                    width: calc(100% + 50px);
+                    left: 17px;
+                    position: absolute;
+                    z-index: 132;
+                    top: 18px;
+                }
+            }
+            .dotted-line-vert::after{
+                display: none;
+                @include media-breakpoint-up(md) {
+                    border-left:  1.5px  dashed #C6C6C6;
+                    content: "";
+                    display: block;
+                    height: calc(100% + 225px);
+                    left: 15px;
+                    position: absolute;
+                    top: -10px;
+                    z-index: 132;
+                }
+            }
+        }
         li{
             background: #F4F9EC;
             border: 1px solid #95BE3F;
@@ -29,7 +70,7 @@
                 max-width: 500px;
                 .heading{
                     font-size: 30px;
-                    font-family: 'Gilroy-Bold';
+                    font-family: $secondary-heading;
                     font-weight: 700;
                     line-height: 150%;
                     color: #95BE3F;
