@@ -21,6 +21,7 @@ import './video-embeds.js';
 import './view-animation.js';
 import './home.js';
 import './polyfills.js';
+import './bg-click.js';
 
 /** EBOOK PAGE SPECIFIC SCRIPTS **/
 // import './ebook.js';

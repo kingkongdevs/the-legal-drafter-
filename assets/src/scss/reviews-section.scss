@@ -1,3 +1,83 @@
 .reviews-section{
-    
+    background: #192E50;
+    h2{
+        color: #fff;
+    }
+    .quote{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 60px;
+        z-index: 20;
+        @include media-breakpoint-up(sm) {
+            width: 90px;
+            top: 6px;
+            left: 45px;
+        }
+    }
+    .swiper-slide-prev, .swiper-slide-next  {
+        transform: scale(0.8);
+    }
+    .outer-slide{
+        padding: 10px;
+        margin: 15px;
+        @include media-breakpoint-up(md) {
+            margin: 0 40px;
+        }
+        // border: 1px solid blue;
+        .inner-slide{
+            box-shadow: 0px 50px 60px -20px rgba(45, 57, 19, 0.08);
+            // border: 1px solid red;
+            margin: 20px 15px 0 15px;
+            background: #FFFFFF;
+            margin: 0;
+            @include media-breakpoint-up(sm) {
+                margin: 35px 0 0 30px;
+            }
+            .slide-content{
+                padding: 30px 20px;
+                margin-top: 32px;
+                @include media-breakpoint-up(sm) {
+                    padding: 40px;
+                }
+                .stars{
+                    width: 125px;
+                }
+                p{
+                    font-size: 16px;
+                    line-height: 150%;
+                    color: #192E50;
+                }
+                .title{
+                    color: #95BE3F;
+                }
+            }
+        }
+    }
+
+    .swiper-button-next, .swiper-button-prev{
+        position: relative;
+        margin: 0 20px;
+        svg{
+            @include media-breakpoint-up(md) {
+                min-width: 38px;
+            }
+        }
+    }
+    .swiper{
+        overflow: hidden;
+        @include media-breakpoint-up(md) {
+            overflow: inherit;
+        }
+    }
+    .swiper .swiper-slide p {
+        max-width: 100%;
+      }
+    .swiper-button-next {
+        left: 0;
+        right: 0;
+      }
+    .swiper-button-next::after, .swiper-button-prev::after{
+        font-size: 0 !important;
+    }
 }
