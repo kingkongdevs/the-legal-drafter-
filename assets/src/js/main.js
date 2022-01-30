@@ -4,7 +4,7 @@ import './vendor/jquery.min.js';
 import './vendor/jquery.viewportchecker.min.js';
 import './vendor/bootstrap.min.js';
 
-// import './vendor/jquery.validate.min.js';
+import './vendor/jquery.validate.min.js';
 import './vendor/swiper-bundle.min.js';
 import './vendor/lazyload.min.js';
 
