@@ -12,16 +12,16 @@ import './vendor/lazyload.min.js';
 /** CUSTOM SCRIPTS - Pleasedon't forget to comment out the ones you don't need **/
 import './images.js';
 import './timer.js';
-import './accordion.js';
+// import './accordion.js';
 import './phone-concatination.js';
 import './sliders.js';
 import './smooth-scroll.js';
 import './sticky-header.js';
-import './video-embeds.js';
+// import './video-embeds.js';
 import './view-animation.js';
-import './home.js';
-import './polyfills.js';
+// import './polyfills.js';
 import './bg-click.js';
+import './home.js';
 
 /** EBOOK PAGE SPECIFIC SCRIPTS **/
 // import './ebook.js';

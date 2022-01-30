@@ -1,5 +1,6 @@
 window.contentLoaded(window, function (e) {
     //Add your project specific scripts here
+    initForm()
 
 });
 
@@ -16,13 +17,10 @@ function getCurrentMonth() {
 getCurrentMonth();
 
 
-    initForm()
-    var form = document.getElementById("offer-form");
-    console.log(form);
 
 function initForm () {
+    var form = document.getElementById('offer-form')
     
-    console.log('Form Called');
     if (!form) return
 
     $(form).validate({
