@@ -5,7 +5,7 @@
     }
     .quote{
         position: absolute;
-        top: 0;
+        top: 8px;
         left: 0;
         width: 60px;
         z-index: 20;
@@ -20,7 +20,7 @@
     }
     .outer-slide{
         padding: 10px;
-        margin: 15px;
+        margin: 0;
         @include media-breakpoint-up(md) {
             margin: 0 40px;
         }
@@ -35,10 +35,10 @@
                 margin: 35px 0 0 30px;
             }
             .slide-content{
-                padding: 30px 20px;
+                padding: 35px 20px 30px 20px;
                 margin-top: 32px;
                 @include media-breakpoint-up(sm) {
-                    padding: 40px;
+                    padding: 40px 60px;
                 }
                 .stars{
                     width: 125px;
@@ -49,6 +49,7 @@
                     color: #192E50;
                 }
                 .title{
+                    padding-top: 20px;
                     color: #95BE3F;
                 }
             }

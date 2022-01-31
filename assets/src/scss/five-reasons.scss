@@ -48,6 +48,10 @@
         }
     }
     .btn-section{
+        padding-top: 0px;
+        @include media-breakpoint-up(md) {
+            padding-top: 20px;
+        }
         p{
             color: #fff;
         }

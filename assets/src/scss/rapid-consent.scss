@@ -35,7 +35,13 @@
             width: 11px;
         }
         .form-img{
-            max-width: 372px;
+        text-align: center;
+        @include media-breakpoint-up(md) {
+            text-align: right;
+        }
+            img{
+                max-width: 372px;
+            }
         }
     }
 }

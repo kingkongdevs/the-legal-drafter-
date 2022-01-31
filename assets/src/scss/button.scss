@@ -13,7 +13,7 @@ input[type=button] {
     line-height: 18px;
     text-transform: uppercase;
     white-space: normal;
-    background: $primary;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.2) 100%), #95BE3F;
     color: #fff;
     transition: background-color .4s ease-in-out;
     max-width: 412px;

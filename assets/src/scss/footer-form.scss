@@ -1,13 +1,29 @@
 .footer-form{
     background: #F9FAFB;
     .tick{
-        max-width: 30px !important;
+        width: 30px;
+        @include media-breakpoint-up(md) {
+            
+        }
 
+        max-width: 30px !important;
     }
     .footer-list{
         p{
             margin: 0 15px
             // max-width: 465px;
+        }
+    }
+    .subheader{
+        font-family: 'Roboto';
+        font-weight: 700;
+        font-size: 1.8rem;
+        line-height: 175%;
+        color: #95BE3F;
+        padding-bottom: 30px;
+        margin-top: -20px;
+        @include media-breakpoint-up(md) {
+            margin-top: -50px;
         }
     }
   

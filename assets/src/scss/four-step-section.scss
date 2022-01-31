@@ -2,6 +2,10 @@
     
     
     .styled-list{
+        .click-box{
+            position: relative;
+            z-index: 3;
+        }
         max-width: 700px;
         .dot-wrapper{
             display: none;
@@ -9,7 +13,7 @@
                 display: block;
                 position: absolute;
                 top: 45%;
-                z-index: 10;
+                z-index: 1;
                 left: -80px;
             }
            
@@ -20,27 +24,27 @@
             .dotted-line-hoz::after{
                 display: none;
                 @include media-breakpoint-up(md) {
-                    border-top:  1.5px  dashed #C6C6C6;
+                    border-top:  2px  dashed #C6C6C6;
                     content: "";
                     display: block;
-                    width: calc(100% + 50px);
+                    width: calc(100% + 30px);
                     left: 17px;
                     position: absolute;
-                    z-index: 132;
+                    z-index: -1;
                     top: 18px;
                 }
             }
             .dotted-line-vert::after{
                 display: none;
                 @include media-breakpoint-up(md) {
-                    border-left:  1.5px  dashed #C6C6C6;
+                    border-left:  2px  dashed #C6C6C6;
                     content: "";
                     display: block;
                     height: calc(100% + 225px);
                     left: 15px;
                     position: absolute;
                     top: -10px;
-                    z-index: 132;
+                    z-index: -1;
                 }
             }
         }
