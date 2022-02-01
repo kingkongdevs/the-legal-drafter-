@@ -11,4 +11,16 @@
     img{
         max-width: 500px;
     }
+    .float-24-hour{
+        position: absolute;
+        z-index: 1;
+        width: 145px;
+        right: 5px;
+        top: 42px;
+        @include media-breakpoint-up(md) {
+            width: 200px;
+            right: 25px;
+            top: 198px;
+        }
+    }
 }
