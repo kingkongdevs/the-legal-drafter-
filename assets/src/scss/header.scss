@@ -54,10 +54,10 @@ header {
     padding-top: 15px;
     max-width: 410px;
     img{
-        max-width: 200px;
-        padding: 0;
+        padding: 0 20px 0 0px;
+width: 125px;
         @include media-breakpoint-up(sm) {
-            padding: 0 20px 0 0px;
+            max-width: 200px;
         }
         &.fb-fix{
                 padding: 0 !important; 
