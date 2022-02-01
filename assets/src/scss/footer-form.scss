@@ -26,5 +26,15 @@
             margin-top: -50px;
         }
     }
-  
+    form input[type="submit"]{
+
+        display:-webkit-flex;
+        display:-webkit-flexbox;
+
+        display:flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        // width: 80px;
+        padding: 14px 20px;
+    }
 }

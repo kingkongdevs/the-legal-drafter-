@@ -1,5 +1,5 @@
 header {
-    padding: 15px;
+    padding: 5px;
     background-color: transparent;
     &.scrolled {
         box-shadow: -3px -3px 6px 8px rgba(0,0,0,.05);
@@ -38,7 +38,7 @@ header {
     h1{
         margin: auto;
         padding-bottom: 26px;
-        max-width: 870px;
+        max-width: 913px;
     }
 
     padding-bottom: 120px;
@@ -51,11 +51,18 @@ header {
     }
 }
 .hero-reviews{
-    padding-top: 22px;
+    padding-top: 15px;
     max-width: 410px;
     img{
-        padding: 0 20px;
         max-width: 200px;
+        padding: 0;
+        @include media-breakpoint-up(sm) {
+            padding: 0 20px 0 0px;
+        }
+        &.fb-fix{
+                padding: 0 !important; 
+                max-width: 215px !important;
+        }
     }
 }
 
@@ -89,6 +96,7 @@ header {
         line-height: 26px;
         letter-spacing: -0.02em;
         color: #FFFFFF;
+        font-weight: 500;
         font-family: 'Gilroy-Bold';
     }
 } 

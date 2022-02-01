@@ -34,9 +34,13 @@
             color: #95BE3F;
             width: 11px;
         }
+        .form-text{
+            text-align: left;
+            max-width: 500px;
+        }
         .form-img{
         text-align: center;
-        @include media-breakpoint-up(md) {
+        @include media-breakpoint-up(lg) {
             text-align: right;
         }
             img{
