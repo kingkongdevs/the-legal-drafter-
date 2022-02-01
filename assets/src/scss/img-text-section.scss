@@ -17,10 +17,16 @@
         width: 145px;
         right: 5px;
         top: 42px;
+        @include media-breakpoint-up(sm) {
+        
+        }
         @include media-breakpoint-up(md) {
             width: 200px;
             right: 25px;
             top: 198px;
+        }
+        @include media-breakpoint-up(lg) {
+        
         }
     }
 }
