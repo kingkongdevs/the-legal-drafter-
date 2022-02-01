@@ -12,21 +12,31 @@
         max-width: 500px;
     }
     .float-24-hour{
-        position: absolute;
-        z-index: 1;
+        position: relative;
         width: 145px;
-        right: 5px;
-        top: 42px;
+        z-index: 1;
+        top: 31px;
+        right: 0;
+        left: 157px;
         @include media-breakpoint-up(sm) {
-        
+            width: 200px;
+            left: 345px;
+            top: 45px;
         }
         @include media-breakpoint-up(md) {
             width: 200px;
-            right: 25px;
-            top: 198px;
+            left: 400px;
+            top: 100px;
         }
         @include media-breakpoint-up(lg) {
-        
+            left: 350px;
+            top: 110px;
+            width: 200px;
+        }
+        @include media-breakpoint-up(xl) {
+            left: 450px;
+            top: 110px;
+            width: 200px;
         }
     }
 }
