@@ -1477,7 +1477,7 @@
                                             value="BOOK MY 15-MINUTE &#x00A; RAPID SETTLEMENT CALL" />
 
                                             <p class="mx-auto text-center"> Get Consent Orders Prepared Inside 24 Hours 
-                                                So You Can <br> Finally Move On With Your Life!</p>
+                                                So You Can <br class="d-md-none" > Finally Move On With Your Life!</p>
                                     </div>
                                 </div>
                             </div>
@@ -1543,50 +1543,6 @@
             }
         }
     </script>
-
-    <!-- Formspree AJAX script -->
-    <!-- <script>
-    var form = document.getElementById("offer-form");
-    
-
-
-
-    async function handleSubmit(event) {
-      event.preventDefault();
-      var status = document.getElementById("form-status");
-      var data = new FormData(event.target);
-      fetch(event.target.action, {
-        method: form.method,
-        body: data,
-        headers: {
-            'Accept': 'application/json'
-        }
-      }).then(response => {
-        if (response.ok) {
-          status.innerHTML = "Thanks for your submission!";
-          form.reset()
-
-          location.href = "./thank-you/index.html"
-
-        } else {
-          response.json().then(data => {
-            if (Object.hasOwn(data, 'errors')) {
-              status.innerHTML = data["errors"].map(error => error["message"]).join(", ")
-            } else {
-              status.innerHTML = "Oops! There was a problem submitting your form"
-
-            }
-          })
-        }
-      }).catch(error => {
-        status.innerHTML = "Oops! There was a problem submitting your form"
-    });
-}
-
-</script> -->
-
-
-
 
 </body>
 

@@ -15,7 +15,7 @@ import './timer.js';
 // import './accordion.js';
 import './phone-concatination.js';
 import './sliders.js';
-import './smooth-scroll.js';
+// import './smooth-scroll.js';
 import './sticky-header.js';
 // import './video-embeds.js';
 import './view-animation.js';
