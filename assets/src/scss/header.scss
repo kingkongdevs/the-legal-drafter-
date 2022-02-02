@@ -60,7 +60,11 @@ header {
         img{
         // max-width: 185px !important;
         &.gl-fix{
-            padding: 3px;
+            padding: 5px;
+            // max-width: 200px !important;
+        }
+        &.fb-fix{
+            padding-top: 5px;
             // max-width: 200px !important;
         }
     }
