@@ -52,20 +52,16 @@ header {
     }
 }
 .hero-reviews{
-    padding-top: 15px;
-    max-width: 410px;
-    img{
-        image-rendering: -webkit-optimize-contrast;
-        image-rendering: high-quality;
-        width: 100%;
-        padding: 0 20px 0 0px;
-        max-width: 172px;
-        @include media-breakpoint-up(sm) {
-            max-width: 200px;
-        }
-        &.fb-fix{
-                padding: 0 !important; 
-                max-width: 215px !important;
+    max-width: 280px;
+
+    @include media-breakpoint-up(sm) {
+        max-width: 410px;
+    }
+        img{
+        // max-width: 185px !important;
+        &.gl-fix{
+            padding: 3px;
+            // max-width: 200px !important;
         }
     }
 }
