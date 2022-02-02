@@ -20,7 +20,6 @@ import './sticky-header.js';
 // import './video-embeds.js';
 import './view-animation.js';
 // import './polyfills.js';
-import './bg-click.js';
 import './home.js';
 
 /** EBOOK PAGE SPECIFIC SCRIPTS **/

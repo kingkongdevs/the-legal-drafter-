@@ -180,11 +180,12 @@ strong {
 .eyebrow {
     font-family: 'Roboto';
     font-weight: 700;
-    font-size: 1.4rem;
+    // font-size: 1.4rem;
     letter-spacing: 0.06em;
     text-transform: uppercase;
     color: #95BE3F;
     margin-top: 50px;
+    font-size: 15.0297px;
     @include media-breakpoint-up(md) {
         font-size: 1.8rem;
     }

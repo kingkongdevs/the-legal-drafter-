@@ -19,7 +19,8 @@ header {
     // filter: invert(1);
 
     // Default to small scrolled size on mobile 
-    width: $header-scrolled-width;
+    // width: $header-scrolled-width;
+    width: 160px;
 
     // Turn on the header resize on desktop
     @include media-breakpoint-up(md) {
@@ -54,8 +55,11 @@ header {
     padding-top: 15px;
     max-width: 410px;
     img{
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: high-quality;
+        width: 100%;
         padding: 0 20px 0 0px;
-width: 172px;
+        max-width: 172px;
         @include media-breakpoint-up(sm) {
             max-width: 200px;
         }

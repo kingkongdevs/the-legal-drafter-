@@ -1,10 +1,10 @@
 footer {
     background: #192E50;
-    padding: 50px 20px 70px 20px;
+    padding: 50px 20px 0px 20px;
 
-    @include media-breakpoint-up(md) {
-        padding: 100px 200px 60px 200px;
-    }
+    // @include media-breakpoint-up(md) {
+    //     padding: 100px 200px 0px 200px;
+    // }
     .heading{
         font-size: 1.2rem;
         line-height: 2.1rem;
@@ -14,6 +14,10 @@ footer {
     .copy{
         font-size: 1.2rem;
         line-height: 2.1rem;
+        color: #FFFFFF;
+        padding-bottom: 40px;
+    }
+    .kk-copywrite{
         color: #FFFFFF;
     }
 }

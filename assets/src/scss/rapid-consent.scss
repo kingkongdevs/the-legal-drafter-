@@ -32,11 +32,12 @@
         padding-bottom: 4.0rem;
         ul ::marker{
             color: #95BE3F;
-            width: 11px;
+            width: 15px !important;
         }
         .form-text{
             text-align: left;
-            max-width: 500px;
+            // max-width: 500px;
+            padding-right: 25px;
         }
         .form-img{
         text-align: center;
@@ -46,6 +47,13 @@
             img{
                 max-width: 372px;
             }
+        }
+    }
+    .footer-list{
+        font-size: 16px;
+        @include media-breakpoint-up(md) {
+            font-size: 18px;
+            line-height: 180%;
         }
     }
 }

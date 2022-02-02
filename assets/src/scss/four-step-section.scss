@@ -5,8 +5,13 @@
         .click-box{
             position: relative;
             z-index: 3;
+            background-color: #F4F9EC;
+            transition: 0.3s;
+            &:hover{
+                background: #ffffff;
+            }
         }
-        max-width: 700px;
+        width: 672px;
         .dot-wrapper{
             display: none;
             @include media-breakpoint-up(md) {
@@ -83,6 +88,7 @@
                     }
                 }
                 .subhead{
+                    padding-bottom: 6px;
                     @include media-breakpoint-up(md) {
                         font-size: 18px;
                     }
@@ -100,9 +106,7 @@
                 }
             }
         }
-        li:nth-child(1) {
-            background-color: #fff;
-        }
+
     }
         
 }

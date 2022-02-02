@@ -7,11 +7,11 @@ form {
         // box-shadow: 1px 1px 10px rgba(0,0,0,0.1);
         // border: none;
         // border-radius: 5px;
-        font-size: 1.6rem;
+       
         border: 1.5px solid rgba(226, 226, 226, 0.35);
         background: #FFFFFF;
         width: 100%;
-        padding: 20px 15px 20px 50px;
+        padding: 20px 15px 20px 65px;
         margin-bottom: 15px;
         line-height: 1;
         line-height: 175%;
@@ -34,6 +34,13 @@ form {
             outline: none;
         }
     }
+    input::placeholder , textarea::placeholder {
+        color: #192E50 !important;
+        opacity: 1 !important;
+        font-size: 16px;
+        // white-space: normal; 
+
+      }
 
     textarea {
         height: 210px !important;
@@ -53,7 +60,7 @@ form {
 
         .icon {
             position: absolute;
-            top: 20px;
+            top: 18px;
             left: 15px;
 
             width: 32px;
