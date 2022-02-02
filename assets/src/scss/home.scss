@@ -6,20 +6,13 @@ section {
     image-rendering: -webkit-optimize-contrast;
 }
 .hero-reviews{
-    max-width: 280px;
-
-    @include media-breakpoint-up(sm) {
-        max-width: 410px;
-    }
+    max-width: 410px;
         img{
-        // max-width: 185px !important;
         &.gl-fix{
             padding: 5px;
-            // max-width: 200px !important;
         }
         &.fb-fix{
             padding-top: 5px;
-            // max-width: 200px !important;
         }
     }
 }
