@@ -21,4 +21,9 @@
     .left-img{
         max-width: 550px;
     }
+    .pad-left{
+        @include media-breakpoint-up(md) {
+            padding-left: 60px;
+        }
+    }
 }

@@ -18,7 +18,7 @@
         font-family: 'Roboto';
         font-weight: 700;
         font-size: 18px;
-        line-height: 175%;
+        line-height: 160%;
         color: #95BE3F;
         padding-bottom: 30px;
         margin-top: -20px;
@@ -35,6 +35,12 @@
         flex-wrap: wrap;
         justify-content: center;
         // width: 80px;
-        padding: 14px 20px;
+  
+        padding: 14px 50px;
+
+        @media screen and (min-width: 426px) {
+            padding: 14px 20px;
+        
+        }
     }
 }

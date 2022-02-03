@@ -8,35 +8,10 @@
         padding-top: 35px;
         max-width: 412px;
     }
-    img{
-        // max-width: 500px;
+    .pad-right{
+        @include media-breakpoint-up(md) {
+            padding-right: 60px;
+        }
     }
-    // .float-24-hour{
-    //     position: relative;
-    //     width: 145px;
-    //     z-index: 1;
-    //     top: 31px;
-    //     right: 0;
-    //     left: 157px;
-    //     @include media-breakpoint-up(sm) {
-    //         width: 200px;
-    //         left: 345px;
-    //         top: 45px;
-    //     }
-    //     @include media-breakpoint-up(md) {
-    //         width: 200px;
-    //         left: 400px;
-    //         top: 100px;
-    //     }
-    //     @include media-breakpoint-up(lg) {
-    //         left: 350px;
-    //         top: 110px;
-    //         width: 200px;
-    //     }
-    //     @include media-breakpoint-up(xl) {
-    //         left: 450px;
-    //         top: 110px;
-    //         width: 200px;
-    //     }
-    // }
+
 }
