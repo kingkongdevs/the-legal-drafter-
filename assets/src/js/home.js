@@ -42,12 +42,12 @@ function initForm () {
           }
         })
           .then(response => {
-            /* if (typeof window.dataLayer != 'undefined') {
+            if (typeof window.dataLayer != 'undefined') {
               window.dataLayer.push({
                 event: 'gtm.formSubmission',
                 form: form
               })
-            } */
+            } 
             window.location.href = window.location.href + '/thank-you'
           })
           .catch(error => {
