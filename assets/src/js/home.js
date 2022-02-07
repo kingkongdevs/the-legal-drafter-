@@ -48,7 +48,7 @@ function initForm () {
                 form: form
               })
             } 
-            window.location.href = window.location.href + '/thank-you'
+            window.location.href = window.location.origin + window.location.pathname + 'thank-you'
           })
           .catch(error => {
             form.html(
