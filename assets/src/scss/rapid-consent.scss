@@ -7,17 +7,28 @@
         text-transform: uppercase;
         color: #95BE3F;
     }
+
     h2{
         padding-top: 15px;
         margin-bottom: 15px;
     }
     .subhead{
-        font-weight: bold;
-        font-size: 30px;
+        font-weight: 700;
+        font-size: 25px;
         line-height: 117.3%;
-        text-align: center;
+        font-family: $headings-font;
         letter-spacing: -0.04em;
         color: #95BE3F;
+        background: rgba(244, 249, 236, 0.8);
+        border: 1px solid #95BE3F;
+        box-sizing: border-box;
+        max-width: 420px;
+        margin: auto;
+        padding: 10px 0;
+        @include media-breakpoint-up(lg) {
+            font-size: 30px;
+        }
+
     }
     .reviews{
         padding-top: 22px;
